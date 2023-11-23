@@ -5,8 +5,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Navbar from "../../Shared/Navbar/Navbar";
 import Title from "../../Components/Title/Title";
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
+    const {createUser, updateUserProfile} = useAuth()
 
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
@@ -20,6 +23,24 @@ const Register = () => {
     const password = form.password.value;
     const check = event.target.check.checked;
 
+    console.log(name, email, photo, password, check)
+
+    createUser(email, password)
+    .then((res) => {
+      const user = res.user;
+
+      updateUserProfile(name, photo).then(() => {
+         toast.success('User Created Successful')
+        event.target.reset();
+
+        console.log(user);
+        navigate("/");
+      });
+    })
+
+    .catch((error) => {
+      console.log(error);
+    });
 
 
   };

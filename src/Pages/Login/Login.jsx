@@ -1,13 +1,17 @@
 import Title from "../../Components/Title/Title";
 import Navbar from "../../Shared/Navbar/Navbar";
 import { useState } from "react";
-import { Link} from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 import { FaEye,FaEyeSlash  } from "react-icons/fa";
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 
 const Login = () => {
+    const {signInUser} = useAuth()
     const [showPass, setShowPass] = useState(false)
+    const navigate = useNavigate()
 
 
     const handleLogin = event =>{
@@ -18,8 +22,26 @@ const Login = () => {
 
         console.log(email, password)
 
+        signInUser(email, password)
+        .then(res =>{
+          const user = res.user
+          toast.success('Login Successful')
+          event.target.reset()
+          console.log(user)
+         
+          // Navigate after login 
+          navigate('/')
+        })
+        .catch(error =>{
+          console.log(error)
+          toast.error(error.message)
+        })
+
    
     }
+
+
+
     return (
          <div className="container">
         <div className="overly">
