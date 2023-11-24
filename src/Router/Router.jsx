@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Trainer from "../Pages/Trainer/Trainer";
 import BeTrainer from "../Pages/Trainer/BeTrainer";
+import Forum from "../Pages/Forum/Forum";
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path:'/beTrainer',
                 element: <BeTrainer></BeTrainer>
+            },
+            {
+                path:'/forum',
+                element:<Forum></Forum>
             },
             {
                 path: 'login',

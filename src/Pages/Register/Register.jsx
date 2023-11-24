@@ -44,7 +44,7 @@ const Register = () => {
             image: photo,
           }
           console.log(userInfo)
-          axiosPublic.post('http://localhost:5000/users', userInfo )
+          axiosPublic.post('/users', userInfo )
           .then( res => {
             console.log(res.data)
             if(res.data.insertedId){

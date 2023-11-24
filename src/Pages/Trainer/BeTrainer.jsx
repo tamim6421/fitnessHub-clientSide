@@ -5,6 +5,7 @@ import Multiselect from 'multiselect-react-dropdown';
 import { useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
+import Navbar from "../../Shared/Navbar/Navbar";
 
 
 
@@ -71,7 +72,10 @@ const BeTrainer = () => {
 
 
     return (
-        <div className="my-32 text-center">
+            <div>
+
+                <Navbar></Navbar>
+                    <div className="my-32 text-center">
             <Title>Be a Trainer</Title>
 
 
@@ -221,6 +225,8 @@ const BeTrainer = () => {
 
             </div>
         </div>
+            </div>
+        
     );
 };
 

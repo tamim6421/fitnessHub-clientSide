@@ -68,6 +68,16 @@ Gallery
   Classes
 </NavLink>
         </li>
+        <li>
+        <NavLink
+  to="/forum"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "text-gray-500 text-lg bg-gray-100 font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+  }
+>
+  Forum
+</NavLink>
+        </li>
        
         <li>
         <NavLink
