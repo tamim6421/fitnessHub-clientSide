@@ -9,13 +9,37 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import PostCard from "./PostCard";
 import { useNavigate } from "react-router-dom";
+import './Forum.css'
 
 
 const Forum = () => {
     const {user} = useAuth()
     const axiosPublic = useAxiosPublic()
     const [loading, setLoading] = useState(false)
+
+
+
+    const [currentPage, setCurrentPage] = useState(1)
+    
+    const [itemsParPage, setItemsParPage] = useState(5)
     const navigate = useNavigate()
+    console.log(currentPage)
+
+    const {data: allPost, refetch } = useQuery({
+        queryKey: ['allPost', currentPage],
+        queryFn: async ({ pageParam = currentPage }) =>{
+            const res = await axiosPublic.get(`/allpost?page=${currentPage}&size=${itemsParPage}`)
+            return res.data
+        }
+    })
+
+    console.log(allPost?.count)
+        const number = allPost?.count
+    const numberOfPage = Math.ceil(number / itemsParPage)
+    const pages = Array.from({ length: numberOfPage }, (_, index) => index);
+
+    console.log(pages)
+    
 
 
     const {data: postUser = [], isLoading } = useQuery({
@@ -25,16 +49,8 @@ const Forum = () => {
             return res.data
         }
     })
-    const {data: allPost = [], refetch } = useQuery({
-        queryKey: ['allPost'],
-        queryFn: async () =>{
-            const res = await axiosPublic.get(`/allpost?page=1&limit=5`)
-            return res.data
-        }
-    })
-    console.log(allPost)
    
-    
+
     
     const handelPost = async(e) =>{
     
@@ -97,8 +113,17 @@ const Forum = () => {
             <div>
                 <div>
                     {
-                        allPost?.map( data => <PostCard key={data._id} data={data}></PostCard> )
+                        allPost?.result?.map( data => <PostCard key={data._id} data={data}></PostCard> )
                     }
+                    <div className="pages text-center my-10">
+                      
+                        {
+                            pages.map((number, i) => <button
+                            onClick={() => setCurrentPage(number)}
+                            key={number} 
+                            className={currentPage === number ? 'selected btn rounded-full bg-gray-400 mr-3 btn-sm ' : "btn  bg-gray-400 rounded-full mr-3 btn-sm"}> {number +1} </button> )
+                        }
+                    </div>
                 </div>
              
             </div>

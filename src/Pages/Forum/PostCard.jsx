@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { AiFillLike } from "react-icons/ai";
 import { FaComments } from "react-icons/fa";
@@ -5,7 +6,7 @@ import { FaShareAlt } from "react-icons/fa";
 
 const PostCard = ({data}) => {
     const {host,date, image, post, role} = data
-    console.log(data)
+    // console.log(data)
     const [like, setLike] = useState(210),
     [isLike, setIsLike] = useState(false)
 
