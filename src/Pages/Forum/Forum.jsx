@@ -7,12 +7,15 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import { imageUpload } from "../../Utills";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import PostCard from "./PostCard";
+import { useNavigate } from "react-router-dom";
 
 
 const Forum = () => {
     const {user} = useAuth()
     const axiosPublic = useAxiosPublic()
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
 
 
     const {data: postUser = [], isLoading } = useQuery({
@@ -22,8 +25,16 @@ const Forum = () => {
             return res.data
         }
     })
-
-    console.log()
+    const {data: allPost = [], refetch } = useQuery({
+        queryKey: ['allPost'],
+        queryFn: async () =>{
+            const res = await axiosPublic.get(`/allpost?page=1&limit=5`)
+            return res.data
+        }
+    })
+    console.log(allPost)
+   
+    
     
     const handelPost = async(e) =>{
     
@@ -51,7 +62,7 @@ const Forum = () => {
             date: new Date()
         }
 
-        console.log(postData)
+        // console.log(postData)
       
         // post data to the database 
              
@@ -59,15 +70,10 @@ const Forum = () => {
             .then( res => {
                 console.log(res.data)
                 if(res.data.insertedId){
-                  Swal.fire({
-                    position: "top",
-                    icon: "success",
-                    title: "User Created Successful",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
+                toast.success('Post Uploaded')
                   e.target.reset();
-                 
+                 refetch()
+                 navigate('/forum')
                 }
               })
 
@@ -89,6 +95,11 @@ const Forum = () => {
             </div>
 
             <div>
+                <div>
+                    {
+                        allPost?.map( data => <PostCard key={data._id} data={data}></PostCard> )
+                    }
+                </div>
              
             </div>
 
