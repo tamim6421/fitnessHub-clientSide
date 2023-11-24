@@ -85,7 +85,7 @@ Gallery
         <div className="navbar fixed  max-w-[1250px] z-10 mx-auto bg-opacity-70 bg-base-100 top-0 w-full  shadow-lg px-5 font-semibold text-rose-500 ">
         <div className="navbar-start">
 
-            {/* for drower nav  */}
+       
 
         <div className="drawer">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 

@@ -7,16 +7,26 @@ import AuthProvider from './AuthProvider/AuthProvider.jsx'
 import { Toaster } from 'react-hot-toast';
 import { HelmetProvider } from 'react-helmet-async';
 
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-[1250px] mx-auto'>
     <React.StrictMode>
-      <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+    <HelmetProvider>
       <AuthProvider>
     <RouterProvider router = {router}></RouterProvider>
     <Toaster />
     </AuthProvider>
       </HelmetProvider>
+    </QueryClientProvider>
+      
     
-  </React.StrictMode>,
+  </React.StrictMode>
   </div>
 )

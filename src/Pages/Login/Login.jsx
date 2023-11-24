@@ -5,6 +5,7 @@ import { Link,useNavigate} from "react-router-dom";
 import { FaEye,FaEyeSlash  } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import SocialLogin from "./SocialLogin";
 
 
 
@@ -105,7 +106,7 @@ const Login = () => {
                    <p className='text-gray-400 mt-5'>New This Site? Please  <Link to='/register'>   <span className='text-stone-600 underline font-bold'>  Register</span> </Link></p>
                  </div>
                  <div>
-                 {/* <SocialLogin></SocialLogin> */}
+                 <SocialLogin></SocialLogin>
                 </div>
                </form>
              </div>

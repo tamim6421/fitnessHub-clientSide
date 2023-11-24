@@ -5,6 +5,7 @@ import Banner from "./Banner/Banner";
 import Featured from "./Featured/Featured";
 import Footer from "../../Shared/Footer/Footer";
 import Testimunials from "./Testimunials/Testimunials";
+import Subscribe from "./Subscribe/Subscribe";
 
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
             <Featured></Featured>
             <About></About>
             <Testimunials></Testimunials>
+            <Subscribe></Subscribe>
 
             <Footer></Footer>
         </div>

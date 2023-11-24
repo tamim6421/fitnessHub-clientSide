@@ -7,10 +7,13 @@ import Navbar from "../../Shared/Navbar/Navbar";
 import Title from "../../Components/Title/Title";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+
 
 const Register = () => {
     const {createUser, updateUserProfile} = useAuth()
-
+    const axiosPublic = useAxiosPublic()
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
 
@@ -28,13 +31,34 @@ const Register = () => {
     createUser(email, password)
     .then((res) => {
       const user = res.user;
+      console.log(user)
 
-      updateUserProfile(name, photo).then(() => {
-         toast.success('User Created Successful')
-        event.target.reset();
+      updateUserProfile(name, photo)
+      .then(() => {
 
-        console.log(user);
-        navigate("/");
+          // send user data to the database 
+          const userInfo = {
+            name: name,
+            email: email,
+            role: 'member',
+            image: photo,
+          }
+          console.log(userInfo)
+          axiosPublic.post('http://localhost:5000/users', userInfo )
+          .then( res => {
+            console.log(res.data)
+            if(res.data.insertedId){
+              Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "User Created Successful",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              event.target.reset();
+              navigate('/')
+            }
+          })
       });
     })
 

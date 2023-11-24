@@ -5,6 +5,8 @@ import Gallery from "../Pages/Gallery/Gallery";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Trainer from "../Pages/Trainer/Trainer";
+import BeTrainer from "../Pages/Trainer/BeTrainer";
 
 
 const router = createBrowserRouter([
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
             {
                 path:'gallery',
                 element: <Gallery></Gallery>
+            },
+            {
+                path: 'trainer',
+                element: <Trainer></Trainer>
+            },
+            {
+                path:'/beTrainer',
+                element: <BeTrainer></BeTrainer>
             },
             {
                 path: 'login',
