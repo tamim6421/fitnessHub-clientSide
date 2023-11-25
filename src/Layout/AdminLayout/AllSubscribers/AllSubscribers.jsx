@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Title from "../../../Components/Title/Title";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
 const AllSubscribers = () => {
     const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
     const [subscribers, setAllSubscribers] = useState([])
 
     useEffect( () =>{
-        axiosPublic.get('/allsubscriber')
+        axiosSecure.get('/allsubscriber')
         .then(res =>{
             // console.log(res.data)
             setAllSubscribers(res.data)
         })
-    } ,[axiosPublic])
+    } ,[axiosSecure])
 
     
     return (

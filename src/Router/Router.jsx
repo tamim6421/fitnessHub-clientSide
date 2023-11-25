@@ -21,6 +21,7 @@ import ActivityLoge from "../Layout/Member/ActivityLog/ActivityLoge";
 import ProfileSetting from "../Layout/Member/ProfileSetting/ProfileSetting";
 import AppliedTrainer from "../Layout/AdminLayout/AppliedTrainer/AppliedTrainer";
 import DetailsModal from "../Layout/AdminLayout/AppliedTrainer/DetailsModal";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 
 const router = createBrowserRouter([
@@ -39,10 +40,10 @@ const router = createBrowserRouter([
             },
             {
                 path: 'trainer',
-                element: <Trainer></Trainer>
+                element: <PrivetRoute>  <Trainer></Trainer></PrivetRoute>
             },
             {
-                path:'/beTrainer',
+                path:'beTrainer',
                 element: <BeTrainer></BeTrainer>
             },
             {
