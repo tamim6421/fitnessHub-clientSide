@@ -20,6 +20,7 @@ import MemberHome from "../Layout/Member/MemberHome/MemberHome";
 import ActivityLoge from "../Layout/Member/ActivityLog/ActivityLoge";
 import ProfileSetting from "../Layout/Member/ProfileSetting/ProfileSetting";
 import AppliedTrainer from "../Layout/AdminLayout/AppliedTrainer/AppliedTrainer";
+import DetailsModal from "../Layout/AdminLayout/AppliedTrainer/DetailsModal";
 
 
 const router = createBrowserRouter([
@@ -80,6 +81,11 @@ const router = createBrowserRouter([
                 path: 'appliedTrainer',
                 element: <AppliedTrainer></AppliedTrainer>
             },
+            {
+                path: 'trainerDetails/:id',
+                element: <DetailsModal></DetailsModal>,
+                loader: ({params}) => fetch(`http://localhost:5000/trainers/${params.id}`)
+            },  
 
             // trainer  only routes 
             {

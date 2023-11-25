@@ -6,6 +6,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import Navbar from "../../Shared/Navbar/Navbar";
+import useUserRole from "../../Hooks/useUserRole";
 
 
 
@@ -14,7 +15,9 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const BeTrainer = () => {
     const {user} = useAuth()
-    // console.log(user)
+    const {userRole} = useUserRole()
+    
+    console.log(userRole[0]?.role)
     const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic()
 
@@ -51,6 +54,7 @@ const BeTrainer = () => {
             days: storeDays,
             time: storeTime,
             icons: socialIcons,
+            role : userRole[0]?.role,
         }
         // send data to the database 
         const menuResponse = await axiosPublic.post('/betrainer', trainerDetails)
