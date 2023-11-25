@@ -2,6 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Title from "../../../Components/Title/Title";
+import { Link } from "react-router-dom";
 
 
 const AllTrainers = () => {
@@ -35,7 +36,7 @@ console.log(joiningDate)
     return months > salaryCount ? true : false; 
   }
   
-  console.log(  remainingMonths(trainers[3].joinDate,trainers[3].salaryCount) )
+//   console.log(  remainingMonths(trainers[3]?.joinDate,trainers[3]?.salaryCount) )
 
 
 console.log(trainers)
@@ -93,9 +94,17 @@ console.log(trainers)
             <td>{trainer?.salary}</td>
             <td className=""> <p>{trainer?.paymentStatus}</p> </td>
             <th>
-                {
-                    remainingMonths(trainer.joinDate,trainer.salaryCount) == true ? <button className="btn btn-ghost btn-xs">Pay</button> : ''
+               {
+                 trainer .paymentStatus === 'pending' &&
+
+                 <div>
+                     {
+                    remainingMonths(trainer?.joinDate,trainer?.salaryCount) == true ? <Link to={`/dashboard/payment/${trainer?._id}`}>
+                    <button className="btn bg-gray-600 text-white btn-outline btn-sm">Pay</button>
+                    </Link> : ''
                 }
+                 </div>
+               }
               
             </th>
           </tr> )
