@@ -1,16 +1,18 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useUserRole from "../../Hooks/useUserRole";
+import Navbar from "../../Shared/Navbar/Navbar";
 
 const Dashboard = () => {
   const { userRole } = useUserRole();
   return (
     <div>
-      <div className="flex flex-col md:flex-row">
-        <div className="flex-[1] bg-gray-200">
+        <Navbar></Navbar>
+      <div className="flex mt-20 flex-col md:flex-row">
+        <div className="flex-[1] h-[100vh]  bg-base-100 shadow-lg">
 
           
 
-          <ul>
+          <ul className="mt-10 px-5 space-y-5">
 
           {userRole[0]?.role === "admin" && (
               <>
@@ -21,7 +23,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-500 text-lg bg-gray-50 font-semibold"
+                        ? "text-gray-900 font-bold text-xl  "
                         : "hover:bg-gray-100  text-gray-600 text-lg"
                     }
                   >
@@ -35,7 +37,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-500 text-lg bg-gray-50 font-semibold"
+                        ? "text-gray-900 font-bold text-xl "
                         : "hover:bg-gray-100  text-gray-600 text-lg"
                     }
                   >
@@ -49,11 +51,25 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-500 text-lg bg-gray-50 font-semibold"
+                        ? "text-gray-900 font-bold text-xl "
                         : "hover:bg-gray-100  text-gray-600 text-lg"
                     }
                   >
                     All Trainers 
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/appliedTrainer"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-gray-900 font-bold text-xl "
+                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                    }
+                  >
+                    Applied Trainer 
                   </NavLink>
                 </li>
               </>

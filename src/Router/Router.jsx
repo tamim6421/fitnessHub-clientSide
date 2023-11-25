@@ -19,6 +19,7 @@ import AllTrainers from "../Layout/AdminLayout/AllTrainers/AllTrainers";
 import MemberHome from "../Layout/Member/MemberHome/MemberHome";
 import ActivityLoge from "../Layout/Member/ActivityLog/ActivityLoge";
 import ProfileSetting from "../Layout/Member/ProfileSetting/ProfileSetting";
+import AppliedTrainer from "../Layout/AdminLayout/AppliedTrainer/AppliedTrainer";
 
 
 const router = createBrowserRouter([
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
                 path: 'allTrainers',
                 element: <AllTrainers></AllTrainers>
             },
+            {
+                path: 'appliedTrainer',
+                element: <AppliedTrainer></AppliedTrainer>
+            },
 
             // trainer  only routes 
             {
@@ -102,6 +107,9 @@ const router = createBrowserRouter([
             {
                 path: 'memberProfile',
                 element: <ProfileSetting></ProfileSetting>
+            },
+            {
+                
             }
         ]
     }

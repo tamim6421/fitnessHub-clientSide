@@ -2,7 +2,7 @@
 
 const AllTrainers = () => {
     return (
-        <div>
+        <div className="">
             <h1>all trainers here </h1>
         </div>
     );
