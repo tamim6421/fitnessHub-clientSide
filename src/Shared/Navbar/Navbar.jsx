@@ -1,11 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from './../../Hooks/useAuth';
 import { useEffect, useState } from "react";
+import useUserRole from "../../Hooks/useUserRole";
+
 
 
 const Navbar = () => {
-    const {logOut, user} = useAuth()
+    const {logOut, user, loading} = useAuth()
+    const {userRole} = useUserRole()
+   
+    
   
+
+  console.log(userRole[0]?.role)
 
     // for dark theme 
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
@@ -24,7 +31,7 @@ const Navbar = () => {
       document.querySelector("html").setAttribute("data-theme", localTheme)
     } ,[theme])
   
-
+  
     const links = <>
 
         <li>
@@ -89,6 +96,71 @@ Gallery
  Contact Us
 </NavLink>
         </li>
+
+
+        {/* if user role is admin  */}
+
+        {
+          
+          userRole[0]?.role === 'admin' &&  <>
+
+                <li>
+                    <NavLink
+              to="/dashboard/adminHome"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-gray-500 text-lg bg-gray-50 font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+              }
+            >
+            Dashboard
+            </NavLink>
+          </li>
+      
+          </>
+          
+
+        }
+
+        {/* if user role is trainer  */}
+
+        {
+            userRole[0]?.role === 'trainer' &&  <>
+
+            <li>
+                <NavLink
+          to="/dashboard/trainerHome"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-gray-500 text-lg bg-gray-50 font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+          }
+        >
+        Dashboard
+        </NavLink>
+      </li>
+  
+      </>
+      
+        }
+
+        {/* member only dashboard  */}
+
+         {/* if user role is trainer  */}
+
+         {
+            userRole[0]?.role === 'member' &&  <>
+
+            <li>
+                <NavLink
+          to="/dashboard/memberHome"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-gray-500 text-lg bg-gray-50 font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+          }
+        >
+        Dashboard
+        </NavLink>
+      </li>
+  
+      </>
+      
+        }
     </>
     return (
         <div className=" ">

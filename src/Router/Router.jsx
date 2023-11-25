@@ -8,6 +8,17 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Trainer from "../Pages/Trainer/Trainer";
 import BeTrainer from "../Pages/Trainer/BeTrainer";
 import Forum from "../Pages/Forum/Forum";
+import AdminLayout from "../Layout/AdminLayout/AdminLayout";
+import Dashboard from "../Layout/DashBoard/Dashboard";
+import AdminHome from "../Layout/AdminLayout/AdminHome/AdminHome";
+import TrainerHome from "../Layout/Trainer/TrainerHome/TrainerHome";
+import ManageSlots from "../Layout/Trainer/ManageSlots/ManageSlots";
+import ManageMember from "../Layout/Trainer/MangeMember/ManageMember";
+import AllSubscribers from "../Layout/AdminLayout/AllSubscribers/AllSubscribers";
+import AllTrainers from "../Layout/AdminLayout/AllTrainers/AllTrainers";
+import MemberHome from "../Layout/Member/MemberHome/MemberHome";
+import ActivityLoge from "../Layout/Member/ActivityLog/ActivityLoge";
+import ProfileSetting from "../Layout/Member/ProfileSetting/ProfileSetting";
 
 
 const router = createBrowserRouter([
@@ -43,6 +54,54 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            }
+        ]
+    },
+    {
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
+        children:[
+
+            // admin only routes 
+            {
+                path: 'adminHome',
+                element: <AdminHome></AdminHome>
+            },
+            {
+                path: 'allSubscriber',
+                element: <AllSubscribers></AllSubscribers>
+            },
+            {
+                path: 'allTrainers',
+                element: <AllTrainers></AllTrainers>
+            },
+
+            // trainer  only routes 
+            {
+                path: 'trainerHome',
+                element: <TrainerHome></TrainerHome>
+            },
+            {
+                path: 'manageSlots',
+                element: <ManageSlots></ManageSlots>
+            },
+            {
+                path: 'manageMember',
+                element: <ManageMember></ManageMember>
+            },
+
+            // member only routes 
+            {
+                path: 'memberHome',
+                element: <MemberHome></MemberHome>
+            },
+            {
+                path: 'activity',
+                element: <ActivityLoge></ActivityLoge>
+            },
+            {
+                path: 'memberProfile',
+                element: <ProfileSetting></ProfileSetting>
             }
         ]
     }
