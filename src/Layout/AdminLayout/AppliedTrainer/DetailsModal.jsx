@@ -1,26 +1,26 @@
 import { useLoaderData } from "react-router-dom";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
 const DetailsModal = () => {
     const  allInfo = useLoaderData()
-    const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
+   
     const {name, image, trainerEmail, age, icons, days, skills, time,yearOfExperience, _id ,role } = allInfo
     console.log(allInfo)
 
-    const {data:allUser, isLoading, isError, refetch} = useQuery({
+    const {data:allUser = [], isLoading, isError, refetch} = useQuery({
         queryKey: ['allUser'],
         queryFn: async () =>{
-            const res = await axiosPublic.get('/alluser')
+            const res = await axiosSecure.get('/alluser')
             return res.data
         }
     })
 
 
     // hendale  loading 
-      // Handle loading and error states
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -37,7 +37,7 @@ const DetailsModal = () => {
 
     const handelAccept = async (_id) =>{
             // make trainer 
-            axiosPublic.patch(`/users/role/${candideEmail}`)
+            axiosSecure.patch(`/users/role/${candideEmail}`)
             .then(res =>{
                 console.log(res.data)
             })
@@ -52,7 +52,7 @@ const DetailsModal = () => {
                 salaryCount: 0,
 
             }
-            const res = await axiosPublic.post(`/confirm/trainer`, trainerInfo)
+            const res = await axiosSecure.post(`/confirm/trainer`, trainerInfo)
             console.log(res.data)
             if(res.data.insertedId){
                 Swal.fire({

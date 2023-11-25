@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import Navbar from "../../Shared/Navbar/Navbar";
 import Title from "../../Components/Title/Title";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Trainer = () => {
     const axiosPublic = useAxiosPublic()
-    const [trainer, setTrainer] = useState([])
+   
 
 
     useEffect( () =>{

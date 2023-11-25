@@ -1,7 +1,7 @@
 import Title from "../../Components/Title/Title";
 import Navbar from "../../Shared/Navbar/Navbar";
 import { useState } from "react";
-import { Link,useNavigate} from "react-router-dom";
+import { Link,useLocation,useNavigate} from "react-router-dom";
 import { FaEye,FaEyeSlash  } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
@@ -13,6 +13,9 @@ const Login = () => {
     const {signInUser} = useAuth()
     const [showPass, setShowPass] = useState(false)
     const navigate = useNavigate()
+    const location = useLocation()
+    const  from = location.state?.from.pathname || '/'
+    
 
 
     const handleLogin = event =>{
@@ -31,7 +34,7 @@ const Login = () => {
           console.log(user)
          
           // Navigate after login 
-          navigate('/')
+          navigate(from, {replace: true})
         })
         .catch(error =>{
           console.log(error)
