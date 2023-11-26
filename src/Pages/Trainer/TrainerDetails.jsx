@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import Title from "../../Components/Title/Title";
 import { useQuery } from "@tanstack/react-query";
@@ -24,7 +24,7 @@ const TrainerDetails = () => {
   console.log(filtered);
   const getDays = filtered?.map((date) => date.day);
   const getTimes = filtered?.map((time) => time.time);
-  console.log(getTimes);
+//   console.log(getTimes);
   const distinctArrayDay = [...new Set(getDays)];
   // console.log(distinctArrayDay);
 
@@ -138,7 +138,9 @@ const TrainerDetails = () => {
                 <div className="flex flex-col gap-2 mt-5">
                   {filterSlot?.map((slotDta, i) => (
                     <div key={i} className="max-w-max p-2">
+                      <Link to={`/trainerBook/${slotDta._id}`}>
                       <button className="btn btn-outline">{slotDta.time}</button>
+                      </Link>
                     </div>
                   ))}
                 </div>
