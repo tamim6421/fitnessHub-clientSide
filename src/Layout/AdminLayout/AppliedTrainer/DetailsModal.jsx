@@ -2,14 +2,16 @@ import { useLoaderData } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useState } from "react";
 
 
 const DetailsModal = () => {
     const  allInfo = useLoaderData()
     const axiosSecure = useAxiosSecure()
+
    
     const {name, image, trainerEmail, age, icons, days, skills, time,yearOfExperience, _id ,role } = allInfo
-    console.log(allInfo)
+    console.log(days.length)
 
     const {data:allUser = [], isLoading, isError, refetch} = useQuery({
         queryKey: ['allUser'],
@@ -35,7 +37,53 @@ const DetailsModal = () => {
     const candideEmail = getEmail[0]?._id
     console.log(getEmail)
 
+    
+    let slotArray = []
+
+    // const makeSlot =( ) =>{
+         
+    //     for(let i = 0; i < days.length ; i ++){
+    //         for( let j = 0 ; j < time.length; j ++){
+    //             const slot = {
+    //                 trainerId: _id,
+    //                 day: days[i],
+    //                 time: time[j],
+    //                package: null ,
+    //                price: null,
+    //                user: null,
+    //             }
+    //             slotArray.push(slot)
+    //         }
+    //     }
+    //     // console.log(slotArray)
+    // }
+
+
+
+
+
+
     const handelAccept = async (_id) =>{
+
+
+        for(let i = 0; i < days.length ; i ++){
+            for( let j = 0 ; j < time.length; j ++){
+                const slot = {
+                    trainerId: _id,
+                    day: days[i],
+                    time: time[j],
+                   package: null ,
+                   price: null,
+                   user: null,
+                }
+                slotArray.push(slot)
+            }
+        }
+     
+        axiosSecure.post('/slot',slotArray )
+        .then( res =>{
+            console.log(res.data)
+        })
             // make trainer 
             axiosSecure.patch(`/users/role/${candideEmail}`)
             .then(res =>{
@@ -73,8 +121,8 @@ const DetailsModal = () => {
         <div>
              <div className="px-6">
             
-                        <div className="relative flex flex-col p-5 w-full md:flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                        <div className="relative md:w-2/5 overflow-hidden text-gray-700 bg-white rounded-r-none  md:shrink-0  rounded-xl ">
+                        <div className="relative flex flex-col p-5 w-full md:flex-row rounded-xl bg-white bg-clip-border text-purple-700 shadow-md">
+                        <div className="relative md:w-2/5 overflow-hidden text-purple-700 bg-white rounded-r-none  md:shrink-0  rounded-xl ">
                             <img
                             src={image}
                             alt="image"
@@ -150,9 +198,10 @@ const DetailsModal = () => {
                          
                             <div className="mt-8">
                                 <div >
+                                    {/* <button onClick={makeSlot}>check</button> */}
                                     <button 
                                    onClick={() =>handelAccept(_id)}
-                                    className="btn btn-outline bg-gray-500 btn-sm text-white mr-10">Accept</button>
+                                    className="btn btn-outline bg-purple-500 btn-sm text-white mr-10">Accept</button>
                                     <button className="btn bg-red-500 btn-sm hover:bg-red-600 text-white mr-10">Reject</button>
                                 </div>
                             </div>

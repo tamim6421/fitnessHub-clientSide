@@ -51,7 +51,7 @@ const Login = () => {
         <div className="overly">
        <Navbar></Navbar>
         <div className="hero  min-h-screen">
-           <div className="hero-content flex-col lg:flex-row-reverse bg-gray-100">
+           <div className="hero-content flex-col lg:flex-row-reverse bg-purple-100">
              <div className="text-center lg:text-left">
               <div className="mt-36">
               <Title>Login Now</Title>
@@ -65,7 +65,7 @@ const Login = () => {
                  
                  <div className="form-control ">
                    <label className="label">
-                     <span className="label-text text-gray-600">Email</span>
+                     <span className="label-text text-purple-600">Email</span>
                    </label>
                    <input
                      type="email"
@@ -78,7 +78,7 @@ const Login = () => {
                  </div>
                  <div className="form-control">
                    <label className="label">
-                     <span className="label-text text-gray-600">Password</span>
+                     <span className="label-text text-purple-600">Password</span>
                    </label>
    
                         <div className="relative">
@@ -92,21 +92,21 @@ const Login = () => {
                    <div className=" absolute right-3 top-3 text-xl">
                    <span onClick={()=> setShowPass(!showPass)}>
                      {
-                       showPass? <FaEyeSlash className="text-gray-400"></FaEyeSlash> :  <FaEye className="text-gray-400"></FaEye>
+                       showPass? <FaEyeSlash className="text-purple-400"></FaEyeSlash> :  <FaEye className="text-purple-400"></FaEye>
                      }
                    </span>
                    </div>
                   </div>
                    <label className="label">
-                     <a href="#" className="label-text-alt text-sm link link-hover text-gray-600">
+                     <a href="#" className="label-text-alt text-sm link link-hover text-purple-600">
                        Forgot password?
                      </a>
                    </label>
                  </div>
                 
                  <div className="form-control mt-6">
-                   <button className="btn bg-gray-500 text-white hover:bg-gray-600">Login</button>
-                   <p className='text-gray-400 mt-5'>New This Site? Please  <Link to='/register'>   <span className='text-stone-600 underline font-bold'>  Register</span> </Link></p>
+                   <button className="btn bg-purple-500 text-white hover:bg-purple-600">Login</button>
+                   <p className='text-purple-400 mt-5'>New This Site? Please  <Link to='/register'>   <span className='text-stone-600 underline font-bold'>  Register</span> </Link></p>
                  </div>
                  <div>
                  <SocialLogin></SocialLogin>

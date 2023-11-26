@@ -10,8 +10,8 @@ const TrainerCard = ({trainer}) => {
     // console.log(trainer)
     return (
         <div className="mt-20">
-             <div className="relative flex flex-col p-5 w-full md:flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                        <div className="relative md:w-2/5 overflow-hidden text-gray-700 bg-white rounded-r-none  md:shrink-0  rounded-xl ">
+             <div className="relative flex flex-col p-5 w-full md:flex-row rounded-xl bg-white bg-clip-border text-purple-700 shadow-md">
+                        <div className="relative md:w-2/5 overflow-hidden text-purple-700 bg-white rounded-r-none  md:shrink-0  rounded-xl ">
                             <img
                             src={details?.image}
                             alt="image"
@@ -72,7 +72,7 @@ const TrainerCard = ({trainer}) => {
                                 <div>
                             <Link to={`/dashboard/detailsTrainer/${_id}`}>
                             <button
-                                className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-gray-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-500/10 active:bg-gray-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-purple-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-purple-500/10 active:bg-purple-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                 type="button"
                             >
                                Know More

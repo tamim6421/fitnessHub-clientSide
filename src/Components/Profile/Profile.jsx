@@ -1,12 +1,13 @@
 import { Helmet } from "react-helmet-async"
 import useAuth from "../../Hooks/useAuth"
 import useUserRole from "../../Hooks/useUserRole"
+import { Link } from "react-router-dom"
 
 const Profile = () => {
     const { user } = useAuth()
     const {userRole} = useUserRole()
 
-    console.log(userRole[0]?.role)
+    console.log(userRole[0])
   
     
     return (
@@ -29,14 +30,14 @@ const Profile = () => {
               />
             </a>
   
-            <p className='p-2 px-4 text-xs text-white bg-gray-600 rounded-full'>
+            <p className='p-2 px-4 text-xs text-white bg-purple-600 rounded-full'>
               {userRole[0]?.role && userRole[0]?.role.toUpperCase()}
             </p>
-            <p className='mt-2 text-xl font-medium text-gray-800 '>
-              User Id: {user?._id}
+            <p className='mt-2 text-xl font-medium text-purple-800 '>
+              User : {user?.displayName}
             </p>
             <div className='w-full p-2 mt-4 rounded-lg'>
-              <div className='flex flex-wrap items-center justify-between text-sm text-gray-600 '>
+              <div className='flex flex-wrap items-center justify-between text-sm text-purple-600 '>
                 <p className='flex flex-col'>
                   Name
                   <span className='font-bold text-black '>
@@ -47,12 +48,23 @@ const Profile = () => {
                   Email
                   <span className='font-bold text-black '>{user?.email}</span>
                 </p>
+                <p className='flex flex-col'>
+                 Phone Number
+                  <span className='font-bold text-black '>
+                    {userRole[0]?.number}
+                  </span>
+                </p>
+                <p className='flex flex-col'>
+                  Address
+                  <span className='font-bold text-black '>{userRole[0]?.address}</span>
+                </p>
   
-                <div>
-                  <button className='bg-gray-500 px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-gray-700 block mb-1'>
+                <div className="mt-5">
+                  <Link to='/dashboard/'>
+                  <button className='bg-purple-500 px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-purple-700 block mb-1'>
                     Update Profile
-                  </button>
-                  <button className='bg-gray-500 px-7 py-1 rounded-lg text-white cursor-pointer hover:bg-gray-700'>
+                  </button></Link>
+                  <button className='bg-purple-500 px-7 py-1 rounded-lg text-white cursor-pointer hover:bg-purple-700'>
                     Change Password
                   </button>
                 </div>

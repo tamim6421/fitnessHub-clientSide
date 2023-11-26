@@ -70,11 +70,11 @@ const AddedANewForum = () => {
                         <h1 className="text-center my-20">
                            <SectionTitle title={'Added a New'} title1={" Post"} des={'Tell Something about your clients and there health'}></SectionTitle>
                         </h1>
-                        <form className="bg-gray-100 rounded-md shadow-lg p-3 space-y-7" onSubmit={handelPost}>
+                        <form className="bg-purple-100 rounded-md shadow-lg p-3 space-y-7" onSubmit={handelPost}>
                             <p className="text-lg">Post what's on your mind</p>
                         <textarea name="text" className="textarea w-full textarea-bordered" placeholder="Text here"></textarea>
                     <input type="file" name="image" accept="image/*" className="file-input file-input-bordered file-input-sm w-full " />
-                    <button className="btn px-7 bg-gray-500 btn-outline text-white">Post</button>
+                    <button className="btn px-7 bg-purple-500 btn-outline text-white">Post</button>
                         </form>
                    
                     </div>

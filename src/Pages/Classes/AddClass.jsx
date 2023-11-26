@@ -6,6 +6,7 @@ import { useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 
 const AddClass = () => {
   const { user } = useAuth();
@@ -68,9 +69,9 @@ const AddClass = () => {
       <div>
         <div className="w-3/6 mx-auto">
           <h1 className="mt-20">
-            <Title>Added A New Class</Title>
+            <SectionTitle  title={'Add a New '} title1={'Class'} des={'Add new more impotent exercise classes'}></SectionTitle>
           </h1>
-          <form className="bg-gray-50 shadow-lg rounded-sm p-4" onSubmit={addClass}>
+          <form className="bg-purple-50 shadow-lg rounded-sm p-4" onSubmit={addClass}>
             <div>
               <div className="form-control w-full ">
                 <label className="label">
@@ -120,7 +121,7 @@ const AddClass = () => {
               accept="image/*"
               className="file-input file-input-bordered mt-5 file-input-sm w-full "
             />
-            <button className="btn mt-5 bg-gray-500 btn-outline text-white">
+            <button className="btn mt-5 bg-purple-500 btn-outline text-white">
               Added Class
             </button>
           </form>

@@ -11,7 +11,7 @@ const DailyRutine = () => {
 
         <div className="flex ">
         <div className="flex flex-col items-center justify-center gap-3">
-            <p className="text xl btn bg-gray-600 text-white px-6">
+            <p className="text xl btn bg-purple-600 text-white px-6">
             Saturday 
             </p>
             <p className="btn btn-sm w-[100px]">
@@ -27,7 +27,7 @@ const DailyRutine = () => {
 
         </div>
        <div className="flex flex-col items-center justify-center gap-3">
-            <p className="text xl btn bg-gray-600 text-white px-6">
+            <p className="text xl btn bg-purple-600 text-white px-6">
             Sunday 
             </p>
             <p className="btn btn-sm w-[100px]">
@@ -43,7 +43,7 @@ const DailyRutine = () => {
 
         </div>
        <div className="flex flex-col items-center justify-center gap-3">
-            <p className="text xl btn bg-gray-600 text-white px-6">
+            <p className="text xl btn bg-purple-600 text-white px-6">
             Monday 
             </p>
             <p className="btn btn-sm w-[100px]">
@@ -59,7 +59,7 @@ const DailyRutine = () => {
 
         </div>
        <div className="flex flex-col items-center justify-center gap-3">
-            <p className="text xl btn bg-gray-600 text-white px-6">
+            <p className="text xl btn bg-purple-600 text-white px-6">
             Tuesday 
             </p>
             <p className="btn btn-sm w-[100px]">
@@ -78,7 +78,7 @@ const DailyRutine = () => {
 
         <div className="flex">
         <div className="flex flex-col items-center justify-center gap-3">
-            <p className="text xl btn bg-gray-600 text-white px-6">
+            <p className="text xl btn bg-purple-600 text-white px-6">
             Wednesday 
             </p>
             <p className="btn btn-sm w-[100px]">
@@ -94,7 +94,7 @@ const DailyRutine = () => {
 
         </div>
        <div className="flex flex-col items-center justify-center gap-3">
-            <p className="text xl btn bg-gray-600 text-white px-6">
+            <p className="text xl btn bg-purple-600 text-white px-6">
             Thursday 
             </p>
             <p className="btn btn-sm w-[100px]">
@@ -109,7 +109,7 @@ const DailyRutine = () => {
          
         </div>
        <div className="flex flex-col items-center justify-center gap-3">
-            <p className="text xl btn bg-gray-600 text-white px-6">
+            <p className="text xl btn bg-purple-600 text-white px-6">
             Friday 
             </p>
             <p className="btn btn-sm w-[100px]">

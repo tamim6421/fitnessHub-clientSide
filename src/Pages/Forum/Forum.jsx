@@ -109,7 +109,7 @@ const Forum = () => {
                 <SectionTitle title={'Added a new'} title1={'Post'}></SectionTitle>
                 <button
                 onClick={()=>document.getElementById('my_modal_3').showModal()}
-                className="text-white btn btn-outline bg-gray-600 px-6 block mx-auto">Added a New Post</button>
+                className="text-white btn btn-outline bg-purple-600 px-6 block mx-auto">Added a New Post</button>
             </div>
 
             <div>
@@ -123,7 +123,7 @@ const Forum = () => {
                             pages.map((number, i) => <button
                             onClick={() => setCurrentPage(number)}
                             key={number} 
-                            className={currentPage === number ? 'selected btn rounded-full bg-gray-400 mr-3 btn-sm ' : "btn  bg-gray-400 rounded-full mr-3 btn-sm"}> {number} </button> )
+                            className={currentPage === number ? 'selected btn rounded-full bg-purple-400 mr-3 btn-sm ' : "btn  bg-purple-400 rounded-full mr-3 btn-sm"}> {number} </button> )
                         }
                     </div>
                 </div>
@@ -136,7 +136,7 @@ const Forum = () => {
                 <div className="modal-box">
                     <form method="dialog">
                     {/* if there is a button in form, it will close the modal */}
-                    <button  className="btn btn-sm  bg-gray-300 btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    <button  className="btn btn-sm  bg-purple-300 btn-circle btn-ghost absolute right-2 top-2">✕</button>
                     </form>
                     
                     <div className="p-4">
@@ -144,7 +144,7 @@ const Forum = () => {
                         <form onSubmit={handelPost}>
                         <textarea name="text" className="textarea w-full textarea-bordered" placeholder="Text here"></textarea>
                     <input type="file" name="image" accept="image/*" className="file-input file-input-bordered file-input-xs w-full max-w-xs" />
-                    <button className="btn bg-gray-500 btn-outline text-white">Post</button>
+                    <button className="btn bg-purple-500 btn-outline text-white">Post</button>
                         </form>
                    
                     </div>

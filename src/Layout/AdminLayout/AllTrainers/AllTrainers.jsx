@@ -50,7 +50,7 @@ console.log(trainers)
             <div className="overflow-x-auto px-6">
   <table className="table">
     {/* head */}
-    <thead className="text-uppercase font-semibold bg-gray-400 text-lg text-white">
+    <thead className="text-uppercase font-semibold bg-purple-400 text-lg text-white">
       <tr>
         <th>
           Number
@@ -100,7 +100,7 @@ console.log(trainers)
                  <div>
                      {
                     remainingMonths(trainer?.joinDate,trainer?.salaryCount) == true ? <Link to={`/dashboard/payment/${trainer?._id}`}>
-                    <button className="btn bg-gray-600 text-white btn-outline btn-sm">Pay</button>
+                    <button className="btn bg-purple-600 text-white btn-outline btn-sm">Pay</button>
                     </Link> : ''
                 }
                  </div>

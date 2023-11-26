@@ -41,7 +41,7 @@ const About = () => {
                             <img src="https://i.ibb.co/RCqvQ4C/crossfit-svg1.webp" alt="Shoes" className="rounded-xl w-20" />
                         </figure>
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title text-gray-500">
+                            <h2 className="card-title text-purple-500">
                                     Cycling & Cardio</h2>
                             <p>Cycling is a perfect activity to train your heart and muscles simultaneously and effectively.</p>
                            

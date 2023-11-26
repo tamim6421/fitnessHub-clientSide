@@ -8,7 +8,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_KEY);
 
 const Payment = () => {
     const info = useLoaderData()
-    console.log(info)
+    // console.log(info)
 
 
   return (

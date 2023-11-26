@@ -23,7 +23,7 @@ const Featured = () => {
                 </figure>
 
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title text-gray-900 text-2xl font-bold"> Indore Bike </h2>
+                    <h2 className="card-title text-purple-900 text-2xl font-bold"> Indore Bike </h2>
                     <p className="text-xl">Facilities geared towards helping individuals gain muscle mass  </p>
                     
                 </div>
@@ -34,7 +34,7 @@ const Featured = () => {
                 </figure>
 
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title text-gray-900 text-2xl font-bold"> Meditation </h2>
+                    <h2 className="card-title text-purple-900 text-2xl font-bold"> Meditation </h2>
                     <p className="text-xl">Facilities geared towards helping individuals gain muscle mass  </p>
                     
                 </div>
@@ -45,7 +45,7 @@ const Featured = () => {
                 </figure>
 
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title text-gray-900 text-2xl font-bold"> Musculation </h2>
+                    <h2 className="card-title text-purple-900 text-2xl font-bold"> Musculation </h2>
                     <p className="text-xl">Facilities geared towards helping individuals gain muscle mass  </p>
                     
                 </div>
@@ -56,7 +56,7 @@ const Featured = () => {
                 </figure>
 
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title text-gray-900 text-2xl font-bold"> Body Blitz  </h2>
+                    <h2 className="card-title text-purple-900 text-2xl font-bold"> Body Blitz  </h2>
                     <p className="text-xl">Facilities geared towards helping individuals gain muscle mass  </p>
                     
                 </div>
@@ -67,7 +67,7 @@ const Featured = () => {
                 </figure>
 
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title text-gray-900 text-2xl font-bold"> Strength and Mass</h2>
+                    <h2 className="card-title text-purple-900 text-2xl font-bold"> Strength and Mass</h2>
                     <p className="text-xl">Facilities geared towards helping individuals gain muscle mass  </p>
                     
                 </div>
@@ -78,7 +78,7 @@ const Featured = () => {
                 </figure>
 
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title text-gray-900 text-2xl font-bold"> Iron Forge Fitness </h2>
+                    <h2 className="card-title text-purple-900 text-2xl font-bold"> Iron Forge Fitness </h2>
                     <p className="text-xl">Facilities geared towards helping individuals gain muscle mass  </p>
                     
                 </div>

@@ -40,7 +40,7 @@ const OurBlog = () => {
             </div>
             
           <Link to='/forum'> 
-          <button className="btn bg-gray-600 text-lg text-white px-10 mt-10 block mx-auto btn-outline">Explore Our Forums Posts</button>
+          <button className="btn bg-purple-600 text-lg text-white px-10 mt-10 block mx-auto btn-outline">Explore Our Forums Posts</button>
           </Link>
 
         </div>

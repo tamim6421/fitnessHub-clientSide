@@ -150,7 +150,7 @@ const BeTrainer = () => {
         </div>
 
             {/* checkbox */}
-            <div className=" md:flex justify-start gap-2 bg-gray-50 border-2 rounded-sm mt-16  items-center ">
+            <div className=" md:flex justify-start gap-2 bg-purple-50 border-2 rounded-sm mt-16  items-center ">
                 <div>
                 <label className="label">
               <span className="label-text text-xl">Skills: </span>
@@ -210,13 +210,13 @@ const BeTrainer = () => {
               <span className="label-text">Upload Profile Picture </span>
             </label>
            
-            <input {...register("image", { required: true })}  type="file" className="file-input file-input-bordered w-full bg-gray-200 " />
+            <input {...register("image", { required: true })}  type="file" className="file-input file-input-bordered w-full bg-purple-200 " />
             </div>
 
                 <div className="mt-5">
                     <button 
                    
-                    className="btn bg-gray-400 mt-5 hover:bg-gray-500 w-full text-white">
+                    className="btn bg-purple-400 mt-5 hover:bg-purple-500 w-full text-white">
                         Submit
                     </button>
                 </div>

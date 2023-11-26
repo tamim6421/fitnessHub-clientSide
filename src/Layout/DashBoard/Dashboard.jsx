@@ -8,7 +8,7 @@ const Dashboard = () => {
     <div>
         <Navbar></Navbar>
       <div className="flex mt-20 flex-col md:flex-row">
-        <div className="flex-[1] text-center md:fixed md:z-10 md:h-[100vh]  bg-base-100 shadow-lg">
+        <div className="flex-[1] text-start md:text-center md:fixed md:z-10 md:h-[100vh]  bg-base-100 shadow-lg">
 
           
 
@@ -23,8 +23,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-900 font-bold text-xl  "
-                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                        ? "text-purple-900 font-bold text-xl  "
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
                     }
                   >
                     Admin Home
@@ -37,8 +37,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-900 font-bold text-xl "
-                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                        ? "text-purple-900 font-bold text-xl "
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
                     }
                   >
                     All Subscribers 
@@ -51,8 +51,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-900 font-bold text-xl "
-                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                        ? "text-purple-900 font-bold text-xl "
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
                     }
                   >
                     All Trainers 
@@ -65,8 +65,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-900 font-bold text-xl "
-                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                        ? "text-purple-900 font-bold text-xl "
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
                     }
                   >
                     Applied Trainer 
@@ -88,8 +88,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-500 text-lg bg-gray-50 font-semibold"
-                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
                     }
                   >
                     Trainer Home
@@ -102,11 +102,25 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-500 text-lg bg-gray-50 font-semibold"
-                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
                     }
                   >
                     Manage Member 
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/addNewClass"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                    }
+                  >
+                   Add New Class
                   </NavLink>
                 </li>
               </>
@@ -124,8 +138,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-500 text-lg bg-gray-50 font-semibold"
-                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
                     }
                   >
                    Member Home
@@ -138,8 +152,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-500 text-lg bg-gray-50 font-semibold"
-                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
                     }
                   >
                     Activity Log
@@ -152,8 +166,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-500 text-lg bg-gray-50 font-semibold"
-                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
                     }
                   >
                    Profile Setting
@@ -173,8 +187,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-gray-500 text-lg bg-gray-50 font-semibold"
-                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
                     }
                   >
                   Add New Forum

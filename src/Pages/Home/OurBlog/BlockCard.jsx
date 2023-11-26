@@ -10,7 +10,7 @@ const BlockCard = ({blog}) => {
 
     return (
         <div>
-            <div className="relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
+            <div className="relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-purple-700">
             <div className="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent" style={backgroundImageStyle}>
     <div className="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"></div>
   </div>
@@ -23,7 +23,7 @@ const BlockCard = ({blog}) => {
     <h2 className="mb-6 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased">
      {host?.name}
     </h2>
-    <h5 className="block mb-4 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-gray-400">
+    <h5 className="block mb-4 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-purple-400">
       {post}
     </h5>
   </div>

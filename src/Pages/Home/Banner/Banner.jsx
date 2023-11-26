@@ -11,7 +11,7 @@ const Banner = () => {
           <div className="absolute flex items-center h-full  left-0 right-5 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
             <div className="text-white space-y-7 pl-12 w-1/3 ">
               <h3 className="text-6xl font-bold">
-                Affordable Price For Car Servicing
+                Make Your Health Stronger
               </h3>
               <p>
               Transform Your Body, Mind, And Life Today
@@ -39,7 +39,7 @@ const Banner = () => {
           <div className="absolute flex items-center h-full left-0  right-5 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
             <div className="text-white space-y-7 pl-12 w-1/3 ">
               <h3 className="text-6xl font-bold">
-                Affordable Price For Car Servicing
+              Make Your Health Stronger
               </h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -68,7 +68,7 @@ const Banner = () => {
           <div className="absolute flex items-center h-full left-0 right-5 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
             <div className="text-white space-y-7 pl-12 w-1/3 ">
               <h3 className="text-6xl font-bold">
-                Affordable Price For Car Servicing
+              Make Your Health Stronger
               </h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -98,7 +98,7 @@ const Banner = () => {
           <div className="absolute flex items-center h-full left-0  right-5 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
             <div className="text-white space-y-7 pl-12 w-1/3 ">
               <h3 className="text-6xl font-bold">
-                Affordable Price For Car Servicing
+              Make Your Health Stronger
               </h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.

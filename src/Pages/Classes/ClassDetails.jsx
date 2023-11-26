@@ -16,7 +16,7 @@ const ClassDetails = () => {
                 </div>
             {/* <img src="https://i.ibb.co/gP18xPY/pexels-victor-freitas-791763.jpg" className="h-[40vh]" alt="" /> */}
                 <div >
-                <div className="card flex bg-gray-200 p-3 flex-col md:flex-row card-side  md:w-3/4 mx-auto shadow-xl">
+                <div className="card flex bg-purple-200 p-3 flex-col md:flex-row card-side  md:w-3/4 mx-auto shadow-xl">
                 <div>
                 <figure><img src={image} alt="Movie" className="w-[300px]" /></figure>
                 </div>
@@ -37,7 +37,7 @@ const ClassDetails = () => {
                   </div>
                     <div className="card-actions justify-end">
                     <Link to='/trainer'>
-                    <button className="btn bg-gray-600 btn-outline text-white">Join Now</button>
+                    <button className="btn bg-purple-600 btn-outline text-white">Join Now</button>
                     </Link>
                     </div>
                 </div>

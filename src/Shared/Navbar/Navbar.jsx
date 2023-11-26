@@ -38,7 +38,7 @@ const Navbar = () => {
         <NavLink
   to="/"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-gray-500 text-lg font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-500 text-lg font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
   }
 >
 {/* <FaHome></FaHome>  */}
@@ -49,7 +49,7 @@ const Navbar = () => {
         <NavLink
   to="/gallery"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-gray-500 text-lg  font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-500 text-lg  font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
   }
 >
 Gallery
@@ -59,7 +59,7 @@ Gallery
         <NavLink
   to="/Trainer"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-gray-500 text-lg bg-gray-50 font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
   }
 >
   Trainer
@@ -69,7 +69,7 @@ Gallery
         <NavLink
   to="/classes"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-gray-500 text-lg bg-gray-100 font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-100 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
   }
 >
   Classes
@@ -79,7 +79,7 @@ Gallery
         <NavLink
   to="/forum"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-gray-500 text-lg bg-gray-100 font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-100 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
   }
 >
   Forum
@@ -90,7 +90,7 @@ Gallery
         <NavLink
   to="/contact"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-gray-500 text-lg bg-gray-50 font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
   }
 >
  Contact Us
@@ -108,7 +108,7 @@ Gallery
                     <NavLink
               to="/dashboard/adminHome"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-gray-500 text-lg bg-gray-50 font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+                isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
               }
             >
             Dashboard
@@ -129,7 +129,7 @@ Gallery
                 <NavLink
           to="/dashboard/trainerHome"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-gray-500 text-lg bg-gray-50 font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+            isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
           }
         >
         Dashboard
@@ -151,7 +151,7 @@ Gallery
                 <NavLink
           to="/dashboard/memberHome"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-gray-500 text-lg bg-gray-50 font-semibold" : "hover:bg-gray-100  text-gray-600 text-lg"
+            isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
           }
         >
         Dashboard
@@ -211,7 +211,7 @@ Gallery
         <div className="navbar-end">
 
   {/* for dark theme */}
-  <div className="text-gray-500">
+  <div className="text-purple-500">
   <label className="swap swap-rotate">
 
   <input onChange={handleToggle} type="checkbox" />
@@ -234,24 +234,24 @@ Gallery
       
     </div>
   </label>
-  <ul tabIndex={0} className="menu menu-sm dropdown-content text-sm  space-y-2 mt-3 z-[1] p-2 shadow bg-gray-200 ">
+  <ul tabIndex={0} className="menu menu-sm dropdown-content text-sm  space-y-2 mt-3 z-[1] p-2 shadow bg-purple-200 ">
     <li>
     {
-              user.displayName == null ? <button className="btn btn-sm text-white bg-gray-500"> User </button> :<button className="btn btn-sm  text-white bg-gray-500">  {user.displayName} </button>
+              user.displayName == null ? <button className="btn btn-sm text-white bg-purple-500"> User </button> :<button className="btn btn-sm  text-white bg-purple-500">  {user.displayName} </button>
             }
           </li>
           <li>
-          <button className="btn btn-sm text-white bg-gray-400" > {user.email} </button>
+          <button className="btn btn-sm text-white bg-purple-400" > {user.email} </button>
           </li>
           <li className="w-full">
            <button
           onClick={logOut}
-            className="btn btn-sm text-white  w-full bg-gray-400" > LogOut </button>
+            className="btn btn-sm text-white  w-full bg-purple-400" > LogOut </button>
           </li>
   </ul>
 </div>
 
-  </div> : <Link to='/login'> <button className="rounded-lg btn-sm text-white bg-gray-500 ">lOGIN</button> </Link>
+  </div> : <Link to='/login'> <button className="rounded-lg btn-sm text-white bg-purple-500 ">lOGIN</button> </Link>
 
 }
 

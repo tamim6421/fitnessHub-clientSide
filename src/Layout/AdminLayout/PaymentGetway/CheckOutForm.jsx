@@ -9,7 +9,8 @@ import Swal from "sweetalert2";
 
 
 const CheckOutForm = ({info}) => {
-    const{salary,details, _id} = info
+  console.log(info)
+    const{salary,details, _id, joinDate} = info
     const [error, setError] = useState('')
     const [clientSecret, setClientSecret] = useState('')
     const [transactionId, setTransactionId] = useState('')
@@ -24,11 +25,31 @@ const numberSalary = parseInt(salary)
 // console.log(numberSalary)
 
 
+// const month = (today - myDate)
+// console.log(month)
 
+const calculateMonthDifference = (myDate, today) => {
+  const start = new Date(myDate);
+  const end = new Date(today);
+
+  // Calculate the difference in months
+  const months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+
+  return months;
+};
+
+let myDate = new Date(joinDate)
+let today = new Date()
+
+const difference = calculateMonthDifference(myDate, today)
+// console.log(difference)
+
+const salaryBill = (numberSalary * difference)
+console.log(salaryBill)
 
 
 useEffect(() => {
-    axiosSecure.post('/make-payment-intent', { price: numberSalary })
+    axiosSecure.post('/make-payment-intent', { price: salaryBill })
       .then(res => {
         console.log(res.data);
         setClientSecret(res.data.clientSecret);

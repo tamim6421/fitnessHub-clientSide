@@ -18,7 +18,7 @@ const ErrorPage = () => {
         <p>
           <i>{error.statusText || error.message}</i>
         </p>
-        <button onClick={handleBack} className="btn bg-gray-500 hover:bg-gray-600 text-white">back to home</button>
+        <button onClick={handleBack} className="btn bg-purple-500 hover:bg-purple-600 text-white">back to home</button>
       </div>
      </div>
     );

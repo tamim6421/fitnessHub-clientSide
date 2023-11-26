@@ -28,6 +28,7 @@ import Classes from "../Pages/Classes/Classes";
 import AddClass from "../Pages/Classes/AddClass";
 import ClassDetails from "../Pages/Classes/ClassDetails";
 import AddedANewForum from "../Layout/AddedANewForum/AddedANewForum";
+import AddNewClass from "../Layout/Trainer/AddNewClass/AddNewClass";
 
 
 const router = createBrowserRouter([
@@ -129,6 +130,10 @@ const router = createBrowserRouter([
             {
                 path: 'manageMember',
                 element: <ManageMember></ManageMember>
+            },
+            {
+                path: 'addNewClass',
+                element: <AddNewClass></AddNewClass>
             },
 
             // member only routes 

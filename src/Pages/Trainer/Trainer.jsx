@@ -38,7 +38,7 @@ const Trainer = () => {
 
            <div className="pt-10 text-center">
            <Link to='/beTrainer'>
-           <button className="btn bg-gray-500 hover:bg-gray-700 text-white uppercase px-10 ">be a trainer</button>
+           <button className="btn bg-purple-500 hover:bg-purple-700 text-white uppercase px-10 ">be a trainer</button>
            </Link>
            </div>
 

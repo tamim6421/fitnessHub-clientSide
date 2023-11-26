@@ -1,9 +1,10 @@
+import Profile from "../../../Components/Profile/Profile";
 
 
 const MemberHome = () => {
     return (
         <div>
-            <h1>member home </h1>
+            <Profile></Profile>
         </div>
     );
 };

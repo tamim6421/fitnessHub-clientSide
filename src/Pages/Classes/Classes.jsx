@@ -61,7 +61,7 @@ const Classes = () => {
                user && getRole?.role == 'trainer' && 
                 <div className="pt-20 mb-10">
                 <Link to='/addClass'>
-                <button className="bg-gray-600 btn text-white text-lg px-6 btn-outline block mx-auto">Added a New Class </button>
+                <button className="bg-purple-600 btn text-white text-lg px-6 btn-outline block mx-auto">Added a New Class </button>
                 </Link>
                 
              </div>
@@ -77,8 +77,8 @@ const Classes = () => {
          <div className="grid gap-5 grid-cols-1 md:grid-cols-3">
 
             {
-                    allClass?.map(classItem => (
-                        <div className="card bg-base-100 shadow-xl" key={classItem.id}>
+                    allClass?.map((classItem, i) => (
+                        <div className="card bg-base-100 shadow-xl" key={i}>
                             <figure className="px-10 pt-10">
                                 <img src={classItem?.image} alt={classItem.title} className="rounded-xl h-[200px] object-cover w-full" />
                             </figure>
@@ -87,7 +87,7 @@ const Classes = () => {
                                
                                 <div className="card-actions">
                                  <Link to={`/classDetails/${classItem._id}`}>
-                                 <button className="btn btn-sm bg-gray-600 btn-outline text-white">See Details</button>
+                                 <button className="btn btn-sm bg-purple-600 btn-outline text-white">See Details</button>
                                  </Link>
                                 </div>
                             </div>

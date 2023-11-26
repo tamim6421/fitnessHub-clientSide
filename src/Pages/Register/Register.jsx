@@ -74,7 +74,7 @@ const Register = () => {
     <div className="container ">
       <div className="overly">
         <Navbar></Navbar>
-        <div className="hero min-h-screen bg-gray-50">
+        <div className="hero min-h-screen bg-purple-50">
           <div className="hero-content flex-col lg:flex-row-reverse ">
             <div className="text-center mt-10 lg:text-left">
               <Title>Register Now</Title>
@@ -86,7 +86,7 @@ const Register = () => {
               <form onSubmit={handleRegister} className="card-body">
                 <div className="form-control ">
                   <label className="label">
-                    <span className="label-text text-gray-500">User Name</span>
+                    <span className="label-text text-purple-500">User Name</span>
                   </label>
                   <input
                     type="text"
@@ -99,7 +99,7 @@ const Register = () => {
 
                 <div className="form-control ">
                   <label className="label">
-                    <span className="label-text text-gray-500">Photo URL</span>
+                    <span className="label-text text-purple-500">Photo URL</span>
                   </label>
                   <input
                     type="text"
@@ -111,7 +111,7 @@ const Register = () => {
 
                 <div className="form-control ">
                   <label className="label">
-                    <span className="label-text text-gray-500">Email</span>
+                    <span className="label-text text-purple-500">Email</span>
                   </label>
                   <input
                     type="email"
@@ -123,7 +123,7 @@ const Register = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-gray-500">Password</span>
+                    <span className="label-text text-purple-500">Password</span>
                   </label>
 
                   <div className="relative">
@@ -137,9 +137,9 @@ const Register = () => {
                     <div className=" absolute right-3 top-3 text-xl">
                       <span onClick={() => setShowPass(!showPass)}>
                         {showPass ? (
-                          <FaEyeSlash className="text-gray-400"></FaEyeSlash>
+                          <FaEyeSlash className="text-purple-400"></FaEyeSlash>
                         ) : (
-                          <FaEye className="text-gray-400"></FaEye>
+                          <FaEye className="text-purple-400"></FaEye>
                         )}
                       </span>
                     </div>
@@ -151,21 +151,21 @@ const Register = () => {
                       name="check"
                       id="check"
                     />
-                    <label className="text-gray-500" htmlFor="check">
+                    <label className="text-purple-500" htmlFor="check">
                       Accept Our Trams And Conditions
                     </label>
                   </div>
                 </div>
 
                 <div className="form-control mt-6">
-                  <button className="btn bg-gray-500 uppercase text-white hover:bg-gray-700">
+                  <button className="btn bg-purple-500 uppercase text-white hover:bg-purple-700">
                     register
                   </button>
-                  <p className="text-gray-500 mt-4">
+                  <p className="text-purple-500 mt-4">
                     Already have an account? Please{" "}
                     <Link to="/login">
                      
-                      <span className="text-gray-700 font-bold underline">
+                      <span className="text-purple-700 font-bold underline">
                         
                         Login
                       </span>{" "}

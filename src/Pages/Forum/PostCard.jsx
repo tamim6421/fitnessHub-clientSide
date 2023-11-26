@@ -16,8 +16,8 @@ const PostCard = ({data}) => {
     }
     return (
         <div className="mt-20 flex items-center justify-center">
-            <div className="relative p-4 flex w-full max-w-[26rem] flex-col bg-slate-50 shadow-lgbg-transparent bg-clip-border text-gray-700 ">
-  <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
+            <div className="relative p-4 flex w-full max-w-[26rem] flex-col bg-slate-50 shadow-lgbg-transparent bg-clip-border text-purple-700 ">
+  <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-purple-700 bg-transparent shadow-none rounded-xl bg-clip-border">
     <img
       src={host.image}
       alt="tania andrew"
@@ -25,13 +25,13 @@ const PostCard = ({data}) => {
     />
     <div className="flex w-full flex-col gap-0.5">
       <div className="flex items-center justify-between">
-        <h5 className="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+        <h5 className="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-purple-900">
          {host.name}
         </h5>
         
         
       </div>
-      <p className="bg-gray-400 max-w-max px-1 rounded-sm text-white">
+      <p className="bg-purple-400 max-w-max px-1 rounded-sm text-white">
         {role}
       </p>
     </div>
@@ -49,7 +49,7 @@ const PostCard = ({data}) => {
     
     {/* like comments sections  */}
   <div className="flex mt-5 gap-5 justify-evenly">
-        <div className="flex gap-1 justify-center bg-gray-200 p-1 rounded-xl px-2" onClick={handelLike}>
+        <div className="flex gap-1 justify-center bg-purple-200 p-1 rounded-xl px-2" onClick={handelLike}>
         <AiFillLike className={(isLike ? "text-3xl text-blue-400":"text-3xl" )} />
         <p>{like}</p>
         </div>
