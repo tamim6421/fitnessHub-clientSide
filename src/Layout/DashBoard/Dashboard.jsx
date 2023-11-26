@@ -8,7 +8,7 @@ const Dashboard = () => {
     <div>
         <Navbar></Navbar>
       <div className="flex mt-20 flex-col md:flex-row">
-        <div className="flex-[1] h-[100vh]  bg-base-100 shadow-lg">
+        <div className="flex-[1] text-center md:fixed md:z-10 md:h-[100vh]  bg-base-100 shadow-lg">
 
           
 
@@ -165,7 +165,7 @@ const Dashboard = () => {
           </ul>
         </div>
 
-        <div className="flex-[5]">
+        <div className="flex-[5] md:ml-[170px]">
           <Outlet></Outlet>
         </div>
       </div>

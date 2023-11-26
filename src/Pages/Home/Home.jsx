@@ -7,6 +7,7 @@ import Footer from "../../Shared/Footer/Footer";
 import Testimunials from "./Testimunials/Testimunials";
 import Subscribe from "./Subscribe/Subscribe";
 import OurBlog from "./OurBlog/OurBlog";
+import HomeClass from "./HomeClass/HomeClass";
 
 
 const Home = () => {
@@ -25,6 +26,8 @@ const Home = () => {
             <Testimunials></Testimunials>
             <Subscribe></Subscribe>
             <OurBlog></OurBlog>
+
+            <HomeClass></HomeClass>
 
             <Footer></Footer>
         </div>

@@ -5,10 +5,12 @@ import { imageUpload } from "../../Utills";
 import { useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddClass = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure()
+  const navigate = useNavigate()
 
   const [time, setTime] = useState(["6 am - 7 am","7 am - 8 am",  "8 am - 9 am" , "9 am - 10 am", "5 pm - 6 pm", "7 pm - 8 pm", "8 pm - 9 pm", "9 pm - 10 pm", "11 pm - 12 pm" ])
   const [storeTime, setStoreTime] = useState([])
@@ -22,7 +24,7 @@ const AddClass = () => {
     const image = form.image.files[0];
     const className = form.className.value 
 
-    console.log(text, image, className);
+    // console.log(text, image, className);
 
     // upload image url
     const imageURl = await imageUpload(image);
@@ -43,7 +45,7 @@ const AddClass = () => {
       date: new Date(),
     };
 
-    console.log(postData)
+    // console.log(postData)
 
     // post data to the database
 
@@ -52,7 +54,8 @@ const AddClass = () => {
       console.log(res.data);
       if (res.data.insertedId) {
         toast.success("Class Added Successful");
-        e.target.reset();     
+        e.target.reset(); 
+        navigate('/classes')    
       }
     });
   };
@@ -67,7 +70,7 @@ const AddClass = () => {
           <h1 className="mt-20">
             <Title>Added A New Class</Title>
           </h1>
-          <form className="bg-gray-50 p-4" onSubmit={addClass}>
+          <form className="bg-gray-50 shadow-lg rounded-sm p-4" onSubmit={addClass}>
             <div>
               <div className="form-control w-full ">
                 <label className="label">

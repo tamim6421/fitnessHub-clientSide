@@ -25,6 +25,8 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import Payment from "../Layout/AdminLayout/PaymentGetway/Payment/Payment";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 import Classes from "../Pages/Classes/Classes";
+import AddClass from "../Pages/Classes/AddClass";
+import ClassDetails from "../Pages/Classes/ClassDetails";
 
 
 const router = createBrowserRouter([
@@ -43,7 +45,16 @@ const router = createBrowserRouter([
             },
             {   
                 path: '/classes',
-                element: <Classes></Classes>
+                element: <PrivetRoute> <Classes></Classes></PrivetRoute>
+            },
+            {
+                path: 'classDetails/:id',
+                element: <ClassDetails></ClassDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/getclassdetails/${params.id}`)
+            },
+            {
+                path: 'addClass',
+                element: <AddClass></AddClass>
             },
             {
                 path: 'trainer',
