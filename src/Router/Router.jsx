@@ -23,6 +23,7 @@ import AppliedTrainer from "../Layout/AdminLayout/AppliedTrainer/AppliedTrainer"
 import DetailsModal from "../Layout/AdminLayout/AppliedTrainer/DetailsModal";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import Payment from "../Layout/AdminLayout/PaymentGetway/Payment/Payment";
+import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 
 
 const router = createBrowserRouter([
@@ -91,6 +92,11 @@ const router = createBrowserRouter([
             {
                 path: 'payment/:id',
                 element: <Payment></Payment>,
+                loader: ({params}) => fetch(`http://localhost:5000/accepttrainer/${params.id}`)
+            },
+            {
+                path: 'detailsTrainer/:id',
+                element: <TrainerDetails></TrainerDetails>,
                 loader: ({params}) => fetch(`http://localhost:5000/accepttrainer/${params.id}`)
             },
 

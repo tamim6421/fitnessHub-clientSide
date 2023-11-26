@@ -6,6 +6,7 @@ import Featured from "./Featured/Featured";
 import Footer from "../../Shared/Footer/Footer";
 import Testimunials from "./Testimunials/Testimunials";
 import Subscribe from "./Subscribe/Subscribe";
+import OurBlog from "./OurBlog/OurBlog";
 
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
             <About></About>
             <Testimunials></Testimunials>
             <Subscribe></Subscribe>
+            <OurBlog></OurBlog>
 
             <Footer></Footer>
         </div>

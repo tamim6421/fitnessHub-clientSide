@@ -4,18 +4,26 @@ import Title from "../../Components/Title/Title";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import { useEffect } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+import TrainerCard from "./TrainerCard";
 
 const Trainer = () => {
     const axiosPublic = useAxiosPublic()
    
 
-
-    useEffect( () =>{
-        axiosPublic.get('/trainers')
-        .then( res => {
-            console.log(res.data)
-        })
-    } ,[axiosPublic])
+    const {data:trainers, isLoading, refetch} = useQuery({
+        queryKey: ['trainers'],
+        queryFn: async() =>{
+            const res = await axiosPublic.get('/accepttrainer')
+            return res.data
+        }
+      })
+    
+      if (isLoading) {
+        return <div>Loading...</div>;
+      }
+    
+      console.log(trainers)
 
 
     return (
@@ -41,7 +49,12 @@ const Trainer = () => {
                 </p>
             </div>
 
-            <div>
+            <div className="grid gap-5 grid-cols-2 md:grid-cols-2">
+
+                {/* trainers card sections  */}
+                {
+                    trainers?.map( trainer => <TrainerCard key={trainer._id} trainer={trainer}></TrainerCard>)
+                }
                 
             </div>
 

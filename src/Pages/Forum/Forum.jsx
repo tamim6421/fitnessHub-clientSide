@@ -19,7 +19,7 @@ const Forum = () => {
 
 
 
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentPage, setCurrentPage] = useState(0)
     
     const [itemsParPage, setItemsParPage] = useState(5)
     const navigate = useNavigate()
@@ -123,7 +123,7 @@ const Forum = () => {
                             pages.map((number, i) => <button
                             onClick={() => setCurrentPage(number)}
                             key={number} 
-                            className={currentPage === number ? 'selected btn rounded-full bg-gray-400 mr-3 btn-sm ' : "btn  bg-gray-400 rounded-full mr-3 btn-sm"}> {number +1} </button> )
+                            className={currentPage === number ? 'selected btn rounded-full bg-gray-400 mr-3 btn-sm ' : "btn  bg-gray-400 rounded-full mr-3 btn-sm"}> {number} </button> )
                         }
                     </div>
                 </div>
