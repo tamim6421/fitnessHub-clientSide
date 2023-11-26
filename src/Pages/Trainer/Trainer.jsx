@@ -30,9 +30,9 @@ const Trainer = () => {
         <div>
           <Navbar></Navbar>
 
-          <div className="mt-20">
+          <div className="mt-20 p-5">
 
-            <div>
+            <div className="pt-10">
                 <SectionTitle title={'To be a '} title1={"Trainer ?"} des={'Remember that the specific skills required may vary depending on the role within the gym'}></SectionTitle>
             </div>
 
@@ -49,7 +49,7 @@ const Trainer = () => {
                 </p>
             </div>
 
-            <div className="grid gap-5 grid-cols-2 md:grid-cols-2">
+            <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
 
                 {/* trainers card sections  */}
                 {

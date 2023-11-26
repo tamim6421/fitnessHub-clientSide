@@ -24,6 +24,7 @@ import DetailsModal from "../Layout/AdminLayout/AppliedTrainer/DetailsModal";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import Payment from "../Layout/AdminLayout/PaymentGetway/Payment/Payment";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails";
+import Classes from "../Pages/Classes/Classes";
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path:'gallery',
                 element: <Gallery></Gallery>
+            },
+            {   
+                path: '/classes',
+                element: <Classes></Classes>
             },
             {
                 path: 'trainer',
