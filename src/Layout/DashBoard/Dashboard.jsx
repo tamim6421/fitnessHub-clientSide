@@ -162,6 +162,28 @@ const Dashboard = () => {
               </>
             )}
 
+            {/* common routs admin and trainer  */}
+            {
+              (userRole[0]?.role === "admin" || userRole[0]?.role === "trainer") &&(
+                <>
+                 <li>
+                  <NavLink
+                    to="/dashboard/newForum"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-gray-500 text-lg bg-gray-50 font-semibold"
+                        : "hover:bg-gray-100  text-gray-600 text-lg"
+                    }
+                  >
+                  Add New Forum
+                  </NavLink>
+                </li>
+                </>
+              )
+            }
+
           </ul>
         </div>
 

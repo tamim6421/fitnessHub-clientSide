@@ -1,9 +1,11 @@
+import Profile from "../../../Components/Profile/Profile";
 
 
 const TrainerHome = () => {
     return (
         <div>
-            this is trainer home 
+            
+            <Profile></Profile>
         </div>
     );
 };

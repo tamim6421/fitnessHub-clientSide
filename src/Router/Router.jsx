@@ -27,6 +27,7 @@ import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 import Classes from "../Pages/Classes/Classes";
 import AddClass from "../Pages/Classes/AddClass";
 import ClassDetails from "../Pages/Classes/ClassDetails";
+import AddedANewForum from "../Layout/AddedANewForum/AddedANewForum";
 
 
 const router = createBrowserRouter([
@@ -144,7 +145,8 @@ const router = createBrowserRouter([
                 element: <ProfileSetting></ProfileSetting>
             },
             {
-                
+              path: 'newForum',
+              element: <AddedANewForum></AddedANewForum>  
             }
         ]
     }
