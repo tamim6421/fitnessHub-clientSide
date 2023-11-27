@@ -72,6 +72,20 @@ const Dashboard = () => {
                     Applied Trainer 
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/balance"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-purple-900 font-bold text-xl "
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                    }
+                  >
+                    Balance
+                  </NavLink>
+                </li>
               </>
             )}
 

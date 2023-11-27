@@ -31,6 +31,7 @@ import AddedANewForum from "../Layout/AddedANewForum/AddedANewForum";
 import AddNewClass from "../Layout/Trainer/AddNewClass/AddNewClass";
 import TrainerBook from "../Pages/Trainer/TrainerBook/TrainerBook";
 import PaymentBooking from "../Pages/Trainer/TrainerBook/PaymentBooking/PaymentBooking";
+import TotalBalance from "../Layout/AdminLayout/Totalbalance/TotalBalance";
 
 
 const router = createBrowserRouter([
@@ -129,6 +130,10 @@ const router = createBrowserRouter([
                 path: 'detailsTrainer/:id',
                 element: <TrainerDetails></TrainerDetails>,
                 loader: ({params}) => fetch(`http://localhost:5000/accepttrainer/${params.id}`)
+            },
+            {
+                path: 'balance',
+                element: <TotalBalance></TotalBalance>
             },
 
             // trainer  only routes 

@@ -58,7 +58,7 @@ useEffect(() => {
         console.error('payment intent:', error);
       
       });
-  }, [axiosSecure, numberSalary]);
+  }, [axiosSecure, salaryBill]);
 
   const handelPayment = async (event) =>{
 
@@ -142,17 +142,17 @@ useEffect(() => {
         navigate('/dashboard/allTrainers')
       }
     }
-
-
-
-
-
   }
 
 
     return (
         <div className=" p-5  mx-auto py-10 w-3/6 rounded-lg shadow-md bg-slate-100">
         <form onSubmit={handelPayment}>
+          <div className="text-center p-2">
+          <p>Total Month: {difference} </p>
+          <p>My salary per month: {numberSalary} </p>
+          <p>Total Salary: {salaryBill} </p>
+          </div>
       
           <CardElement
             options={{
