@@ -30,6 +30,7 @@ import ClassDetails from "../Pages/Classes/ClassDetails";
 import AddedANewForum from "../Layout/AddedANewForum/AddedANewForum";
 import AddNewClass from "../Layout/Trainer/AddNewClass/AddNewClass";
 import TrainerBook from "../Pages/Trainer/TrainerBook/TrainerBook";
+import PaymentBooking from "../Pages/Trainer/TrainerBook/PaymentBooking/PaymentBooking";
 
 
 const router = createBrowserRouter([
@@ -72,6 +73,11 @@ const router = createBrowserRouter([
                 element: <TrainerBook></TrainerBook>,
                 loader: ({params}) => fetch(`http://localhost:5000/getslot/${params.id}`)
 
+            },
+            {
+                path:'paymentBooking/:id',
+                element: <PaymentBooking></PaymentBooking>,
+                loader: ({params}) => fetch(`http://localhost:5000/getslot/${params.id}`)
             },
             {
                 path:'/forum',

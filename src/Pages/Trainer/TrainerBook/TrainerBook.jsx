@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Title from "../../../Components/Title/Title";
 import Navbar from "../../../Shared/Navbar/Navbar";
 import { FaCheck } from "react-icons/fa";
@@ -20,12 +20,13 @@ const TrainerBook = () => {
         setInfos(data)
       })
     } ,[])
-    console.log(slotData._id)
+    console.log(slotData)
 
     const slotBooking = (info) =>{
       // console.log(info)
       const bookData = {
         user: user,
+        trainerName: '',
         package: info.cardName,
         price: info.price,
 
@@ -82,12 +83,14 @@ const TrainerBook = () => {
                       </ul>
                     </div>
                     <div className="p-0 mt-12">
-                      <button 
+                    <Link to={`/paymentBooking/${slotData._id}`}>
+                    <button 
                       onClick={() =>slotBooking(info)}
                       className=" bg-white btn w-full text-lg text-purple-700">
                       
                        Join Now 
                       </button>
+                    </Link>
                     </div>
                   
                     </div>  )

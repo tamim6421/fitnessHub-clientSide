@@ -1,55 +1,34 @@
 /* eslint-disable react/prop-types */
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import useAuth from "../../../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
+import useAuth from "../../../../Hooks/useAuth";
+import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 
 
 
-const CheckOutForm = ({info}) => {
-  console.log(info)
-    const{salary,details, _id, joinDate} = info
+const TrainnerCheckoutForm = ({data}) => {
+ 
+  
     const [error, setError] = useState('')
     const [clientSecret, setClientSecret] = useState('')
     const [transactionId, setTransactionId] = useState('')
     const stripe = useStripe();
   const elements = useElements();
-  const axiosSecure = useAxiosSecure()
+  const axiosPublic = useAxiosPublic()
   const {user} = useAuth()
-  const navigate = useNavigate()
   
 
-const numberSalary = parseInt(salary)
-// console.log(numberSalary)
-
-
-// const month = (today - myDate)
-// console.log(month)
-
-const calculateMonthDifference = (myDate, today) => {
-  const start = new Date(myDate);
-  const end = new Date(today);
-
-  // Calculate the difference in months
-  const months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-
-  return months;
-};
-
-let myDate = new Date(joinDate)
-let today = new Date()
-
-const difference = calculateMonthDifference(myDate, today)
-// console.log(difference)
-
-const salaryBill = (numberSalary * difference)
-console.log(salaryBill)
-
+  if (!data || data.package === null) {
+    return <p className="text-center mt-36">Please reload the page.</p>;
+  }
+  console.log(data)
+  
 
 useEffect(() => {
-    axiosSecure.post('/make-payment-intent', { price: salaryBill })
+    axiosPublic.post('/make-payment-intent', { price: data?.price })
       .then(res => {
         console.log(res.data);
         setClientSecret(res.data.clientSecret);
@@ -58,7 +37,7 @@ useEffect(() => {
         console.error('payment intent:', error);
       
       });
-  }, [axiosSecure, numberSalary]);
+  }, [axiosPublic,data?.price  ]);
 
   const handelPayment = async (event) =>{
 
@@ -109,25 +88,23 @@ useEffect(() => {
         console.log('transaction id', paymentIntent.id)
         setTransactionId(paymentIntent.id)
 
-        // update payment status paid  
-        axiosSecure.patch(`/accepttrainer/role/${_id}`)
-        .then(res =>{
-            console.log(res.data)
-        })
-
         // now save the payment in the database 
-        const payment = {
-            email : user.email,
-            price : numberSalary,
+        const paymentData = {
+            userInfo: user,
+            trainerName: data?.trainerName,
+            price : data?.price,
+            package: data?.package,
+            day: data?.day,
+            time: data?.time,
             transactionId: paymentIntent.id,
             date : new Date(), 
             status: 'paid',
-            trainerName: details?.name,
-            trainerEmail: details?.trainerEmail
+            trainerId: data?.trainerId,
+            slotId: data?._id
         }
 
         // send data to the db 
-      const res = await  axiosSecure.post('/payment', payment)
+      const res = await  axiosPublic.post('/userpayment', paymentData)
       console.log(res.data)
       if(res?.data?.insertedId){
         Swal.fire({
@@ -137,9 +114,7 @@ useEffect(() => {
             showConfirmButton: false,
             timer: 1500
           });
-
-        //   redirect to payment history page 
-        navigate('/dashboard/allTrainers')
+        
       }
     }
 
@@ -153,8 +128,42 @@ useEffect(() => {
     return (
         <div className=" p-5  mx-auto py-10 w-3/6 rounded-lg shadow-md bg-slate-100">
         <form onSubmit={handelPayment}>
+
+        <div>
+                
+                <div className="card ">
+                <div className="card-body ">
+                <h1 className="text-center text-xl font-bold">Your Selected Package </h1>
+                    <h2 className="card-title">
+                        <span>Trainer Name: {data?.trainerName} </span>
+                    </h2>
+                    <p> 
+                        <p>Slot: {data?.day}</p>
+                        <span>{data?.time} </span>
+                    </p>
+                    <div>
+                        <h1>Package : {data?.package} </h1>
+                    </div>
+                    <div>
+                        <h1>Price  : ${data?.price} </h1>
+                    </div>
+
+                    <div>
+                        <p>Your Info :</p>
+                        <p>Name : <span>{user?.displayName}</span> </p>
+                        <div>
+                            <p> {user?.email}</p>
+                        </div>
+                    </div>
+                    <div className="card-actions justify-end">
+                    
+                    </div>
+                </div>
+                </div>
+            </div>
       
-          <CardElement
+         <div className="px-16 bg-green-200 p-4 rounded-md">
+         <CardElement
             options={{
               style: {
                 base: {
@@ -170,10 +179,12 @@ useEffect(() => {
               },
             }}
           ></CardElement>
-  
-          <button className="btn btn-warning text-white btn-sm px-4 mt-3" type="submit" disabled={!stripe || !clientSecret}>
-            Pay ${numberSalary}
+           <button className="btn btn-warning text-white btn-sm px-4 mt-3" type="submit" disabled={!stripe || !clientSecret}>
+            Pay ${data?.price}
           </button>
+         </div>
+  
+         
   
             <p className="text-red-500">{error}</p>
             {transactionId && <p className="text-green-500"> Your Transaction Id :  {transactionId} </p> }
@@ -183,4 +194,4 @@ useEffect(() => {
     );
 };
 
-export default CheckOutForm;
+export default TrainnerCheckoutForm;

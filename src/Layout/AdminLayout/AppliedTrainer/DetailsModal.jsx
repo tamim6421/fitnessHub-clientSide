@@ -11,7 +11,7 @@ const DetailsModal = () => {
 
    
     const {name, image, trainerEmail, age, icons, days, skills, time,yearOfExperience, _id ,role } = allInfo
-    console.log(days.length)
+    // console.log(days.length)
 
     const {data:allUser = [], isLoading, isError, refetch} = useQuery({
         queryKey: ['allUser'],
@@ -70,6 +70,7 @@ const DetailsModal = () => {
             for( let j = 0 ; j < time.length; j ++){
                 const slot = {
                     trainerId: _id,
+                    trainerName: name,
                     day: days[i],
                     time: time[j],
                    package: null ,
@@ -97,6 +98,7 @@ const DetailsModal = () => {
                 salary: '20000',
                 details: allInfo,
                 trainerId: _id,
+              
                 salaryCount: 0,
 
             }
