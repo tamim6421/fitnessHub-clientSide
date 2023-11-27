@@ -32,6 +32,7 @@ import AddNewClass from "../Layout/Trainer/AddNewClass/AddNewClass";
 import TrainerBook from "../Pages/Trainer/TrainerBook/TrainerBook";
 import PaymentBooking from "../Pages/Trainer/TrainerBook/PaymentBooking/PaymentBooking";
 import TotalBalance from "../Layout/AdminLayout/Totalbalance/TotalBalance";
+import RecommendedClasses from "../Layout/Member/RecommendedClass/RecommendedClasses";
 
 
 const router = createBrowserRouter([
@@ -170,6 +171,10 @@ const router = createBrowserRouter([
             {
               path: 'newForum',
               element: <AddedANewForum></AddedANewForum>  
+            },
+            {
+                path: 'recommendedClass',
+                element: <RecommendedClasses></RecommendedClasses>
             }
         ]
     }

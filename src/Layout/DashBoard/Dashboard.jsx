@@ -187,6 +187,20 @@ const Dashboard = () => {
                    Profile Setting
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/recommendedClass"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                    }
+                  >
+                   Recommended Class
+                  </NavLink>
+                </li>
               </>
             )}
 
