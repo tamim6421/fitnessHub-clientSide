@@ -148,10 +148,10 @@ useEffect(() => {
     return (
         <div className=" p-5  mx-auto py-10 w-3/6 rounded-lg shadow-md bg-slate-100">
         <form onSubmit={handelPayment}>
-          <div className="text-center p-2">
-          <p>Total Month: {difference} </p>
-          <p>My salary per month: {numberSalary} </p>
-          <p>Total Salary: {salaryBill} </p>
+          <div className="text-center text-gray-500 p-2">
+          <p>Total Months: {difference} </p>
+          <p>My salary per month: $ {numberSalary} </p>
+          <p>Total Salary: $ {salaryBill} </p>
           </div>
       
           <CardElement

@@ -71,6 +71,7 @@ const DetailsModal = () => {
                 const slot = {
                     trainerId: _id,
                     trainerName: name,
+                    email:trainerEmail,
                     day: days[i],
                     time: time[j],
                    package: null ,
