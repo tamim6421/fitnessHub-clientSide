@@ -72,6 +72,7 @@ const DetailsModal = () => {
                     trainerId: _id,
                     trainerName: name,
                     email:trainerEmail,
+                    status: 'pending',
                     day: days[i],
                     time: time[j],
                    package: null ,

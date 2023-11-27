@@ -16,10 +16,10 @@ const PaymentBooking = () => {
     const {user, loading} = useAuth()
     const info = useLoaderData()
 
-    if (!data || data.package === null) {
-        return <p>Please reload the page.</p>;
-      }
-    console.log(user)
+    // if (!data || data.package === null) {
+    //     return <p>Please reload the page.</p>;
+    //   }
+    // console.log(user)
 
     return (
         <div>

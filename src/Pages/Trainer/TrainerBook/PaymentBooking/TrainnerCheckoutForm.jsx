@@ -21,10 +21,10 @@ const TrainnerCheckoutForm = ({data}) => {
   const {user} = useAuth()
   
 
-  if (!data || data.package === null) {
-    return <p className="text-center mt-36">Please reload the page.</p>;
-  }
-  console.log(data)
+  // if (!data || data.package === null) {
+  //   return <p className="text-center mt-36">Please reload the page.</p>;
+  // }
+  // console.log(data)
   
 
 useEffect(() => {

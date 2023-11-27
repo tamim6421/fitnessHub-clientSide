@@ -21,26 +21,25 @@ const TrainerBook = () => {
       })
     } ,[])
     console.log(slotData)
-
-    const slotBooking = (info) =>{
-      // console.log(info)
-      const bookData = {
-        user: user,
-        trainerName: '',
-        package: info.cardName,
-        price: info.price,
-
+    
+    const slotBooking = async (info) => {
+      try {
+        const bookData = {
+          user: user,
+          trainerName: '',
+          package: info.cardName,
+          price: info.price,
+        };
+    
+        console.log(bookData);
+    
+        const response = await axiosPublic.put(`/putslot/${slotData?._id}`, bookData);
+        
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
       }
-      console.log(bookData)
-
-      // send Date to the database 
-      axiosPublic.put(`/putslot/${slotData?._id}`, bookData)
-  .then(res => {
-    console.log(res.data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
+    
 
 
     }
