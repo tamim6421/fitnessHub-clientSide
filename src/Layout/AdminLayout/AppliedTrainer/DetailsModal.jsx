@@ -3,15 +3,24 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useState } from "react";
+import toast from "react-hot-toast";
+
+
+import emailjs from '@emailjs/browser';
+import { useRef } from "react";
+import useAuth from "../../../Hooks/useAuth";
+
 
 
 const DetailsModal = () => {
+    const {user } = useAuth()
     const  allInfo = useLoaderData()
     const axiosSecure = useAxiosSecure()
+    const form = useRef();
 
    
-    const {name, image, trainerEmail, age, icons, days, skills, time,yearOfExperience, _id ,role } = allInfo
-    // console.log(days.length)
+    const {name, image, trainerEmail, age, status, icons, days, skills, time,yearOfExperience, _id ,role } = allInfo
+    console.log(status)
 
     const {data:allUser = [], isLoading, isError, refetch} = useQuery({
         queryKey: ['allUser'],
@@ -35,7 +44,7 @@ const DetailsModal = () => {
     // console.log(allUser)
     const getEmail = allUser?.filter(user => user.email == trainerEmail )
     const candideEmail = getEmail[0]?._id
-    console.log(getEmail)
+    // console.log(getEmail)
 
     
     let slotArray = []
@@ -118,6 +127,34 @@ const DetailsModal = () => {
             }
         
 
+    }
+
+
+
+    // handel reject button 
+
+    const handelReject = async (id) =>{
+        try {
+          
+            // Edit reject button status
+            const response = await axiosSecure.patch(`/trainers/status/${id}`);
+            
+            console.log(response.data);
+        
+            if (response.data.modifiedCount > 0) {
+              toast.success('Application Rejected');
+            }
+            refetch()
+        
+            console.log(id);
+        
+            // Send email using async/await
+            const result = await emailjs.sendForm("service_mae6y8e", "template_fg1ljqu", form.current, "Q6AHY20suZ7Ts2NPU");
+        
+            console.log(result.text);
+          } catch (error) {
+            console.error(error);
+          }
     }
 
     
@@ -203,10 +240,50 @@ const DetailsModal = () => {
                             <div className="mt-8">
                                 <div >
                                     {/* <button onClick={makeSlot}>check</button> */}
-                                    <button 
+
+                                    {
+                                        status == 'pending' && <>
+                                         <button 
                                    onClick={() =>handelAccept(_id)}
-                                    className="btn btn-outline bg-purple-500 btn-sm text-white mr-10">Accept</button>
-                                    <button className="btn bg-red-500 btn-sm hover:bg-red-600 text-white mr-10">Reject</button>
+                                    className="btn bg-green-500 hover:bg-green-700 btn-sm mb-2 px-3 text-white mr-10">Accept</button>
+                                        </> 
+                                    }
+                                   
+
+
+                                    <div>
+                                          {/* send email from  */}
+                                   <div className="hidden">
+                                   <form ref={form} onSubmit={handelReject}>
+                                    <label>Name</label>
+                                    <input type="text" defaultValue='FitnessHub' name="from_name" />
+                                    <label>Email</label>
+                                    <label>Member Name</label>
+                                    <input type="text" defaultValue={name} name="member_name" />
+                                    <label>Email</label>
+                                    <input defaultValue = {trainerEmail} type="email" name="user_email" />
+                                    <label>Message</label>
+                                    <textarea name="message" />
+                                    <input type="submit" value="Send" />
+                                    </form>
+                                     </div>
+                                    </div>
+
+
+                                   {
+                                    status == 'pending' ? <>
+                                     <button 
+                                    onClick ={() =>handelReject(_id)}
+                                    className="btn bg-red-500 btn-sm px-4 hover:bg-red-600 text-white mr-10">Reject</button>
+
+                                    
+                                    </>
+                                    :
+                                   <>
+                                   <p className="text-sm font-bold text-red-600">Application Rejected</p>
+                                   </>
+                                   }
+
                                 </div>
                             </div>
                         </div>

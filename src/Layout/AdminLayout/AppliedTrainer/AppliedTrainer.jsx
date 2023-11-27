@@ -15,6 +15,7 @@ const AppliedTrainer = () => {
             return res.data
         }
     })
+    
 
     console.log(trainers)
 

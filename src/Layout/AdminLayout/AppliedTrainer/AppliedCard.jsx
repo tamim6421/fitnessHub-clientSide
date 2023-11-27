@@ -8,9 +8,7 @@ const AppliedCard = ({trainer}) => {
     console.log(trainer)
 
 
-  const handelAccept = () =>{
 
-  }
 
 
     return (

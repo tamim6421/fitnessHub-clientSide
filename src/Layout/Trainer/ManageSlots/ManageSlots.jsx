@@ -86,7 +86,7 @@ const ManageSlots = () => {
                <div className="overflow-x-auto">
                         <table className="table bg-slate-50 p-2  shadow-lg">
                          
-                          <thead className="bg-purple-500 text-white  rounded">
+                          <thead className="bg-purple-500 text-white text-sm rounded-md">
                             <tr>
                               <th>
                                 Number 
@@ -133,12 +133,12 @@ const ManageSlots = () => {
                         <div className="overflow-x-auto">
                         <table className="table">
                          
-                          <thead className="bg-purple-500 text-white rounded-md">
+                          <thead className="bg-purple-500 text-white text-sm rounded-md">
                             <tr>
                               <th>
                                 Number 
                               </th>
-                              <th>Name</th>
+                              <th>Booked By</th>
                               <th>Day</th>
                               <th>Time</th>
                               <th>Action</th>
@@ -168,10 +168,13 @@ const ManageSlots = () => {
                                 <button className="btn px-9 mb-2 btn-sm bg-green-600 hover:bg-green-700 text-white">{book?.day}</button>
                                
                                 </td>
+                               
                                 <td>
                                 <button className="btn btn-sm bg-green-200 ">{book?.time}</button>
                                 </td>
                                 <th>
+
+                                    {/* send email from  */}
                                    <div className="hidden">
                                    <form ref={form} onSubmit={sendEmail}>
                                     <label>Name</label>

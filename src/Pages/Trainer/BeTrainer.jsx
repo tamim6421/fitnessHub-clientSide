@@ -51,6 +51,7 @@ const BeTrainer = () => {
             trainerEmail: data.email,
             image: res.data.data.display_url,
             skills: data.skills, 
+            status: 'pending',
             days: storeDays,
             time: storeTime,
             icons: socialIcons,
