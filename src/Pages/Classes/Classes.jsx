@@ -6,6 +6,7 @@ import AddClass from "./AddClass";
 import DailyRutine from "./DailyRutine";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Loader from "../../Components/Loader/Loader";
 
 
 const Classes = () => {
@@ -37,7 +38,7 @@ const Classes = () => {
 
     
     if(isLoading){
-    return <p className="text-center my-36">Loading.......</p>
+    return <Loader></Loader>
     }
 
 

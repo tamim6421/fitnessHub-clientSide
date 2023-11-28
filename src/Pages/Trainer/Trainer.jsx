@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import TrainerCard from "./TrainerCard";
+import Loader from "../../Components/Loader/Loader";
 
 const Trainer = () => {
     const axiosPublic = useAxiosPublic()
@@ -20,7 +21,7 @@ const Trainer = () => {
       })
     
       if (isLoading) {
-        return <div>Loading...</div>;
+        return <Loader></Loader>
       }
     
       console.log(trainers)

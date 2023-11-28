@@ -88,7 +88,7 @@ Gallery
        
         <li>
         <NavLink
-  to="/contact"
+  to="/contract"
   className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
   }

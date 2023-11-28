@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
+import Loader from "../Components/Loader/Loader";
 
 
 const PrivetRoute = ({children}) => {
@@ -10,7 +11,7 @@ const PrivetRoute = ({children}) => {
         const location = useLocation()
     
         if(loading){
-            return <h3 className="text-center text-3xl mt-36"> Loading .......</h3>
+            return <Loader></Loader>
         }
     
         if(user){

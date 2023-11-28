@@ -2,11 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 
+import Chart from 'chart.js/auto'
+import { useEffect, useRef } from "react";
 
 
 
 const TotalBalance = () => {
     const axiosSecure = useAxiosSecure()
+    const chartRef = useRef(null)
+    const chartInstance = useRef(null)
+
+    
 
     // get total balance 
     const {data:totalBalance = [], isLoading, refetch} = useQuery({
@@ -38,7 +44,7 @@ const {data:subscribers = []} = useQuery({
         return res.data
     }
   })
-// console.log(subscribers?.length)
+const totalSubscribers = (subscribers?.length)
 
 
 
@@ -51,12 +57,47 @@ const {data:paymentByMember = []} = useQuery({
     }
   })
 
-  console.log(paymentByMember)
+  const totalPaidMember = (paymentByMember.length)
 
 const memberPay = paymentByMember?.reduce( (bal, p) => bal + p.price ,0)
 // console.log(memberPay)
 const remaining = (totalBalance[0]?.total_balance - paymentBalance[0]?.price)
 const balanceNow = (remaining + memberPay)
+
+
+
+
+// for chart 
+
+useEffect( () =>{
+  if(chartInstance.current){
+    chartInstance.current.destroy()
+  }
+  const myChart = chartRef.current.getContext('2d')
+  chartInstance.current = new Chart (myChart, {
+    type: 'doughnut',
+    data: {
+      labels: [
+        'Total Subscribers',
+        'Total Paid Member',
+      ],
+      datasets: [{
+      
+        data: [totalSubscribers, totalPaidMember],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+        ],
+        hoverOffset: 4
+      }]
+    }
+  })
+  return () =>{
+    if(chartInstance.current){
+      chartInstance.current.destroy()
+    }
+  }
+} ,[])
 
     return (
         <div>
@@ -95,8 +136,8 @@ const balanceNow = (remaining + memberPay)
                 Total Paid Members
              </p>
 
-             <div>
-           
+             <div className="w-[300px] mx-auto">
+              <canvas ref={chartRef} style={{width: '200px', height:'200px'}}></canvas>
              </div>
         </div>
 

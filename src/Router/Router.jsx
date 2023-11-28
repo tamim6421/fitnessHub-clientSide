@@ -8,7 +8,6 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Trainer from "../Pages/Trainer/Trainer";
 import BeTrainer from "../Pages/Trainer/BeTrainer";
 import Forum from "../Pages/Forum/Forum";
-import AdminLayout from "../Layout/AdminLayout/AdminLayout";
 import Dashboard from "../Layout/DashBoard/Dashboard";
 import AdminHome from "../Layout/AdminLayout/AdminHome/AdminHome";
 import TrainerHome from "../Layout/Trainer/TrainerHome/TrainerHome";
@@ -33,6 +32,8 @@ import TrainerBook from "../Pages/Trainer/TrainerBook/TrainerBook";
 import PaymentBooking from "../Pages/Trainer/TrainerBook/PaymentBooking/PaymentBooking";
 import TotalBalance from "../Layout/AdminLayout/Totalbalance/TotalBalance";
 import RecommendedClasses from "../Layout/Member/RecommendedClass/RecommendedClasses";
+import ContactUs from "../Pages/ContractUs/ContractUs";
+
 
 
 const router = createBrowserRouter([
@@ -51,7 +52,12 @@ const router = createBrowserRouter([
             },
             {   
                 path: '/classes',
-                element: <PrivetRoute> <Classes></Classes></PrivetRoute>
+                element: <Classes></Classes>
+            },
+            {
+                path: '/contract',
+                element: <ContactUs></ContactUs>
+
             },
             {
                 path: 'classDetails/:id',
@@ -64,11 +70,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'trainer',
-                element: <PrivetRoute>  <Trainer></Trainer></PrivetRoute>
+                element:  <Trainer></Trainer>
             },
             {
                 path:'beTrainer',
-                element: <BeTrainer></BeTrainer>
+                element: <PrivetRoute><BeTrainer></BeTrainer></PrivetRoute>
             },
             {
                 path: '/trainerBook/:id',
@@ -85,6 +91,7 @@ const router = createBrowserRouter([
                 path:'/forum',
                 element:<Forum></Forum>
             },
+           
             {
                 path: 'login',
                 element: <Login></Login>
