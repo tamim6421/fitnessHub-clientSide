@@ -20,7 +20,7 @@ const RecommendedClasses = () => {
 
 
     return (
-        <div className="px-7">
+        <div className="px-20">
             <div className="text-center my-20">
                 <Title>Recommended Class For You </Title>
             </div>
@@ -29,9 +29,9 @@ const RecommendedClasses = () => {
 
 {
         showClass?.map(classItem => (
-            <Link to='/classes' key={classItem.id}>
-            <div className="card bg-base-100 shadow-xl" >
-                <figure className="px-10 pt-10">
+            <Link to='/classes' key={classItem.id} >
+            <div className=" card bg-base-100 shadow-xl"  data-aos="fade-right">
+                <figure className="px-10 pt-10 box">
                     <img src={classItem?.image} alt={classItem.title} className="rounded-xl h-[200px] object-cover w-full" />
                 </figure>
                 <div className="card-body items-center text-center">

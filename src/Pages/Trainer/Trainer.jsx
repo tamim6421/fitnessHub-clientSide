@@ -7,6 +7,8 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import TrainerCard from "./TrainerCard";
 import Loader from "../../Components/Loader/Loader";
+import Footer from "../../Shared/Footer/Footer";
+import { Helmet } from "react-helmet-async";
 
 const Trainer = () => {
     const axiosPublic = useAxiosPublic()
@@ -32,6 +34,11 @@ const Trainer = () => {
     return (
         <div>
           <Navbar></Navbar>
+          <Helmet>
+            <title>
+              FitnessHub | Trainer
+            </title>
+          </Helmet>
 
           <div className="mt-20 p-5 overflow-hidden">
 
@@ -64,7 +71,8 @@ const Trainer = () => {
             </div>
 
           </div>
-          
+                
+                <Footer></Footer>
         </div>
     );
 };

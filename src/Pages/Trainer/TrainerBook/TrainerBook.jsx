@@ -5,12 +5,14 @@ import { FaCheck } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const TrainerBook = () => {
     const slotData = useLoaderData()
     const [infos, setInfos] = useState()
     const {user} = useAuth()
     const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
 
 
     useEffect(() =>{
@@ -35,7 +37,7 @@ const TrainerBook = () => {
     
         console.log(slotData._id);
     
-        const response = await axiosPublic.put(`/putslot/${slotData?._id}`, bookData);
+        const response = await axiosSecure.put(`/putslot/${slotData?._id}`, bookData);
         
         console.log(response.data);
       } catch (error) {

@@ -5,6 +5,7 @@ import { FaHome, FaPeopleCarry } from "react-icons/fa";
 import { FaMoneyBillTrendUp, FaPeopleGroup } from "react-icons/fa6";
 import { IoMdPeople } from "react-icons/io";
 import { MdAddPhotoAlternate } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 
 const Dashboard = () => {
@@ -12,7 +13,11 @@ const Dashboard = () => {
   return (
     <div>
         <Navbar></Navbar>
-
+        <Helmet>
+          <title>
+            FitnessHub | Dashboard
+          </title>
+        </Helmet>
       <div className="flex mt-20 flex-col md:flex-row">
         <div className="flex-[1]  md:w-[220px]  md:fixed md:z-10 md:h-[100vh]  bg-base-100 shadow-lg">
 
@@ -126,7 +131,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        ? "text-purple-900 font-bold text-xl"
                         : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
@@ -140,7 +145,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        ? "text-purple-900 font-bold text-xl"
                         : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
@@ -154,7 +159,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        ? "text-purple-900 font-bold text-xl"
                         : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
@@ -168,7 +173,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        ? "text-purple-900 font-bold text-xl"
                         : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
@@ -190,7 +195,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        ? "text-purple-900 font-bold text-xl"
                         : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
@@ -204,7 +209,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        ? "text-purple-900 font-bold text-xl"
                         : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
@@ -218,7 +223,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        ? "text-purple-900 font-bold text-xl"
                         : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
@@ -232,7 +237,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        ? "text-purple-900 font-bold text-xl"
                         : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
@@ -253,7 +258,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-500 text-lg bg-purple-50 font-semibold"
+                        ? "text-purple-900 font-bold text-xl"
                         : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >

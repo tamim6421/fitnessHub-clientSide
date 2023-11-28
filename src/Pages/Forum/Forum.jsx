@@ -11,6 +11,7 @@ import PostCard from "./PostCard";
 import { useNavigate } from "react-router-dom";
 import './Forum.css'
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Footer from "../../Shared/Footer/Footer";
 
 
 const Forum = () => {
@@ -151,7 +152,7 @@ const Forum = () => {
                         <h1>Create a new Post</h1>
                         <form onSubmit={handelPost}>
                         <textarea name="text" className="textarea w-full textarea-bordered" placeholder="Text here"></textarea>
-                    <input type="file" name="image" accept="image/*" className="file-input file-input-bordered file-input w-full max-w-xs" />
+                    <input type="file" name="image" accept="image/*" className="file-input-bordered file-input w-full max-w-xs" />
                     <div>
                     <button className="btn bg-purple-500 btn-outline px-7 mt-5 text-white">Post</button>
                     </div>
@@ -161,6 +162,7 @@ const Forum = () => {
                 </div>
                 </dialog>
                </div>
+               <Footer></Footer>
         </div>
     );
 };

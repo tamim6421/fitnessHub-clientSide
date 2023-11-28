@@ -3,14 +3,16 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useUserRole from "../../../Hooks/useUserRole";
 import toast from "react-hot-toast";
+import Loader from "../../../Components/Loader/Loader";
 
 const ProfileSetting = () => {
   const { user } = useAuth();
-  const { userRole } = useUserRole();
+  const {userRole, isLoading} = useUserRole();
   const axiosSecure = useAxiosSecure()
 
+// console.log(userRole[0].role)
 
-  const {data:allUser = [], isLoading: userLoading, refetch} = useQuery({
+  const {data:allUser = [], isLoading: userLoading} = useQuery({
     queryKey: ['allUser'],
     queryFn: async () =>{
         const res = await axiosSecure.get('/alluser')
@@ -20,7 +22,7 @@ const ProfileSetting = () => {
 
 console.log(allUser)
 
-if(userLoading) return <h2> Loading.....</h2>
+if(userLoading) return <Loader></Loader>
 // console.log(allUser)
 const getMember = allUser?.find(allUser => allUser.email == user?.email)
 

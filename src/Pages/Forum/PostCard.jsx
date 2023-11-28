@@ -5,7 +5,7 @@ import { FaComments } from "react-icons/fa";
 import { FaShareAlt } from "react-icons/fa";
 
 const PostCard = ({data}) => {
-    const {host,date, image, post, role} = data
+    const {host, image, post, role} = data
     // console.log(data)
     const [like, setLike] = useState(210),
     [isLike, setIsLike] = useState(false)
@@ -21,7 +21,7 @@ const PostCard = ({data}) => {
     <img
       src={host.image}
       alt="tania andrew"
-      className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
+      className="relative inline-block  h-[58px] w-[58px] !rounded-full object-cover object-center"
     />
     <div className="flex w-full flex-col gap-0.5">
       <div className="flex items-center justify-between">
@@ -31,9 +31,21 @@ const PostCard = ({data}) => {
         
         
       </div>
-      <p className="bg-purple-400 max-w-max px-1 rounded-sm text-white">
-        {role}
-      </p>
+      {
+  role === 'admin' ? (
+    <p className="bg-green-400 max-w-max px-1 rounded-lg text-sm text-white">
+      {role}
+    </p>
+  ) : role === 'member' ? (
+    <p className="bg-yellow-400 max-w-max px-1 rounded-lg text-sm text-white">
+      {role}
+    </p>
+  ) : (
+    <p className="bg-orange-600 max-w-max px-1 rounded-lg text-sm text-white">
+      {role}
+    </p>
+  )
+}
     </div>
   </div>
  
@@ -44,7 +56,7 @@ const PostCard = ({data}) => {
     </p>
   </div>
   <div className="flex items-center justify-center rounded-lg">
-    <img src={image} alt="" className="w-[280px] h-[250px] object-cover" />
+    <img src={image} alt="" className="w-[280px] h-[250px] box object-cover" />
   </div>
     
     {/* like comments sections  */}

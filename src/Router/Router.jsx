@@ -33,6 +33,8 @@ import PaymentBooking from "../Pages/Trainer/TrainerBook/PaymentBooking/PaymentB
 import TotalBalance from "../Layout/AdminLayout/Totalbalance/TotalBalance";
 import RecommendedClasses from "../Layout/Member/RecommendedClass/RecommendedClasses";
 import ContactUs from "../Pages/ContractUs/ContractUs";
+import AdminRoute from "./AdminRoute/AdminRoute";
+import TrainerRoute from "./TrainerRoure/TrainerRoute";
 
 
 
@@ -79,7 +81,12 @@ const router = createBrowserRouter([
             {
                 path: 'trainerBook/:id',
                 element: <TrainerBook></TrainerBook>,
-                loader: ({params}) => fetch(`http://localhost:5000/getslot/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/getslot/${params.id}`,{       
+                    headers: {
+                        'authorization' : `Bearer ${localStorage.getItem('access-token')}`,
+                      },
+            })
+
 
             },
             {
@@ -114,19 +121,19 @@ const router = createBrowserRouter([
             // admin only routes 
             {
                 path: 'adminHome',
-                element: <AdminHome></AdminHome>
+                element:<AdminRoute> <AdminHome></AdminHome></AdminRoute>
             },
             {
                 path: 'allSubscriber',
-                element: <AllSubscribers></AllSubscribers>
+                element: <AdminRoute><AllSubscribers></AllSubscribers></AdminRoute>
             },
             {
                 path: 'allTrainers',
-                element: <AllTrainers></AllTrainers>
+                element: <AdminRoute> <AllTrainers></AllTrainers></AdminRoute>
             },
             {
                 path: 'appliedTrainer',
-                element: <AppliedTrainer></AppliedTrainer>
+                element: <AdminRoute><AppliedTrainer></AppliedTrainer></AdminRoute>
             },
             {
                 path: 'trainerDetails/:id',
@@ -144,30 +151,30 @@ const router = createBrowserRouter([
             },
             {
                 path: 'detailsTrainer/:id',
-                element: <TrainerDetails></TrainerDetails>,
+                element: <AdminRoute><TrainerDetails></TrainerDetails></AdminRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/accepttrainer/${params.id}`)
             },
             {
                 path: 'balance',
-                element: <TotalBalance></TotalBalance>
+                element: <AdminRoute> <TotalBalance></TotalBalance></AdminRoute>
             },
 
             // trainer  only routes 
             {
                 path: 'trainerHome',
-                element: <TrainerHome></TrainerHome>
+                element: <TrainerRoute><TrainerHome></TrainerHome></TrainerRoute>
             },
             {
                 path: 'manageSlots',
-                element: <ManageSlots></ManageSlots>
+                element: <TrainerRoute><ManageSlots></ManageSlots></TrainerRoute>
             },
             {
                 path: 'manageMember',
-                element: <ManageMember></ManageMember>
+                element: <TrainerRoute><ManageMember></ManageMember></TrainerRoute>
             },
             {
                 path: 'addNewClass',
-                element: <AddNewClass></AddNewClass>
+                element: <TrainerRoute><AddNewClass></AddNewClass></TrainerRoute>
             },
 
             // member only routes 
