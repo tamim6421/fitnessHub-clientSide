@@ -17,12 +17,14 @@ const TrainerBook = () => {
       fetch('/price.json')
       .then( res => res.json())
       .then( data =>{
+        console.log(data)
         setInfos(data)
       })
     } ,[])
     console.log(slotData)
     
     const slotBooking = async (info) => {
+      console.log(info)
       try {
         const bookData = {
           user: user,
@@ -31,7 +33,7 @@ const TrainerBook = () => {
           price: info.price,
         };
     
-        console.log(bookData);
+        console.log(slotData._id);
     
         const response = await axiosPublic.put(`/putslot/${slotData?._id}`, bookData);
         

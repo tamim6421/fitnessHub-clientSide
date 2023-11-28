@@ -18,7 +18,7 @@ const Profile = () => {
         <div className='bg-white shadow-lg rounded-2xl w-3/4 h-[70vh]'>
           <img
             alt='profile'
-            src='https://i.ibb.co/Y20dfVz/pexels-pixabay-260352.jpg'
+            src='https://i.ibb.co/ZxMKLQr/Screenshot-6.png'
             className='w-full object-cover mb-4 rounded-t-lg h-48'
           />
           <div className='flex flex-col items-center justify-center p-4 -mt-16'>
@@ -30,7 +30,7 @@ const Profile = () => {
               />
             </a>
   
-            <p className='p-2 px-4 text-xs text-white bg-purple-600 rounded-full'>
+            <p className='p-2 px-4 text-xs text-white bg-green-600 rounded-full'>
               {userRole[0]?.role && userRole[0]?.role.toUpperCase()}
             </p>
             <p className='mt-2 text-xl font-medium text-purple-800 '>
@@ -60,7 +60,7 @@ const Profile = () => {
                 </p>
   
                 <div className="mt-5">
-                  <Link to='/dashboard/'>
+                  <Link >
                   <button className='bg-purple-500 px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-purple-700 block mb-1'>
                     Update Profile
                   </button></Link>

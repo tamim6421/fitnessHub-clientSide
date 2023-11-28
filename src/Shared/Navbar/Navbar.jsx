@@ -2,17 +2,18 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from './../../Hooks/useAuth';
 import { useEffect, useState } from "react";
 import useUserRole from "../../Hooks/useUserRole";
-
+import { FaEdit } from "react-icons/fa";
+import { TbLogout } from "react-icons/tb";
 
 
 const Navbar = () => {
-    const {logOut, user, loading} = useAuth()
+    const {logOut, user,} = useAuth()
     const {userRole} = useUserRole()
    
     
   
 
-  console.log(userRole[0]?.role)
+  // console.log(userRole[0]?.role)
 
     // for dark theme 
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
@@ -38,7 +39,7 @@ const Navbar = () => {
         <NavLink
   to="/"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-purple-500 text-lg font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-700 text-xl bg-purple-50 font-bold" : "hover:bg-gray-100 text-black text-lg"
   }
 >
 {/* <FaHome></FaHome>  */}
@@ -49,7 +50,7 @@ const Navbar = () => {
         <NavLink
   to="/gallery"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-purple-500 text-lg  font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-700 text-xl bg-purple-50 font-bold" : "hover:bg-gray-100 text-black text-lg"
   }
 >
 Gallery
@@ -59,7 +60,7 @@ Gallery
         <NavLink
   to="/Trainer"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-700 text-xl bg-purple-50 font-bold" : "hover:bg-gray-100 text-black text-lg"
   }
 >
   Trainer
@@ -69,7 +70,7 @@ Gallery
         <NavLink
   to="/classes"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-100 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-700 text-xl bg-purple-50 font-bold" : "hover:bg-gray-100 text-black text-lg"
   }
 >
   Classes
@@ -79,7 +80,7 @@ Gallery
         <NavLink
   to="/forum"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-100 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-700 text-xl bg-purple-50 font-bold" : "hover:bg-gray-100 text-black text-lg"
   }
 >
   Forum
@@ -90,7 +91,7 @@ Gallery
         <NavLink
   to="/contract"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
+    isPending ? "pending" : isActive ? "text-purple-700 text-xl bg-purple-50 font-bold" : "hover:bg-gray-100 text-black text-lg"
   }
 >
  Contact Us
@@ -108,7 +109,7 @@ Gallery
                     <NavLink
               to="/dashboard/adminHome"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
+                isPending ? "pending" : isActive ? "text-purple-700 text-xl bg-purple-50 font-bold" : "hover:bg-gray-100 text-black text-lg"
               }
             >
             Dashboard
@@ -129,7 +130,7 @@ Gallery
                 <NavLink
           to="/dashboard/trainerHome"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
+            isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-gray-100 text-black text-lg"
           }
         >
         Dashboard
@@ -151,7 +152,7 @@ Gallery
                 <NavLink
           to="/dashboard/memberHome"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-purple-100  text-purple-600 text-lg"
+            isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-gray-100 text-black text-lg"
           }
         >
         Dashboard
@@ -164,12 +165,12 @@ Gallery
     </>
     return (
         <div className=" ">
-        <div className="navbar fixed  max-w-[1250px] z-10 mx-auto bg-opacity-70 bg-base-100 top-0 w-full  shadow-lg px-5 font-semibold text-rose-500 ">
+        <div className="navbar fixed  max-w-[1250px] z-10 mx-auto bg-opacity-90 bg-white top-0 w-full  shadow-lg px-5 font-semibold ">
         <div className="navbar-start">
 
        
 
-        <div className="drawer">
+        <div className="drawer ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 
         <div className="drawer-content flex flex-col">
             
@@ -181,7 +182,7 @@ Gallery
             </div>
                 
             <Link to='/'><button className=" normal-case px-4  font-extrabold text-2xl">
-        <h1>FitnessHub</h1>
+        <h1 className="text-purple-700">Fitness<span className="text-yellow-400 text-3xl">Hub</span> </h1>
         </button></Link>
             
 
@@ -234,21 +235,68 @@ Gallery
       
     </div>
   </label>
-  <ul tabIndex={0} className="menu menu-sm dropdown-content text-sm  space-y-2 mt-3 z-[1] p-2 shadow bg-purple-200 ">
-    <li>
-    {
-              user.displayName == null ? <button className="btn btn-sm text-white bg-purple-500"> User </button> :<button className="btn btn-sm  text-white bg-purple-500">  {user.displayName} </button>
-            }
-          </li>
-          <li>
-          <button className="btn btn-sm text-white bg-purple-400" > {user.email} </button>
-          </li>
-          <li className="w-full">
-           <button
-          onClick={logOut}
-            className="btn btn-sm text-white  w-full bg-purple-400" > LogOut </button>
-          </li>
-  </ul>
+
+
+  <div tabIndex={0} className="menu menu-sm dropdown-content w-[200px] md:w-[300px] text-sm  space-y-2 mt-3 z-[1] shadow bg-purple-50 ">
+          <p
+            
+            className='w-full object-cover mb-4 bg-purple-200 rounded-t-lg h-10'
+          />
+          <div className='flex flex-col items-center justify-center -mt-16'>
+            <a href='#' className='relative h-[90px] w-[90px]  avatar online block'>
+              <img
+                alt='profile'
+                src={user?.photoURL}
+                className='mx-auto object-cover rounded-full h-[90px] w-[90px]  border-2 border-white '
+              />
+            </a>
+  
+            <p className='p-2 px-4 text-xs text-white bg-green-600 rounded-full'>
+              {userRole[0]?.role && userRole[0]?.role.toUpperCase()}
+            </p>
+            <p className='mt-2 text-xl font-medium text-purple-800 '>
+              {user?.displayName}
+            </p>
+            <span className='font-bold text-black '>{user?.email}</span>
+            <div className='w-full p-2 mt-4 rounded-lg'>
+              <div className='flex flex-wrap items-center justify-between text-sm text-purple-600 '>
+               
+                
+                <p className='flex flex-col'>
+                 Phone Number
+                  <span className='font-bold text-black '>
+                    {userRole[0]?.number}
+                  </span>
+                </p>
+                <p className='flex flex-col'>
+                  Address
+                  <span className='font-bold text-black '>{userRole[0]?.address}</span>
+                </p>
+  
+                <div className="mt-5">
+                 
+                  <div className="">
+
+                  <Link to='/dashboard/memberProfile'>
+                  <button className="btn bg-purple-500 text-white hover:bg-purple-700 w-full ">
+                  
+                  Update Profile <FaEdit className="text-white text-2xl" />
+                  </button>
+                  </Link>
+                  
+                  <button
+                   onClick={logOut}
+                   className="btn bg-purple-500 text-white hover:bg-purple-700 w-full ">
+                  Logout
+                    <TbLogout className="text-2xl"/>
+                  </button>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
 </div>
 
   </div> : <Link to='/login'> <button className="rounded-lg btn-sm text-white bg-purple-500 ">lOGIN</button> </Link>
@@ -262,3 +310,19 @@ Gallery
 };
 
 export default Navbar;
+
+{/* <ul tabIndex={0} className="menu menu-sm dropdown-content text-sm  space-y-2 mt-3 z-[1] p-2 shadow bg-purple-200 ">
+    <li>
+    {
+              user.displayName == null ? <button className="btn btn-sm text-white bg-purple-500"> User </button> :<button className="btn btn-sm  text-white bg-purple-500">  {user.displayName} </button>
+            }
+          </li>
+          <li>
+          <button className="btn btn-sm text-white bg-purple-400" > {user.email} </button>
+          </li>
+          <li className="w-full">
+           <button
+          onClick={logOut}
+            className="btn btn-sm text-white  w-full bg-purple-400" > LogOut </button>
+          </li>
+  </ul> */}

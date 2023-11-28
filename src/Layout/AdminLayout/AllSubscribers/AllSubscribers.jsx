@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Title from "../../../Components/Title/Title";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
 const AllSubscribers = () => {
-    const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
     const [subscribers, setAllSubscribers] = useState([])
 
@@ -19,7 +17,7 @@ const AllSubscribers = () => {
 
     
     return (
-        <div className="mt-20">
+        <div className="mt-20 px-20">
           <div className="my-5 text-center">
           <Title>All Subscribers</Title>
           <p>Our Total Subscribers</p>
@@ -31,9 +29,9 @@ const AllSubscribers = () => {
                 <>
                 <div>
             <div className="overflow-x-auto px-6 mt-10">
-  <table className="table">
+  <table className="table shadow-xl">
     {/* head */}
-    <thead>
+    <thead className="bg-purple-500 text-white">
       <tr>
         <th>
           <label>

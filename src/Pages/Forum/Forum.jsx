@@ -10,11 +10,13 @@ import Swal from "sweetalert2";
 import PostCard from "./PostCard";
 import { useNavigate } from "react-router-dom";
 import './Forum.css'
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 
 const Forum = () => {
     const {user} = useAuth()
     const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
     const [loading, setLoading] = useState(false)
 
 
@@ -28,7 +30,7 @@ const Forum = () => {
     const {data: allPost, refetch } = useQuery({
         queryKey: ['allPost', currentPage],
         queryFn: async ({ pageParam = currentPage }) =>{
-            const res = await axiosPublic.get(`/allpost?page=${currentPage}&size=${itemsParPage}`)
+            const res = await axiosSecure.get(`/allpost?page=${currentPage}&size=${itemsParPage}`)
             return res.data
         }
     })
@@ -45,7 +47,7 @@ const Forum = () => {
     const {data: postUser = [], isLoading } = useQuery({
         queryKey: ['postUser', user?.email,],
         queryFn: async () =>{
-            const res = await axiosPublic.get(`/allusers/${user?.email}`)
+            const res = await axiosSecure.get(`/allusers/${user?.email}`)
             return res.data
         }
     })
@@ -104,14 +106,20 @@ const Forum = () => {
     return (
         <div>
             <Navbar></Navbar>
-
+            {
+            user != null ?
             <div className="mt-20">
+                <div className="pt-10">
                 <SectionTitle title={'Added a new'} title1={'Post'}></SectionTitle>
+                
+                </div>
                 <button
                 onClick={()=>document.getElementById('my_modal_3').showModal()}
                 className="text-white btn btn-outline bg-purple-600 px-6 block mx-auto">Added a New Post</button>
-            </div>
-
+            </div> : <p className="pt-20">
+                <SectionTitle title={'Please login to add new '} title1={'post'}> </SectionTitle>
+            </p>
+            }
             <div>
                 <div>
                     {
@@ -122,7 +130,7 @@ const Forum = () => {
                         {
                             pages.map((number, i) => <button
                             onClick={() => setCurrentPage(number)}
-                            key={number} 
+                            key={i} 
                             className={currentPage === number ? 'selected btn rounded-full bg-purple-400 mr-3 btn-sm ' : "btn  bg-purple-400 rounded-full mr-3 btn-sm"}> {number} </button> )
                         }
                     </div>
@@ -143,8 +151,10 @@ const Forum = () => {
                         <h1>Create a new Post</h1>
                         <form onSubmit={handelPost}>
                         <textarea name="text" className="textarea w-full textarea-bordered" placeholder="Text here"></textarea>
-                    <input type="file" name="image" accept="image/*" className="file-input file-input-bordered file-input-xs w-full max-w-xs" />
-                    <button className="btn bg-purple-500 btn-outline text-white">Post</button>
+                    <input type="file" name="image" accept="image/*" className="file-input file-input-bordered file-input w-full max-w-xs" />
+                    <div>
+                    <button className="btn bg-purple-500 btn-outline px-7 mt-5 text-white">Post</button>
+                    </div>
                         </form>
                    
                     </div>

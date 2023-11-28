@@ -77,7 +77,7 @@ const router = createBrowserRouter([
                 element: <PrivetRoute><BeTrainer></BeTrainer></PrivetRoute>
             },
             {
-                path: '/trainerBook/:id',
+                path: 'trainerBook/:id',
                 element: <TrainerBook></TrainerBook>,
                 loader: ({params}) => fetch(`http://localhost:5000/getslot/${params.id}`)
 
@@ -85,7 +85,11 @@ const router = createBrowserRouter([
             {
                 path:'paymentBooking/:id',
                 element: <PaymentBooking></PaymentBooking>,
-                loader: ({params}) => fetch(`http://localhost:5000/getslot/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/getslot/${params.id}`,{       
+                        headers: {
+                            'authorization' : `Bearer ${localStorage.getItem('access-token')}`,
+                          },
+                })
             },
             {
                 path:'/forum',
@@ -127,7 +131,11 @@ const router = createBrowserRouter([
             {
                 path: 'trainerDetails/:id',
                 element: <DetailsModal></DetailsModal>,
-                loader: ({params}) => fetch(`http://localhost:5000/trainers/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/trainers/${params.id}`,{
+                    headers: {
+                        'authorization': `Bearer ${localStorage.getItem('access-token')}`,
+                      },
+                })
             },
             {
                 path: 'payment/:id',

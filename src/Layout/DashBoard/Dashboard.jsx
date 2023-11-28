@@ -1,18 +1,24 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useUserRole from "../../Hooks/useUserRole";
 import Navbar from "../../Shared/Navbar/Navbar";
+import { FaHome, FaPeopleCarry } from "react-icons/fa";
+import { FaMoneyBillTrendUp, FaPeopleGroup } from "react-icons/fa6";
+import { IoMdPeople } from "react-icons/io";
+import { MdAddPhotoAlternate } from "react-icons/md";
+
 
 const Dashboard = () => {
   const { userRole } = useUserRole();
   return (
     <div>
         <Navbar></Navbar>
+
       <div className="flex mt-20 flex-col md:flex-row">
-        <div className="flex-[1] text-start md:text-center md:fixed md:z-10 md:h-[100vh]  bg-base-100 shadow-lg">
+        <div className="flex-[1]  md:w-[220px]  md:fixed md:z-10 md:h-[100vh]  bg-base-100 shadow-lg">
 
           
 
-          <ul className="mt-10 px-5 space-y-5">
+          <ul className="mt-10 px-5 mb-5 text-center md:text-start space-y-5">
 
           {userRole[0]?.role === "admin" && (
               <>
@@ -23,11 +29,14 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 font-bold text-xl  "
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        ? "text-purple-900 font-bold text-xl "
+                        :  " text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
-                    Admin Home
+                    <p className="flex items-center gap-2">
+                    Admin Home <FaHome className="text-gray-500"></FaHome>
+                    </p>
+                    
                   </NavLink>
                 </li>
                 <li>
@@ -37,11 +46,15 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 font-bold text-xl "
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        ? "text-purple-900 font-bold text-xl"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
-                    All Subscribers 
+                    
+                    <p className="flex items-center gap-2">
+                    All Subscribers <FaPeopleGroup className="text-gray-500"></FaPeopleGroup>
+                    </p>
+                    
                   </NavLink>
                 </li>
                 <li>
@@ -52,10 +65,14 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-900 font-bold text-xl "
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
-                    All Trainers 
+                   
+                    <p className="flex items-center gap-2">
+                    All Trainers  <FaPeopleGroup className="text-gray-500"></FaPeopleGroup>
+                    </p>
+                    
                   </NavLink>
                 </li>
                 <li>
@@ -66,10 +83,14 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-900 font-bold text-xl "
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold  "
                     }
                   >
-                    Applied Trainer 
+                    
+                    <p className="flex items-center gap-2">
+                    Applied Trainer  <IoMdPeople className="text-gray-500"></IoMdPeople>
+                    </p>
+                    
                   </NavLink>
                 </li>
                 <li>
@@ -80,10 +101,13 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-900 font-bold text-xl "
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
-                    Balance
+                    
+                    <p className="flex items-center gap-2">
+                    Balance <FaMoneyBillTrendUp className="text-gray-500"></FaMoneyBillTrendUp>
+                    </p>
                   </NavLink>
                 </li>
               </>
@@ -103,7 +127,7 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-500 text-lg bg-purple-50 font-semibold"
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
                     Trainer Home
@@ -117,7 +141,7 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-500 text-lg bg-purple-50 font-semibold"
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
                     Manage Slots
@@ -131,7 +155,7 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-500 text-lg bg-purple-50 font-semibold"
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
                     Manage Member 
@@ -145,7 +169,7 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-500 text-lg bg-purple-50 font-semibold"
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
                    Add New Class
@@ -167,7 +191,7 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-500 text-lg bg-purple-50 font-semibold"
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
                    Member Home
@@ -181,7 +205,7 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-500 text-lg bg-purple-50 font-semibold"
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
                     Activity Log
@@ -195,7 +219,7 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-500 text-lg bg-purple-50 font-semibold"
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
                    Profile Setting
@@ -209,7 +233,7 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-500 text-lg bg-purple-50 font-semibold"
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
                    Recommended Class
@@ -230,10 +254,13 @@ const Dashboard = () => {
                         ? "pending"
                         : isActive
                         ? "text-purple-500 text-lg bg-purple-50 font-semibold"
-                        : "hover:bg-purple-100  text-purple-600 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
-                  Add New Forum
+                     <p className="flex items-center gap-2">
+                     Add  Forum <MdAddPhotoAlternate  className="text-gray-500"></MdAddPhotoAlternate >
+                    </p>
+             
                   </NavLink>
                 </li>
                 </>
@@ -245,6 +272,7 @@ const Dashboard = () => {
 
         <div className="flex-[5] md:ml-[170px]">
           <Outlet></Outlet>
+          
         </div>
       </div>
     </div>

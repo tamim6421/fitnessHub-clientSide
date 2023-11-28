@@ -2,9 +2,11 @@
 
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { MdEmail } from "react-icons/md";
 
 const AppliedCard = ({trainer}) => {
-    const {name, image, trainerEmail, age, icons, days, skills, time,yearOfExperience, _id ,role } = trainer
+    // eslint-disable-next-line no-unused-vars
+    const {name, image, trainerEmail,  _id  } = trainer
     console.log(trainer)
 
 
@@ -13,7 +15,7 @@ const AppliedCard = ({trainer}) => {
 
     return (
         <div>
-            <div className="relative flex flex-col mt-6 text-purple-700 bg-purple-100 shadow-md  rounded-xl bg-clip-border">
+            <div className=" box relative flex flex-col mt-6 text-gray-500  bg-base-100 shadow-md  rounded-xl bg-clip-border">
   <div className="p-6">
         <div>
         <div className="avatar">
@@ -25,8 +27,11 @@ const AppliedCard = ({trainer}) => {
     <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-purple-900">
         Name : <span>{name}</span>
     </h5>
-    <p className="text-lg font-semibold">
-    Email: <span> {trainerEmail}</span>
+    <p className="text-lg flex items-center gap-1 font-semibold">
+      <span>
+      <MdEmail className="text-2xl text-purple-800" />
+      </span>
+     <span> {trainerEmail}</span>
     </p>
     <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
       Because it is about motivating the doers. Because I am here to follow my
@@ -41,12 +46,12 @@ const AppliedCard = ({trainer}) => {
    <Link to={`/dashboard/trainerDetails/${_id}`}>
    <button
       
-        className="flex items-center bg-purple-200 gap-2 px-4 py-2 font-sans text-xs font-bold text-center  uppercase align-middle transition-all rounded-lg select-none  disabled:opacity-50 disabled:shadow-none"
+        className="flex items-center bg-purple-600 text-white gap-2 px-4 py-2 font-sans text-xs font-bold text-center  uppercase align-middle transition-all rounded-lg select-none  disabled:opacity-50 disabled:shadow-none"
         type="button"
         data-ripple-dark="true"
       >
         See Details
-        <FaEye className="text-3xl" />
+        <FaEye className="text-3xl text-gray-700" />
       </button>
    </Link>
   

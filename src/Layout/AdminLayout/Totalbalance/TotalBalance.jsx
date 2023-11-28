@@ -15,14 +15,15 @@ const TotalBalance = () => {
     
 
     // get total balance 
-    const {data:totalBalance = [], isLoading, refetch} = useQuery({
+    const {data:totalBalance = [], isLoading} = useQuery({
         queryKey: ['totalBalance'],
         queryFn: async() =>{
             const res = await axiosSecure.get('/getBalance')
             return res.data
         }
       })
-    //   console.log(totalBalance[0]?.total_balance)
+
+      // console.log(totalBalance[0]?.total_balance)
 
     //   get remaining balance
     const {data:paymentBalance = []} = useQuery({
@@ -33,8 +34,9 @@ const TotalBalance = () => {
         }
       })
       console.log(paymentBalance)
+      
       const pay = paymentBalance.reduce( (bal, p) => bal + p.price ,0)
-    //   console.log(pay)
+    //  console.log(pay)
 
 // get all subscribers 
 const {data:subscribers = []} = useQuery({
@@ -56,12 +58,12 @@ const {data:paymentByMember = []} = useQuery({
         return res.data
     }
   })
-
+console.log(paymentByMember.length)
   const totalPaidMember = (paymentByMember.length)
 
 const memberPay = paymentByMember?.reduce( (bal, p) => bal + p.price ,0)
-// console.log(memberPay)
-const remaining = (totalBalance[0]?.total_balance - paymentBalance[0]?.price)
+console.log(memberPay)
+const remaining = (totalBalance[0]?.total_balance - pay)
 const balanceNow = (remaining + memberPay)
 
 
@@ -97,7 +99,7 @@ useEffect( () =>{
       chartInstance.current.destroy()
     }
   }
-} ,[])
+} ,[totalPaidMember, totalSubscribers])
 
     return (
         <div>
@@ -143,13 +145,13 @@ useEffect( () =>{
 
             {/* show payment transactions  */}
               
-                      <p className="text-center text-2xl text-gray-500 font-semibold my-10">
+                      <p className="text-center text-2xl text-purple-500 font-semibold my-10">
                     Our Members Payment Transactions
                       </p>
                       <div>
 
-                      <div className="overflow-x-auto px-8">
-            <table className="table table-zebra">
+                      <div className="overflow-x-auto mb-20 px-20">
+            <table className="table table-zebra ">
               {/* head */}
               <thead className="bg-purple-500 text-white text-lg">
                 <tr>
@@ -162,7 +164,7 @@ useEffect( () =>{
                   <th>Status</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="text-gray-500">
              
                {
                 paymentByMember?.slice(-6).map( (pay, i) =>  <tr key={i}>
@@ -173,7 +175,7 @@ useEffect( () =>{
                   <td>{pay?.transactionId}</td>
                   <td>{pay?.price}</td>
 
-                  <td><div className="badge badge-accent px-3 text-white">{pay?.status}</div></td>
+                  <td><div className="badge bg-green-500  px-4 py-3 text-white">{pay?.status}</div></td>
                 </tr>
          )
                }

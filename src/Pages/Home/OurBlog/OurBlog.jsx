@@ -29,7 +29,7 @@ const OurBlog = () => {
 
     return (
         <div>
-            <div className="mt-36 mb-20 text-center">
+            <div className="mt-36 mb-20 text-center" data-aos="fade-up">
                 <Title>Our  Articles & Blogs</Title>
             </div>
 
@@ -40,7 +40,7 @@ const OurBlog = () => {
             </div>
             
           <Link to='/forum'> 
-          <button className="btn bg-purple-600 text-lg text-white px-10 mt-10 block mx-auto btn-outline">Explore Our Forums Posts</button>
+          <button data-aos="fade-up" className="btn bg-red-600 text-lg text-white px-10 mt-10 block mx-auto btn-outline">Explore Our Forums Posts</button>
           </Link>
 
         </div>

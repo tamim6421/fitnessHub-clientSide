@@ -20,13 +20,13 @@ const AppliedTrainer = () => {
     console.log(trainers)
 
     return (
-        <div className="px-6">
+        <div className="px-20">
           <div className="text-center mt-20 mb-10 ">
             <Title> Total Applied Trainer</Title>
           </div>
 
           <div>
-            <p>applied {trainers.length}</p>
+          
             <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
                 {
                     trainers?.map(trainer => <AppliedCard key={trainer._id} trainer={trainer}></AppliedCard> )

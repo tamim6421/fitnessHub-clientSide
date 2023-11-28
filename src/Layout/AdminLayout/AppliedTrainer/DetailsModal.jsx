@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
@@ -9,6 +9,10 @@ import toast from "react-hot-toast";
 import emailjs from '@emailjs/browser';
 import { useRef } from "react";
 import useAuth from "../../../Hooks/useAuth";
+import Title from "../../../Components/Title/Title";
+import Loader from "../../../Components/Loader/Loader";
+import { FaExclamation } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 
 
@@ -17,10 +21,11 @@ const DetailsModal = () => {
     const  allInfo = useLoaderData()
     const axiosSecure = useAxiosSecure()
     const form = useRef();
+  
 
    
     const {name, image, trainerEmail, age, status, icons, days, skills, time,yearOfExperience, _id ,role } = allInfo
-    console.log(status)
+  console.log(allInfo)
 
     const {data:allUser = [], isLoading, isError, refetch} = useQuery({
         queryKey: ['allUser'],
@@ -33,7 +38,7 @@ const DetailsModal = () => {
 
     // hendale  loading 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader></Loader>;
   }
 
   if (isError) {
@@ -123,7 +128,7 @@ const DetailsModal = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
-                  refetch()
+                  refetch()                
             }
         
 
@@ -160,28 +165,31 @@ const DetailsModal = () => {
     
     return (
         <div>
-             <div className="px-6">
-            
-                        <div className="relative flex flex-col p-5 w-full md:flex-row rounded-xl bg-white bg-clip-border text-purple-700 shadow-md">
-                        <div className="relative md:w-2/5 overflow-hidden text-purple-700 bg-white rounded-r-none  md:shrink-0  rounded-xl ">
+             <div className="px-20 my-20">
+                        <div className="text-center my-20">
+                            <Title>Applied Trainer Details</Title>
+                        </div>
+                        <div className="relative flex flex-col p-5 w-full md:flex-row rounded-xl bg-white bg-clip-border text-gray-500 shadow-md">
+                        <div className="relative md:w-2/5 overflow-hidden text-purple-700 bg-white rounded-r-none  md:shrink-0  rounded-xl " data-aos="fade-left">
                             <img
                             src={image}
                             alt="image"
-                            className="object-cover w-full h-full"
+                            className="object-cover box w-full h-full"
                             />
                         </div>
                         <div className="p-6">
                            <div>
-                           <h6 className="block mb-4  uppercase">
+                           <h6 className="block mb-4 text-gray-500 font-bold text-2xl uppercase">
                             {name}
                             </h6>
-                            <p>
-                                {role}
-                            </p>
+                          
                            </div>
                             <div>
-                            <h4 className="block mb-2 ">
-                            email <span>{trainerEmail}</span>
+                            <h4 className=" flex items-center gap-2 mb-2 ">
+                                <span>
+                                    <MdEmail className="text-2xl text-gray-400"></MdEmail>
+                                </span>
+                            <span className="text-gray-500">{trainerEmail}</span>
                             </h4>
                             
                             </div>
@@ -199,24 +207,26 @@ const DetailsModal = () => {
                             </div>
 
                             <div>
-                                <h1>Skills</h1>
+                                <h1 className="text-xl font-bold ">Skills</h1>
+                                <div >
                                 {
                                     skills?.map((s, i) => <li key={i}>{s}</li>)
                                 }
+                                </div>
                             </div>
                             
                             <div className="mt-2 flex flex-col md:flex-row gap-5">
                                 <div>
-                                <p>Available Time in a Day</p>
-                                    <div>
+                                <p className="text-xl font-bold">Available Time in a Day</p>
+                                    <div className=" max-w-max p-2 rounded-md "data-aos="fade-right" >
                                         {
                                             days?.map((d, i) => <li key={i}>{d}</li> )
                                         }
                                     </div>
                                 </div>
                                 <div>
-                                <p>Available Time in a Week</p>
-                                    <div>
+                                <p className="text-xl font-bold">Available Time in a Week</p>
+                                    <div className=" max-w-max p-2 rounded-md " data-aos="fade-left">
                                         {
                                             time?.map((t, i) => <li key={i}>{t}</li> )
                                         }

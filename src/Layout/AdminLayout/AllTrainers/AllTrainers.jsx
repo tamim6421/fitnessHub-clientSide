@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Title from "../../../Components/Title/Title";
 import { Link } from "react-router-dom";
+import Loader from "../../../Components/Loader/Loader";
 
 
 const AllTrainers = () => {
@@ -17,7 +18,7 @@ const AllTrainers = () => {
   })
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader></Loader>
   }
 
 const joiningDate = trainers?.map( day => day.joinDate )
@@ -42,7 +43,7 @@ console.log(joiningDate)
 console.log(trainers)
 
     return (
-        <div className="mt-20 ">
+        <div className="mt-20 px-10">
             <div className="text-center mb-16">
                 <Title>All Trainers </Title>
             </div>
@@ -60,7 +61,7 @@ console.log(trainers)
         <th>Jon Date</th>
         <th>Salary</th>
         <th>Payment Status</th>
-        <th>Actions</th>
+        <th>Salary</th>
       </tr>
     </thead>
     <tbody>

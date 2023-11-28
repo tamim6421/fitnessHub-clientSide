@@ -10,20 +10,20 @@ const TrainerCard = ({trainer}) => {
     // console.log(trainer)
     return (
         <div className="mt-20">
-             <div className="relative flex flex-col p-5 w-full md:flex-row rounded-xl bg-white bg-clip-border text-purple-700 shadow-md">
-                        <div className="relative md:w-2/5 overflow-hidden text-purple-700 bg-white rounded-r-none  md:shrink-0  rounded-xl ">
+             <div className="relative flex flex-col p-5 w-full md:flex-row rounded-xl bg-white bg-clip-border shadow-md">
+                        <div className="relative md:w-2/5 overflow-hidden  bg-white rounded-r-none  md:shrink-0  rounded-xl "data-aos="fade-up-right" >
                             <img
                             src={details?.image}
                             alt="image"
-                            className="object-cover w-full h-full"
+                            className="object-cover w-full box h-full"
                             />
                         </div>
-                        <div className="p-6">
+                        <div className="p-6" data-aos="fade-up-left">
                            <div>
                            <h6 className="block mb-4  uppercase">
-                            {}
+                         
                             </h6>
-                            <p className="text-2xl font-bold">
+                            <p className="text-2xl text-gray-600 font-bold">
                                 {details?.name}
                             </p>
                            </div>
@@ -72,7 +72,7 @@ const TrainerCard = ({trainer}) => {
                                 <div>
                             <Link to={`/dashboard/detailsTrainer/${_id}`}>
                             <button
-                                className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-purple-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-purple-500/10 active:bg-purple-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                className="flex items-center btn mt-2 text-purple-800 btn-outline hover:bg-purple-800 hover:text-white gap-2 px-6 py-3 f"
                                 type="button"
                             >
                                Know More

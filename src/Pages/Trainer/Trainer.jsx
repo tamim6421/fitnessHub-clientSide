@@ -16,13 +16,15 @@ const Trainer = () => {
         queryKey: ['trainers'],
         queryFn: async() =>{
             const res = await axiosPublic.get('/accepttrainer')
+            console.log(res.data)
             return res.data
+            
         }
       })
     
-      if (isLoading) {
-        return <Loader></Loader>
-      }
+      // if (isLoading) {
+      //   return <Loader></Loader>
+      // }
     
       console.log(trainers)
 
@@ -31,21 +33,23 @@ const Trainer = () => {
         <div>
           <Navbar></Navbar>
 
-          <div className="mt-20 p-5">
+          <div className="mt-20 p-5 overflow-hidden">
 
             <div className="pt-10">
-                <SectionTitle title={'To be a '} title1={"Trainer ?"} des={'Remember that the specific skills required may vary depending on the role within the gym'}></SectionTitle>
+               <div className="" data-aos="fade-up">
+               <SectionTitle title={'To be a '} title1={"Trainer ?"} des={'Remember that the specific skills required may vary depending on the role within the gym'}></SectionTitle>
+               </div>
             </div>
 
-           <div className="pt-10 text-center">
+           <div className="pt-10 text-center"  data-aos="fade-down">
            <Link to='/beTrainer'>
            <button className="btn bg-purple-500 hover:bg-purple-700 text-white uppercase px-10 ">be a trainer</button>
            </Link>
            </div>
 
-            <div className="mt-20">
+            <div className="mt-20" data-aos="fade-right">
                 <Title>Ours Trainers</Title>
-                <p className="w-3/6">
+                <p className="w-3/6 text-gray-500">
                 whether it is a personal trainer, group fitness instructor, front desk staff, or management. Additionally, a positive attitude, empathy, and a passion for health and fitness are often considered valuable attributes in the fitness industry.
                 </p>
             </div>

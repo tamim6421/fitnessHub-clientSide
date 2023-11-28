@@ -6,6 +6,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import emailjs from '@emailjs/browser';
 import { useRef } from "react";
 import toast from "react-hot-toast";
+import Loader from "../../../Components/Loader/Loader";
 
 const ManageSlots = () => {
     const axiosSecure = useAxiosSecure()
@@ -21,7 +22,7 @@ const ManageSlots = () => {
     })
     console.log(yourSlot)
     if(isLoading){
-        return <p>Loading .......</p>
+        return <Loader></Loader>
     }
 
     const bookedSlot = yourSlot?.filter(book => book?.price > 10 )

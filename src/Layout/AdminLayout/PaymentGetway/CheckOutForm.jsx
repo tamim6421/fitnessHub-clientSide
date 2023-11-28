@@ -5,6 +5,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosPublic from './../../../Hooks/useAxiosPublic';
 
 
 
@@ -19,6 +20,7 @@ const CheckOutForm = ({info}) => {
   const axiosSecure = useAxiosSecure()
   const {user} = useAuth()
   const navigate = useNavigate()
+  const ppp =  useAxiosPublic()
   
 
 const numberSalary = parseInt(salary)
@@ -49,7 +51,7 @@ console.log(salaryBill)
 
 
 useEffect(() => {
-    axiosSecure.post('/make-payment-intent', { price: salaryBill })
+  ppp.post('/make-payment-intent', { price: salaryBill })
       .then(res => {
         console.log(res.data);
         setClientSecret(res.data.clientSecret);
@@ -58,7 +60,7 @@ useEffect(() => {
         console.error('payment intent:', error);
       
       });
-  }, [axiosSecure, salaryBill]);
+  }, [ppp, salaryBill]);
 
   const handelPayment = async (event) =>{
 
@@ -118,7 +120,7 @@ useEffect(() => {
         // now save the payment in the database 
         const payment = {
             email : user.email,
-            price : numberSalary,
+            price : salaryBill ,
             transactionId: paymentIntent.id,
             date : new Date(), 
             status: 'paid',

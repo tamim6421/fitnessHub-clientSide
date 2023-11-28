@@ -13,6 +13,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_KEY);
 
 const PaymentBooking = () => {
     const data = useLoaderData()
+    console.log(data)
     const {user, loading} = useAuth()
     const info = useLoaderData()
 

@@ -98,6 +98,8 @@ const BeTrainer = () => {
             <input
             {...register("name", { required: true })}
               type="text"
+              defaultValue={user?.displayName}
+              readOnly
               placeholder="User Name"
               className="input input-bordered w-full "
             />

@@ -3,12 +3,14 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import Title from "../../Components/Title/Title";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const TrainerDetails = () => {
   const { details } = useLoaderData();
   const axiosSecure = useAxiosSecure();
-  const [filterSlot, setFilterSlot] = useState([]);
+
+  const [groupedData, setGroupData] = useState([]);
+
 
   const { data: slotData } = useQuery({
     queryKey: ["slotData"],
@@ -18,26 +20,39 @@ const TrainerDetails = () => {
     },
   });
 
-  // console.log(slotData)
 
-  const filtered = slotData?.filter((data) => data.trainerId === details._id);
+// Assume you have some data in slotData array
+
+
+  const filtered = slotData?.filter((data) => data?.trainerId == details?._id);
   console.log(filtered);
-  const getDays = filtered?.map((date) => date.day);
-  const getTimes = filtered?.map((time) => time.time);
-//   console.log(getTimes);
-  const distinctArrayDay = [...new Set(getDays)];
-  // console.log(distinctArrayDay);
 
-  const distinctArrayTime = [...new Set(getTimes)];
-  // console.log(distinctArrayTime);
+  useEffect(() => {
+    class GroupedSlotData {
+      constructor(day) {
+          this.Day = day;
+          this.SlotData = [];
+      }
+  }
 
-  const showTimeSlot = (day) => {
-    // console.log(day)
-    const filterSlot = filtered?.filter((slot) => slot.day == day);
-    setFilterSlot(filterSlot);
-  };
-  console.log(filterSlot);
-
+    const updatedGroupedSlots = filtered?.reduce((accumulator, current) => {
+      let existingGroup = accumulator.find(group => group?.Day === current?.day);
+  
+      if (existingGroup) {
+        existingGroup.SlotData.push(current);
+      } else {
+        let newGroup = new GroupedSlotData(current.day);
+        newGroup.SlotData.push(current);
+        accumulator.push(newGroup);
+      }
+  
+      return accumulator;
+    }, []);
+    
+    setGroupData(updatedGroupedSlots)
+  }, [filtered]);
+  
+  console.log(groupedData)
   return (
     <div className="px-8">
       <div className="mb-10">
@@ -128,19 +143,25 @@ const TrainerDetails = () => {
 
 
         <div className=" card-body ">
-          <div className="flex flex-col md:flex-row text-center  justify-center items-center gap-2 mt-8 ">
-            {distinctArrayDay.map((day, i) => (
+          <div className="flex flex-col md:flex-row gap-2 mt-8 ">
+            {groupedData?.map((group, i) => (
               <div key={i} className="bg-purple-100 shadow-xl  max-w-max p-5 rounded-lg">
-                <p onClick={() => showTimeSlot(day)} className="btn bg-purple-500 text-white hover:bg-purple-700 px-9">
-                  {day}
+                <p className="btn bg-purple-500 text-white hover:bg-purple-700 px-9">
+                  {group.Day}
                 </p>
 
                 <div className="flex flex-col gap-2 mt-5">
-                  {filterSlot?.map((slotDta, i) => (
-                    <div key={i} className="max-w-max p-2">
-                      <Link to={`/trainerBook/${slotDta._id}`}>
-                      <button className="btn btn-outline">{slotDta.time}</button>
+                  {group?.SlotData?.map((slot, j) => (
+
+                    <div key={j} >
+                    {slot.user == null ?
+                    <div className="max-w-max p-2">
+                      <Link to={`/trainerBook/${slot._id}`}>
+                      <button className="btn btn-outline">{slot.time}</button>
                       </Link>
+                    </div> : <div> <button disabled className="btn btn-warning  bg-orange-500">{slot.time} Booked</button> 
+                    <p></p></div>
+                    } 
                     </div>
                   ))}
                 </div>

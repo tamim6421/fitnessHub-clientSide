@@ -18,11 +18,13 @@ const TrainnerCheckoutForm = ({data}) => {
     const stripe = useStripe();
   const elements = useElements();
   const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
   const {user} = useAuth()
   
 
  
   console.log(data)
+  console.log(localStorage.getItem('access-token'));
   
 
 useEffect(() => {
@@ -102,7 +104,7 @@ useEffect(() => {
         }
 
         // send data to the db 
-      const res = await  axiosPublic.post('/userpayment', paymentData)
+      const res = await  axiosSecure.post('/userpayment', paymentData, )
       console.log(res.data)
       if(res?.data?.insertedId){
         Swal.fire({
