@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useUserRole from "../../../Hooks/useUserRole";
 import toast from "react-hot-toast";
 import Loader from "../../../Components/Loader/Loader";
+import Title from "../../../Components/Title/Title";
 
 const ProfileSetting = () => {
   const { user } = useAuth();
@@ -20,13 +21,13 @@ const ProfileSetting = () => {
     }
 })
 
-console.log(allUser)
+// console.log(allUser)
 
 if(userLoading) return <Loader></Loader>
 // console.log(allUser)
 const getMember = allUser?.find(allUser => allUser.email == user?.email)
 
-console.log(getMember._id)
+// console.log(getMember._id)
 
 
 
@@ -60,9 +61,14 @@ console.log(getMember._id)
 
 
   return (
-    <div>
-      <div className="card min-h-screen bg-purple-100 ">
-        <figure className="px-10 flex flex-col  pt-10">
+    <div className="min-h-screen">
+     
+      <div className="card  w-3/4 mx-auto p-5">
+      <div className="text-center mt-10" data-aos="fade-up">
+      <Title>Update Your Profile </Title>
+      </div>
+        <div data-aos="fade-up-left">
+        <figure className="px-10 flex flex-col  pt-10" data-aos="fade-left">
           <div className="avatar online">
             <div className="w-24 rounded-full">
               <img src={user?.photoURL} />
@@ -142,6 +148,7 @@ console.log(getMember._id)
 
           <button className="btn bg-purple-600 mt-10 text-white btn-outline ">Update Profile </button>
         </form>
+        </div>
         </div>
       </div>
     </div>

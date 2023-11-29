@@ -132,7 +132,7 @@ export default Gallery;
 // const fetchData = ()=>{
 // const fetchImage = async () =>{
 //   try {
-//       const res = await fetch(`http://localhost:5000/images?page=${page}&limit=10`)
+//       const res = await fetch(`https://fithub-server-eta.vercel.app/images?page=${page}&limit=10`)
 //       const data = await res.json()
 //       setImages( (image) => [...image, ...data])
 //   } catch (error) {

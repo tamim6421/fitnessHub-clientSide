@@ -42,10 +42,10 @@ const ManageSlots = () => {
           }
           refetch()
       
-          console.log(id);
+          // console.log(id);
       
           // Send email using async/await
-          const result = await emailjs.sendForm("service_mae6y8e", "template_pm6oebj", form.current, "Q6AHY20suZ7Ts2NPU");
+          const result = await emailjs.sendForm("service_mae6y8e", "template_pm6oebj", form.current, "CI0W8Fvmb5rU_EeB5");
       
           console.log(result.text);
         } catch (error) {

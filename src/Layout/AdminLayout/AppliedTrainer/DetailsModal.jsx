@@ -21,6 +21,7 @@ const DetailsModal = () => {
     const  allInfo = useLoaderData()
     const axiosSecure = useAxiosSecure()
     const form = useRef();
+    const navigate = useNavigate()
   
 
    
@@ -78,7 +79,7 @@ const DetailsModal = () => {
 
 
     const handelAccept = async (_id) =>{
-
+        
 
         for(let i = 0; i < days.length ; i ++){
             for( let j = 0 ; j < time.length; j ++){
@@ -128,7 +129,8 @@ const DetailsModal = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
-                  refetch()                
+                  refetch() 
+                  navigate('/dashboard/allTrainers')               
             }
         
 
@@ -139,12 +141,13 @@ const DetailsModal = () => {
     // handel reject button 
 
     const handelReject = async (id) =>{
+        
         try {
           
             // Edit reject button status
             const response = await axiosSecure.patch(`/trainers/status/${id}`);
             
-            console.log(response.data);
+            // console.log(response.data);
         
             if (response.data.modifiedCount > 0) {
               toast.success('Application Rejected');
@@ -154,7 +157,7 @@ const DetailsModal = () => {
             console.log(id);
         
             // Send email using async/await
-            const result = await emailjs.sendForm("service_mae6y8e", "template_fg1ljqu", form.current, "Q6AHY20suZ7Ts2NPU");
+            const result = await emailjs.sendForm("service_943si9x", "template_f6rjijl", form.current, "CI0W8Fvmb5rU_EeB5");
         
             console.log(result.text);
           } catch (error) {
@@ -263,7 +266,7 @@ const DetailsModal = () => {
 
                                     <div>
                                           {/* send email from  */}
-                                   <div className="hidden">
+                                   <div className="">
                                    <form ref={form} onSubmit={handelReject}>
                                     <label>Name</label>
                                     <input type="text" defaultValue='FitnessHub' name="from_name" />
@@ -271,6 +274,7 @@ const DetailsModal = () => {
                                     <label>Member Name</label>
                                     <input type="text" defaultValue={name} name="member_name" />
                                     <label>Email</label>
+                                    <br />
                                     <input defaultValue = {trainerEmail} type="email" name="user_email" />
                                     <label>Message</label>
                                     <textarea name="message" />

@@ -14,12 +14,12 @@ const AppliedCard = ({trainer}) => {
 
 
     return (
-        <div>
-            <div className=" box relative flex flex-col mt-6 text-gray-500  bg-base-100 shadow-md  rounded-xl bg-clip-border">
+        <div className="px-10 overflow-hidden">
+            <div className="  relative flex flex-col mt-6 text-gray-500  shadow-md  rounded-xl bg-clip-border" data-aos="fade-up-left">
   <div className="p-6">
         <div>
         <div className="avatar">
-        <div className="w-24 rounded-full ring ring-purple-400 ring-offset-base-100 ring-offset-2">
+        <div className="w-24 rounded-full ring ring-gray-400  ring-offset-2">
             <img src={image}/>
         </div>
 </div>
@@ -51,7 +51,7 @@ const AppliedCard = ({trainer}) => {
         data-ripple-dark="true"
       >
         See Details
-        <FaEye className="text-3xl text-gray-700" />
+        <FaEye className="text-3xl  text-white" />
       </button>
    </Link>
   

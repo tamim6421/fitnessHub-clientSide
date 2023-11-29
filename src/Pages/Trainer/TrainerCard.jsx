@@ -70,7 +70,7 @@ const TrainerCard = ({trainer}) => {
                             </div>
                                 
                                 <div>
-                            <Link to={`/dashboard/detailsTrainer/${_id}`}>
+                            <Link to={`/detailsTrainer/${_id}`}>
                             <button
                                 className="flex items-center btn mt-2 text-purple-800 btn-outline hover:bg-purple-800 hover:text-white gap-2 px-6 py-3 f"
                                 type="button"

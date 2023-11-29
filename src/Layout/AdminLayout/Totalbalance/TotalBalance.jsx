@@ -4,6 +4,7 @@ import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 
 import Chart from 'chart.js/auto'
 import { useEffect, useRef } from "react";
+import Title from "../../../Components/Title/Title";
 
 
 
@@ -145,13 +146,15 @@ useEffect( () =>{
 
             {/* show payment transactions  */}
               
-                      <p className="text-center text-2xl text-purple-500 font-semibold my-10">
+                   <div className="text-center mb-10">
+                   <Title>
                     Our Members Payment Transactions
-                      </p>
+                    </Title>
+                   </div>
                       <div>
 
-                      <div className="overflow-x-auto mb-20 px-20">
-            <table className="table table-zebra ">
+                      <div className="overflow-x-auto mb-20 md:ml-10 px-20">
+            <table className="table table-zebra  ">
               {/* head */}
               <thead className="bg-purple-500 text-white text-lg">
                 <tr>

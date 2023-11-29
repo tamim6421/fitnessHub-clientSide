@@ -38,7 +38,7 @@ const BlogDetails = () => {
           <div className="flex[3] ">
             <div className="mt-10">
             <div>
-            <p className="mb-5 px-3 text-lg font-semibold">{date.slice(0, 10)}</p>
+            <p className="mb-5 px-3 text-lg font-semibold">{date?.slice(0, 10)}</p>
 
 <p className="mb-3 px-3">{post}</p>
             </div>

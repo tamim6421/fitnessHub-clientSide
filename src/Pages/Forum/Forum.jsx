@@ -12,6 +12,9 @@ import { useNavigate } from "react-router-dom";
 import './Forum.css'
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Footer from "../../Shared/Footer/Footer";
+import Title from "../../Components/Title/Title";
+import { MdAddPhotoAlternate } from "react-icons/md"
+import Loader from "../../Components/Loader/Loader";
 
 
 const Forum = () => {
@@ -53,7 +56,7 @@ const Forum = () => {
         }
     })
    
-
+if(isLoading) return <Loader></Loader>
     
     const handelPost = async(e) =>{
     
@@ -110,15 +113,33 @@ const Forum = () => {
             {
             user != null ?
             <div className="mt-20">
-                <div className="pt-10">
-                <SectionTitle title={'Added a new'} title1={'Post'}></SectionTitle>
-                
+                <div className="pt-16 text-center">
+                <Title>Add a New Post</Title>
+                <hr className=" border-2 w-24 mb-5 border-orange-500 mx-auto" data-aos="fade-up"  />
                 </div>
+
+                <div className="flex pt-5 items-center justify-center gap-3 text-center mx-auto">
+                <div className="avatar online placeholder">
+                    <div className="bg-neutral text-neutral-content rounded-full w-12">
+                        <span className="">
+                            <img src={user?.photoURL} alt="" />
+                        </span>
+                    </div>
+                 </div>
+                <div>
                 <button
                 onClick={()=>document.getElementById('my_modal_3').showModal()}
-                className="text-white btn btn-outline bg-purple-600 px-6 block mx-auto">Added a New Post</button>
+                className=" btn btn-outline   md:px-10  text-center flex justify-around hover:bg-purple-600 hover:text-white rounded-full  mx-auto">Whats on your mind ?....  <p>
+                <MdAddPhotoAlternate className="text-4xl text-green-600 " />
+                </p></button>
+                </div>
+               
+                </div>
+
+
             </div> : <p className="pt-20">
                 <SectionTitle title={'Please login to add new '} title1={'post'}> </SectionTitle>
+                <hr className=" border-2 w-24 mt-2 border-orange-500 mx-auto" data-aos="fade-up"  />
             </p>
             }
             <div>
@@ -132,7 +153,7 @@ const Forum = () => {
                             pages.map((number, i) => <button
                             onClick={() => setCurrentPage(number)}
                             key={i} 
-                            className={currentPage === number ? 'selected btn rounded-full bg-purple-400 mr-3 btn-sm ' : "btn  bg-purple-400 rounded-full mr-3 btn-sm"}> {number} </button> )
+                            className={currentPage === number ? 'selected btn rounded-full bg-purple-400 mr-3 btn-sm ' : "btn  bg-gray-400 rounded-full mr-3 btn-sm"}> {number} </button> )
                         }
                     </div>
                 </div>
@@ -145,13 +166,13 @@ const Forum = () => {
                 <div className="modal-box">
                     <form method="dialog">
                     {/* if there is a button in form, it will close the modal */}
-                    <button  className="btn btn-sm  bg-purple-300 btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    <button  className="btn btn-sm  bg-red-800 text-white btn-circle btn-ghost absolute right-2 top-2">✕</button>
                     </form>
                     
                     <div className="p-4">
-                        <h1>Create a new Post</h1>
-                        <form onSubmit={handelPost}>
-                        <textarea name="text" className="textarea w-full textarea-bordered" placeholder="Text here"></textarea>
+                        <h1 className="text-xl font-semibold text-gray-500 my-5">Create a new Post</h1>
+                        <form onSubmit={handelPost} className="space-y-3">
+                        <textarea name="text" className="textarea w-full textarea-bordered" placeholder="Whats on your mind ?"></textarea>
                     <input type="file" name="image" accept="image/*" className="file-input-bordered file-input w-full max-w-xs" />
                     <div>
                     <button className="btn bg-purple-500 btn-outline px-7 mt-5 text-white">Post</button>
@@ -164,6 +185,7 @@ const Forum = () => {
                </div>
                <Footer></Footer>
         </div>
+       
     );
 };
 

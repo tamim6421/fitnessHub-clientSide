@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import { FaCalendarDays } from "react-icons/fa6";
 
 
 
@@ -20,11 +21,12 @@ const TrainnerCheckoutForm = ({data}) => {
   const axiosPublic = useAxiosPublic()
   const axiosSecure = useAxiosSecure()
   const {user} = useAuth()
+  const navigate = useNavigate()
   
 
  
-  console.log(data)
-  console.log(localStorage.getItem('access-token'));
+  // console.log(data)
+  // console.log(localStorage.getItem('access-token'));
   
 
 useEffect(() => {
@@ -114,6 +116,7 @@ useEffect(() => {
             showConfirmButton: false,
             timer: 1500
           });
+          navigate('/trainer')
         
       }
     }
@@ -136,16 +139,19 @@ useEffect(() => {
                 <div className="card ">
                 <div className="card-body ">
                 <h1 className="text-center text-xl font-bold">Your Selected Package </h1>
+                <hr />
                     <h2 className="card-title">
-                        <span>Trainer Name: {data?.trainerName} </span>
+                        <>Trainer : <>{data?.trainerName} </> </>
                     </h2>
-                    <p> 
-                        <p>Slot: {data?.day}</p>
-                        <span>{data?.time} </span>
-                    </p>
                     <div>
-                        <h1>Package : {data?.package} </h1>
+                        <h1>Package : <span className="text-lg font-semibold"> {data?.package} </span></h1>
                     </div>
+                    <div className="flex justify-start"> 
+                      
+                        <p> Day : {data?.day}</p>
+                    </div>
+                        <span> Time : {data?.time} </span>
+                    
                     <div>
                         <h1>Price  : ${data?.price} </h1>
                     </div>

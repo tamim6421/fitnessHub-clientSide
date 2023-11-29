@@ -11,7 +11,7 @@ const About = () => {
             <div>
             <div className="card lg:card-side bg-base-100 ">
                 <div className="box" data-aos="fade-right" >
-                <figure><img className="" src= "https://i.ibb.co/127Fjx2/pexels-anush-gorak-1431282.jpg" alt="Album"/></figure>
+                <figure><img className="box" src= "https://i.ibb.co/127Fjx2/pexels-anush-gorak-1431282.jpg" alt="Album"/></figure>
                 </div>
                 <div className="space-y-16 ml-8">
                  <div className="space-y-5 mt-5">

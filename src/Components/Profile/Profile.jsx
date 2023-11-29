@@ -2,12 +2,14 @@ import { Helmet } from "react-helmet-async"
 import useAuth from "../../Hooks/useAuth"
 import useUserRole from "../../Hooks/useUserRole"
 import { Link } from "react-router-dom"
+import { MdLogout } from "react-icons/md"
+import { FaEdit } from "react-icons/fa"
 
 const Profile = () => {
-    const { user } = useAuth()
+    const { user, logOut } = useAuth()
     const {userRole} = useUserRole()
 
-    console.log(userRole[0])
+    // console.log(userRole[0])
   
     
     return (
@@ -61,12 +63,20 @@ const Profile = () => {
   
                 <div className="mt-5">
                   <Link >
-                  <button className='bg-purple-500 px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-purple-700 block mb-1'>
-                    Update Profile
+                  <button className='bg-purple-500 px-4 text-lg py-1 flex items-center rounded-lg text-white cursor-pointer hover:bg-purple-700  mb-1'>
+                  <FaEdit></FaEdit>  Update Profile
                   </button></Link>
-                  <button className='bg-purple-500 px-7 py-1 rounded-lg text-white cursor-pointer hover:bg-purple-700'>
-                    Change Password
+                 <div className="flex">
+                  <p>
+                  
+                  </p>
+                 <button
+                 onClick={logOut}
+                  className='bg-purple-500 flex items-center gap-2 text-lg px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-purple-700'>
+                 <MdLogout></MdLogout> Logout
                   </button>
+
+                 </div>
                 </div>
               </div>
             </div>

@@ -33,11 +33,13 @@ const ManageMember = () => {
 
       // Send email using async/await
       const result = await emailjs.sendForm(
-        "service_mae6y8e",
+        "service_wqoe9yc",
         "template_fg1ljqu",
         form.current,
         "Q6AHY20suZ7Ts2NPU"
       );
+
+      // email js templates over .........
 
       console.log(result.text);
     } catch (error) {

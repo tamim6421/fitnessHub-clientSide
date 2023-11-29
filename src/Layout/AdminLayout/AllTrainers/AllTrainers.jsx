@@ -43,7 +43,7 @@ console.log(joiningDate)
 console.log(trainers)
 
     return (
-        <div className="mt-20 px-10">
+        <div className="mt-20 px-20">
             <div className="text-center mb-16">
                 <Title>All Trainers </Title>
             </div>
@@ -93,7 +93,18 @@ console.log(trainers)
             </td>
             <td>{trainer?.joinDate?.slice(0, 10)}</td>
             <td>{trainer?.salary}</td>
-            <td className=""> <p>{trainer?.paymentStatus}</p> </td>
+            <td className=""> 
+            {
+              trainer?.paymentStatus === 'Paid'  ? <>
+               <p className="bg-green-500 badge px-6 py-3  text-white">{trainer?.paymentStatus}</p> 
+              </>
+              :
+              <>
+               <p className="bg-yellow-500 badge px-6 py-3  text-white">{trainer?.paymentStatus}</p>
+              </>
+            }
+            
+           </td>
             <th>
                {
                  trainer .paymentStatus === 'pending' &&

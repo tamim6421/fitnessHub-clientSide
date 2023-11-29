@@ -45,6 +45,7 @@ const Trainer = () => {
             <div className="pt-10">
                <div className="" data-aos="fade-up">
                <SectionTitle title={'To be a '} title1={"Trainer ?"} des={'Remember that the specific skills required may vary depending on the role within the gym'}></SectionTitle>
+               <hr className=" border-2 w-24 mt-2 border-orange-500 mx-auto" data-aos="fade-up"  />
                </div>
             </div>
 
@@ -56,6 +57,7 @@ const Trainer = () => {
 
             <div className="mt-20" data-aos="fade-right">
                 <Title>Ours Trainers</Title>
+                <hr className=" border-2 w-24 mt-2 mb-4 border-orange-500 " data-aos="fade-up"  />
                 <p className="w-3/6 text-gray-500">
                 whether it is a personal trainer, group fitness instructor, front desk staff, or management. Additionally, a positive attitude, empathy, and a passion for health and fitness are often considered valuable attributes in the fitness industry.
                 </p>
