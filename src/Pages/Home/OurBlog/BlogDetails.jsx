@@ -23,7 +23,7 @@ const BlogDetails = () => {
                 <img src={host?.image} alt="Shoes" className="rounded-xl" />
               </figure>
               <div className="card-body items-center text-center">
-                <h2 className="card-title" data-aos="fade-up-left">Author</h2>
+                <h2 className="" data-aos="fade-up-left">Author</h2>
                 <h2 className="card-title" data-aos="fade-up-left">{host?.name}</h2>
                 <p data-aos="fade-up-left">{host?.email}</p>
                 <div className="card-actions text-3xl " data-aos="fade-up-left">

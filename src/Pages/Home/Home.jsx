@@ -8,6 +8,7 @@ import Testimunials from "./Testimunials/Testimunials";
 import Subscribe from "./Subscribe/Subscribe";
 import OurBlog from "./OurBlog/OurBlog";
 import HomeClass from "./HomeClass/HomeClass";
+import Team from "./Team/Team";
 
 
 const Home = () => {
@@ -28,7 +29,7 @@ const Home = () => {
             <OurBlog></OurBlog>
 
             <HomeClass></HomeClass>
-
+            <Team></Team>
             <Footer></Footer>
         </div>
     );

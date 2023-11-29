@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const BlockCard = ({ blog }) => {
   const { image, host, post, _id } = blog;
 
-  console.log(blog)
+  // console.log(blog)
   const backgroundImageStyle = {
     backgroundImage: `url(${image})`,
   };

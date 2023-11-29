@@ -9,7 +9,7 @@ import Loader from "../../../Components/Loader/Loader";
 const AllTrainers = () => {
     const axiosSecure = useAxiosSecure()
 
-  const {data:trainers, isLoading, refetch} = useQuery({
+  const {data:trainers, isLoading} = useQuery({
     queryKey: ['trainers'],
     queryFn: async() =>{
         const res = await axiosSecure.get('/accepttrainer')
