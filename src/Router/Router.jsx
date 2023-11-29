@@ -35,6 +35,7 @@ import RecommendedClasses from "../Layout/Member/RecommendedClass/RecommendedCla
 import ContactUs from "../Pages/ContractUs/ContractUs";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import TrainerRoute from "./TrainerRoure/TrainerRoute";
+import BlogDetails from "../Pages/Home/OurBlog/BlogDetails";
 
 
 
@@ -102,6 +103,12 @@ const router = createBrowserRouter([
                 path:'/forum',
                 element:<Forum></Forum>
             },
+            {
+                path:'blogsDetails/:id',
+                element: <BlogDetails></BlogDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/blog/${params.id}`)
+
+            },
            
             {
                 path: 'login',
@@ -151,7 +158,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'detailsTrainer/:id',
-                element: <AdminRoute><TrainerDetails></TrainerDetails></AdminRoute>,
+                element: <TrainerDetails></TrainerDetails>,
                 loader: ({params}) => fetch(`http://localhost:5000/accepttrainer/${params.id}`)
             },
             {

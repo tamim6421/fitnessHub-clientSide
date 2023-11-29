@@ -58,7 +58,7 @@ Gallery
         </li>
         <li>
         <NavLink
-  to="/Trainer"
+  to="/trainer"
   className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "text-purple-700 text-xl bg-purple-50 font-bold" : "hover:bg-gray-100 text-black text-lg"
   }
@@ -181,8 +181,14 @@ Gallery
                 </label>
             </div>
                 
-            <Link to='/'><button className=" normal-case px-4  font-extrabold text-2xl">
-        <h1 className="text-purple-700">Fitness<span className="text-yellow-400 text-3xl">Hub</span> </h1>
+            <Link to='/'><button className=" normal-case md:px-4  font-extrabold text-2xl">
+              <div className="flex">
+              <img src="https://i.ibb.co/WPBcGmW/fitness-logo.png" alt="" className="w-[30px]" />
+              <h1 className="text-purple-700">
+         
+         Fitness<span className=" text-yellow-400 text-xl md:text-3xl">Hub</span> </h1>
+              </div>
+      
         </button></Link>
             
 

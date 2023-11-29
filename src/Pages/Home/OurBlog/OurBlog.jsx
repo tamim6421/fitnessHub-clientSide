@@ -38,11 +38,7 @@ const OurBlog = () => {
                     displayBlog?.map( blog => <BlockCard key={blog._id} blog={blog}></BlockCard>)
                 }
             </div>
-            
-          <Link to='/forum'> 
-          <button data-aos="fade-up" className="btn bg-red-600 text-lg text-white px-10 mt-10 block mx-auto btn-outline">Explore Our Forums Posts</button>
-          </Link>
-
+       
         </div>
     );
 };

@@ -30,14 +30,14 @@ const SocialLogin = () => {
     return (
         <div>
             <div>
-              <div className="divider text-green-500 ">Or, Continue With</div>
+              <div className="divider text-gray-500 ">Or, Continue With</div>
           <button
             type="button"
             onClick= {handelGoogleSignIn}
-            className="btn btn-outline btn-success w-full hover:text-white flex justify-between items-center cursor-pointer "
+            className="btn btn-outline text-purple-700 w-full hover:text-white hover:bg-purple-600 flex justify-between items-center cursor-pointer "
           >
-            Google
-            <FaGoogle className="w-8 h-8" />
+                    SIGN IN WITH GOOGLE 
+            <FaGoogle className="w-8 text-red-500 h-8" />
           </button>
         </div>
         </div>

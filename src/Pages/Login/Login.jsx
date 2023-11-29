@@ -6,7 +6,8 @@ import { FaEye,FaEyeSlash  } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import SocialLogin from "./SocialLogin";
-
+import login from '../../assets/login.svg'
+import Footer from "../../Shared/Footer/Footer";
 
 
 const Login = () => {
@@ -24,7 +25,23 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
 
-        console.log(email, password)
+        // console.log(email, password)
+
+              // login verification system 
+        
+              if(password.length < 6){
+                toast.error('Password mast be at 6 character')
+                return
+           }
+           else if (!/^(?=.*[A-Z])/.test(password)){
+               toast.error('One Character should be UPPERCASE')
+               return 
+             }
+             else if(!/[!@#$%^&*(),.?":{}|<>]/.test(password)){
+              toast.error('Must have a special character')
+              return
+            }
+              
 
         signInUser(email, password)
         .then(res =>{
@@ -50,14 +67,14 @@ const Login = () => {
          <div className="container">
         <div className="overly">
        <Navbar></Navbar>
-        <div className="hero  min-h-screen">
-           <div className="hero-content flex-col lg:flex-row-reverse bg-purple-100">
-             <div className="text-center lg:text-left">
-              <div className="mt-36">
+              <div className="mt-36 text-center">
               <Title>Login Now</Title>
               </div>
-               <p className="">
-             {/* <Lottie animationData={login}></Lottie> */}
+        <div className="hero  min-h-screen">
+           <div className="hero-content flex-col lg:flex-row-reverse ">
+             <div className="text-center lg:text-left">
+               <p className=" w-3/4 mx-auto">
+             <img  src={login} alt="" />
                </p>
              </div>
              <div className="card flex-shrink-0 w-full max-w-sm ">
@@ -65,7 +82,7 @@ const Login = () => {
                  
                  <div className="form-control ">
                    <label className="label">
-                     <span className="label-text text-purple-600">Email</span>
+                     <span className="label-text text-gray-500">Email</span>
                    </label>
                    <input
                      type="email"
@@ -78,7 +95,7 @@ const Login = () => {
                  </div>
                  <div className="form-control">
                    <label className="label">
-                     <span className="label-text text-purple-600">Password</span>
+                     <span className="label-text text-gray-500">Password</span>
                    </label>
    
                         <div className="relative">
@@ -92,21 +109,21 @@ const Login = () => {
                    <div className=" absolute right-3 top-3 text-xl">
                    <span onClick={()=> setShowPass(!showPass)}>
                      {
-                       showPass? <FaEyeSlash className="text-purple-400"></FaEyeSlash> :  <FaEye className="text-purple-400"></FaEye>
+                       showPass? <FaEyeSlash className="text-gray-500"></FaEyeSlash> :  <FaEye className="text-purple-400"></FaEye>
                      }
                    </span>
                    </div>
                   </div>
                    <label className="label">
-                     <a href="#" className="label-text-alt text-sm link link-hover text-purple-600">
+                     <a href="#" className="label-text-alt text-sm link link-hover text-gray-600">
                        Forgot password?
                      </a>
                    </label>
                  </div>
                 
                  <div className="form-control mt-6">
-                   <button className="btn bg-purple-500 text-white hover:bg-purple-600">Login</button>
-                   <p className='text-purple-400 mt-5'>New This Site? Please  <Link to='/register'>   <span className='text-stone-600 underline font-bold'>  Register</span> </Link></p>
+                   <button className="btn bg-purple-600 text-white hover:bg-purple-700">LOGIN</button>
+                   <p className='text-gray-600 mt-5'>New This Site? Please  <Link to='/register'>   <span className='text-stone-600 underline font-bold'>  Register</span> </Link></p>
                  </div>
                  <div>
                  <SocialLogin></SocialLogin>
@@ -116,6 +133,7 @@ const Login = () => {
            </div>
          </div>
         </div>
+        <Footer></Footer>
        </div>
     );
 };

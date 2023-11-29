@@ -1,15 +1,19 @@
 /* eslint-disable react/prop-types */
 
-const BlockCard = ({ blog }) => {
-  const { image, host, post } = blog;
+import { Link } from "react-router-dom";
 
+const BlockCard = ({ blog }) => {
+  const { image, host, post, _id } = blog;
+
+  console.log(blog)
   const backgroundImageStyle = {
     backgroundImage: `url(${image})`,
   };
 
   return (
     <div className="overflow-hidden" data-aos="fade-up">
-      <div className=" box relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-purple-700">
+        <Link to={`/blogsDetails/${_id}`}>
+      <div className=" box cursor-pointer relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-purple-700">
         <div
           className="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent"
           style={backgroundImageStyle}
@@ -28,8 +32,12 @@ const BlockCard = ({ blog }) => {
           <h5 className="block mb-4 font-sans antialiased font-semibold leading-snug tracking-normal text-gray-400" data-aos="fade-up">
             {post}
           </h5>
+        
+          <button > Read more .....</button>
+        
         </div>
       </div>
+      </Link>
     </div>
   );
 };

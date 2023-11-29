@@ -9,6 +9,8 @@ import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import img from '../../assets/register.svg'
+import Footer from "../../Shared/Footer/Footer";
 
 
 const Register = () => {
@@ -26,7 +28,21 @@ const Register = () => {
     const password = form.password.value;
     const check = event.target.check.checked;
 
-    console.log(name, email, photo, password, check)
+    // register 
+    if (password.length < 6) {
+      toast.error("Password mast be at 6 character");
+      return;
+    } else if (!/^(?=.*[A-Z])/.test(password)) {
+      toast.error("One Character should be UPPERCASE");
+      return;
+    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      toast.error("Must have a special character");
+      return;
+    } else if (!check) {
+      toast.error("Please Accept Our Trams And Conditions");
+      return;
+    }
+
 
     createUser(email, password)
     .then((res) => {
@@ -74,12 +90,16 @@ const Register = () => {
     <div className="container ">
       <div className="overly">
         <Navbar></Navbar>
-        <div className="hero min-h-screen bg-purple-50">
+       
+        <div className="text-center mt-36">
+        <Title>Register Now</Title>
+        </div>
+        <div className="hero min-h-screen ">
           <div className="hero-content flex-col lg:flex-row-reverse ">
             <div className="text-center mt-10 lg:text-left">
-              <Title>Register Now</Title>
-              <p className="py-6">
-                {/* <Lottie animationData={login}></Lottie> */}
+              
+              <p className="py-6 w-3/4 mx-auto">
+               <img src={img} alt="" />
               </p>
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm  ">
@@ -180,6 +200,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
