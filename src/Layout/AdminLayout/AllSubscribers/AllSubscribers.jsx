@@ -17,7 +17,7 @@ const AllSubscribers = () => {
 
     
     return (
-        <div className="mt-20 md:px-20">
+        <div className="mt-20 mb-20 overflow-hidden md:px-20">
           <div className="my-5 text-center">
           <Title>All Subscribers</Title>
           <p>Our Total Subscribers</p>

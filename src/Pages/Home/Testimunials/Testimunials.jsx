@@ -42,7 +42,7 @@ const Testimunials = () => {
           <SwiperSlide key={i}>
             <div className="relative md:flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-900 shadow-none">
               <div className="relative flex flex-col md:flex-row items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden bg-transparent shadow-none rounded-xl bg-clip-border">
-                <div className="md:flex gap-3  w-full">
+                <div className="lg:flex gap-3  w-full">
                   <div>
                   <img
                     src={review.image}
