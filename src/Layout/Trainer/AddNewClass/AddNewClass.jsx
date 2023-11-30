@@ -3,7 +3,7 @@ import AddClass from "../../../Pages/Classes/AddClass";
 
 const AddNewClass = () => {
     return (
-        <div>
+        <div className="mb-20">
             <AddClass></AddClass>
         </div>
     );

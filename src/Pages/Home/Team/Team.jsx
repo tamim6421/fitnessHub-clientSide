@@ -8,7 +8,7 @@ const Team = () => {
 
     const axiosPublic = useAxiosPublic()
 
-    const {data:trainers, isLoading} = useQuery({
+    const {data:trainers} = useQuery({
       queryKey: ['trainers'],
       queryFn: async() =>{
           const res = await axiosPublic.get('/accepttrainer')
@@ -16,7 +16,7 @@ const Team = () => {
       }
     })
 
-    console.log(trainers)
+    // console.log(trainers)
 
     return (
         <div>

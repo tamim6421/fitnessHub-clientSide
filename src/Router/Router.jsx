@@ -93,7 +93,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'paymentBooking/:id',
-                element: <PaymentBooking></PaymentBooking>,
+                element: <PrivetRoute><PaymentBooking></PaymentBooking></PrivetRoute>,
                 loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/getslot/${params.id}`,{       
                         headers: {
                             'authorization' : `Bearer ${localStorage.getItem('access-token')}`,

@@ -23,12 +23,12 @@ const Home = () => {
             <Navbar></Navbar>
             <Banner></Banner>
             <Featured></Featured>
+            <HomeClass></HomeClass>
             <About></About>
-            <Testimunials></Testimunials>
             <Subscribe></Subscribe>
+            <Testimunials></Testimunials>
             <OurBlog></OurBlog>
 
-            <HomeClass></HomeClass>
             <Team></Team>
             <Footer></Footer>
         </div>

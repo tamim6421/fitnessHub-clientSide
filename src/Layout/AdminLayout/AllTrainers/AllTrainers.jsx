@@ -22,7 +22,7 @@ const AllTrainers = () => {
   }
 
 const joiningDate = trainers?.map( day => day.joinDate )
-console.log(joiningDate)
+// console.log(joiningDate)
 
 
 
@@ -33,17 +33,18 @@ console.log(joiningDate)
     let months = (todayDate.getFullYear() - joinDate.getFullYear()) * 12;
     months -= joinDate.getMonth();
     months += todayDate.getMonth() ;
-    console.log(months)
+    // console.log(months)
     return months > salaryCount ? true : false; 
   }
   
 //   console.log(  remainingMonths(trainers[3]?.joinDate,trainers[3]?.salaryCount) )
 
 
-console.log(trainers)
+// console.log(trainers)
+
 
     return (
-        <div className="mt-20 md:px-20">
+        <div className="mt-20 mb-10 md:px-20">
             <div className="text-center mb-16">
                 <Title>All Trainers </Title>
             </div>

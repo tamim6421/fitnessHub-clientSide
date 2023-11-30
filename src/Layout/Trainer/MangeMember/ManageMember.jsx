@@ -24,7 +24,7 @@ const ManageMember = () => {
   });
   // console.log(allUser)
   const getMember = allUser?.filter((allUser) => allUser.role == "member");
-  console.log(getMember);
+  // console.log(getMember);
 
   const handelSendEmail = async (e) => {
     try {
@@ -47,7 +47,7 @@ const ManageMember = () => {
   };
 
   return (
-    <div className="px-2 mt-5">
+    <div className="px-2 mb-20 mt-5">
       <div className="text-center mt-20 mb-10">
         <Title>Manage Members</Title>
       </div>

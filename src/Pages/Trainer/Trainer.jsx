@@ -17,16 +17,12 @@ const Trainer = () => {
     queryKey: ["trainers"],
     queryFn: async () => {
       const res = await axiosPublic.get("/accepttrainer");
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     },
   });
 
-  // if (isLoading) {
-  //   return <Loader></Loader>
-  // }
 
-  // console.log(trainers)
 
   return (
     <div>
@@ -54,7 +50,7 @@ const Trainer = () => {
 
         <div className="pt-10 text-center" data-aos="fade-down">
           <Link to="/beTrainer">
-            <button className="btn bg-purple-500 hover:bg-purple-700 text-white uppercase px-10 ">
+            <button className="btn rounded-full bg-purple-500 hover:bg-purple-700 text-white uppercase px-10 ">
               be a trainer
             </button>
           </Link>

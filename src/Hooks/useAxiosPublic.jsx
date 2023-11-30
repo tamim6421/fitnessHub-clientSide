@@ -1,13 +1,11 @@
 import axios from "axios";
 
-
 const axiosPublic = axios.create({
-    baseURL:'https://fithub-server-eta.vercel.app'
-})
+  baseURL: "https://fithub-server-eta.vercel.app",
+});
 
 const useAxiosPublic = () => {
-    return  axiosPublic
+  return axiosPublic;
 };
 
 export default useAxiosPublic;
-

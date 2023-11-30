@@ -17,9 +17,7 @@ const Subscribe = () => {
 
     console.log(name, email)
     const subscribers = {
-      userEmail: user.email,
-      userName: user.displayName,
-      photo: user.photoURL,
+     userInfo : user ? user : '',
       name: name ,
       email: email ,
       date: new Date()

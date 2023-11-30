@@ -1,5 +1,7 @@
 // Import necessary stylesheets
 
+
+
 import { Helmet } from "react-helmet-async";
 import Navbar from "../../Shared/Navbar/Navbar";
 import Title from "../../Components/Title/Title";
@@ -7,7 +9,7 @@ import Title from "../../Components/Title/Title";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
-import Loader from "../../Components/Loader/Loader";
+
 
 const Gallery = () => {
   const axiosPublic = useAxiosPublic();

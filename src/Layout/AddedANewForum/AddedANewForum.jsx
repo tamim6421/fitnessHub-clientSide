@@ -65,7 +65,7 @@ const AddedANewForum = () => {
         
     }
     return (
-        <div>
+        <div className="mb-20">
             <div className="p-4 md:w-3/6 mx-auto">
                         <h1 className="text-center my-20">
                            <SectionTitle title={'Added a New'} title1={" Post"} des={'Tell Something about your clients and there health'}></SectionTitle>

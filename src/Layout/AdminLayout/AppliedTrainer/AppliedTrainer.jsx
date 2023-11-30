@@ -20,7 +20,7 @@ const AppliedTrainer = () => {
     // console.log(trainers)
 
     return (
-        <div className="md:px-20">
+        <div className="md:px-20 mb-10">
           <div className="text-center mt-20 mb-10 ">
             <Title> Total Applied Trainer</Title>
           </div>

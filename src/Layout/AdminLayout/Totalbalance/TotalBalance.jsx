@@ -12,7 +12,7 @@ const TotalBalance = () => {
   const chartInstance = useRef(null);
 
   // get total balance
-  const { data: totalBalance = [], isLoading } = useQuery({
+  const { data: totalBalance = [] } = useQuery({
     queryKey: ["totalBalance"],
     queryFn: async () => {
       const res = await axiosSecure.get("/getBalance");
@@ -30,7 +30,7 @@ const TotalBalance = () => {
       return res.data;
     },
   });
-  console.log(paymentBalance);
+  // console.log(paymentBalance);
 
   const pay = paymentBalance.reduce((bal, p) => bal + p.price, 0);
   //  console.log(pay)
@@ -53,11 +53,11 @@ const TotalBalance = () => {
       return res.data;
     },
   });
-  console.log(paymentByMember.length);
+  // console.log(paymentByMember.length);
   const totalPaidMember = paymentByMember.length;
 
   const memberPay = paymentByMember?.reduce((bal, p) => bal + p.price, 0);
-  console.log(memberPay);
+  // console.log(memberPay);
   const remaining = totalBalance[0]?.total_balance - pay;
   const balanceNow = remaining + memberPay;
 
@@ -89,7 +89,7 @@ const TotalBalance = () => {
   }, [totalPaidMember, totalSubscribers]);
 
   return (
-    <div>
+    <div className="mb-10">
       <div>
         <SectionTitle
           title={"Total & "}

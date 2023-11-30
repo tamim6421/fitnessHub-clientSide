@@ -15,6 +15,7 @@ import Footer from "../../Shared/Footer/Footer";
 import Title from "../../Components/Title/Title";
 import { MdAddPhotoAlternate } from "react-icons/md"
 import Loader from "../../Components/Loader/Loader";
+import { Helmet } from "react-helmet-async";
 
 
 const Forum = () => {
@@ -29,7 +30,7 @@ const Forum = () => {
     
     const [itemsParPage, setItemsParPage] = useState(5)
     const navigate = useNavigate()
-    console.log(currentPage)
+    // console.log(currentPage)
 
     const {data: allPost, refetch } = useQuery({
         queryKey: ['allPost', currentPage],
@@ -39,12 +40,12 @@ const Forum = () => {
         }
     })
 
-    console.log(allPost?.count)
+    // console.log(allPost?.count)
         const number = allPost?.count
     const numberOfPage = Math.ceil(number / itemsParPage)
     const pages = Array.from({ length: numberOfPage }, (_, index) => index);
 
-    console.log(pages)
+    // console.log(pages)
     
 
 
@@ -110,6 +111,12 @@ if(isLoading) return <Loader></Loader>
     return (
         <div>
             <Navbar></Navbar>
+
+            <Helmet>
+        <title>
+          FitnessHub | Forum
+        </title>
+       </Helmet>
             {
             user != null ?
             <div className="mt-20">

@@ -8,10 +8,12 @@ import toast from "react-hot-toast";
 import SocialLogin from "./SocialLogin";
 import login from '../../assets/login.svg'
 import Footer from "../../Shared/Footer/Footer";
+import { TbFidgetSpinner } from "react-icons/tb";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
-    const {signInUser} = useAuth()
+    const {signInUser, loading} = useAuth()
     const [showPass, setShowPass] = useState(false)
     const navigate = useNavigate()
     const location = useLocation()
@@ -67,6 +69,11 @@ const Login = () => {
          <div className="container">
         <div className="overly">
        <Navbar></Navbar>
+       <Helmet>
+        <title>
+          FitnessHub | Login
+        </title>
+       </Helmet>
               <div className="mt-36 text-center">
               <Title>Login Now</Title>
               </div>
@@ -122,7 +129,11 @@ const Login = () => {
                  </div>
                 
                  <div className="form-control mt-6">
-                   <button className="btn bg-purple-600 text-white hover:bg-purple-700">LOGIN</button>
+                   <button
+                    className="btn bg-purple-600 text-white hover:bg-purple-700">
+                       {loading? <TbFidgetSpinner  className='animate-spin m-auto text-2xl' />: 'LOGIN'}
+                      
+                      </button>
                    <p className='text-gray-600 mt-5'>New This Site? Please  <Link to='/register'>   <span className='text-stone-600 underline font-bold'>  Register</span> </Link></p>
                  </div>
                  <div>
