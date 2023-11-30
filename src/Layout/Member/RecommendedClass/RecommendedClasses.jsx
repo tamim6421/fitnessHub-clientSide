@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const RecommendedClasses = () => {
     const axiosPublic = useAxiosPublic()
 
-    const {data:allClass = [], isLoading, refetch} = useQuery({
+    const {data:allClass = []} = useQuery({
         queryKey: ['allClass'],
         queryFn: async () =>{
             const res = await axiosPublic.get('/getclass')

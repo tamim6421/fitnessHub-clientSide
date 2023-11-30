@@ -67,7 +67,7 @@ const AddClass = () => {
     <div>
       {/* added a class only trainer */}
       <div>
-        <div className="w-3/6 mx-auto">
+        <div className="w-3/4 md:w-3/6 mx-auto">
           <h1 className="mt-20">
             <SectionTitle  title={'Add a New '} title1={'Class'} des={'Add new more impotent exercise classes'}></SectionTitle>
           </h1>

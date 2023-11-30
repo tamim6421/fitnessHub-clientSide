@@ -56,13 +56,13 @@ const ManageSlots = () => {
 
 
     return (
-        <div className="px-7">
+        <div className="px-2 md:px-7">
             
             <div className="text-center mt-20 mb-10">
                 <Title>Manage Your Slots</Title>
             </div>
 
-            <div className="my-10 w-2/4 text-center mb-20 mx-auto">
+            <div className="my-10 md:w-2/4 text-center md:mb-20 mx-auto">
                 <p className='text-xl font-bold text-center mb-5'>My Slots</p>
 
                 {/* <div>
@@ -90,7 +90,7 @@ const ManageSlots = () => {
                           <thead className="bg-purple-500 text-white text-sm rounded-md">
                             <tr>
                               <th>
-                                Number 
+                                No 
                               </th>
                               <th>Day</th>
                               <th>Time</th>
@@ -123,7 +123,7 @@ const ManageSlots = () => {
 
 
 
-            <div className="w-3/4 text-center mb-20 mx-auto">
+            <div className="md:w-3/4 text-center mb-20 mx-auto">
                 <h1 className='mb-5 pt-10'>
                     <Title>My Booked Slot </Title>
                      </h1>
@@ -137,7 +137,7 @@ const ManageSlots = () => {
                           <thead className="bg-purple-500 text-white text-sm rounded-md">
                             <tr>
                               <th>
-                                Number 
+                                Num
                               </th>
                               <th>Booked By</th>
                               <th>Day</th>
@@ -171,7 +171,7 @@ const ManageSlots = () => {
                                 </td>
                                
                                 <td>
-                                <button className="btn btn-sm bg-green-200 ">{book?.time}</button>
+                                <button className="btn btn-sm px-5 bg-green-200 ">{book?.time}</button>
                                 </td>
                                 <th>
 

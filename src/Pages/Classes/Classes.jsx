@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Title from "../../Components/Title/Title";
 import useAuth from "../../Hooks/useAuth";
 import Navbar from "../../Shared/Navbar/Navbar";
-import AddClass from "./AddClass";
 import DailyRutine from "./DailyRutine";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";

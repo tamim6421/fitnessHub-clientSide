@@ -246,6 +246,24 @@ const Dashboard = () => {
                  
                   </NavLink>
                 </li>
+            
+                <li>
+                  <NavLink
+                    to="/dashboard/myPayment"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm"
+                    }
+                  >
+                      <p className="flex items-center gap-2 ">
+                    <MdClass className="text-gray-500 text-2xl"></MdClass>Payment History
+                    </p>
+                 
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink
                     to="/dashboard/memberProfile"

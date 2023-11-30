@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import Loader from "../../../Components/Loader/Loader";
 import { useState } from "react";
 import { useEffect } from "react";
 import Title from "../../../Components/Title/Title";
@@ -18,7 +17,7 @@ const ActivityLoge = () => {
     const [mySlot, setMySlot] = useState([])
     const [tabIndex, setTabIndex] = useState(0);
 
-    const {data: allSlot, isLoading, refetch} = useQuery({
+    const {data: allSlot} = useQuery({
         queryKey: ['allSlot'],
         queryFn : async () =>{
             const res = await axiosSecure.get(`/getslot/`)
@@ -42,7 +41,7 @@ const thursday = mySlot?.filter( days => days.day == 'Thursday')
 const friday = mySlot?.filter( days => days.day == 'Friday')
 
 //   console.log('saturday', saturday, "monday", monday, 'sunday', sunday, tuesday,wednesday,thursday ,friday )
-console.log(tuesday)
+// console.log(tuesday)
     return (
         <div className=" ml-30 md:px-20 ">
             <h1 className="text-center pt-10" >
@@ -51,7 +50,11 @@ console.log(tuesday)
                 </Title>
             </h1>
 
-            <div className=" w-5/6 mx-auto my-10">
+            <div>
+              <p className="text-gray-500 text-center mt-10 text-2xl">Hello  <span className="text-green-500 font-bold">{user?.displayName}</span></p>
+              <p className="text-center mb-5">See your today activity</p>
+            </div>
+            <div className=" w-5/6 mx-auto mb-10 mt-2">
             <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)} >
                     <TabList className='bg-purple-400 flex gap-1 flex-wrap justify-center rounded-3xl px-2 py-4 text-white'>
                         <Tab className="btn btn-sm md:btn md:bg-orange-500 hover:bg-orange-600 text-white  ">Saturday</Tab>

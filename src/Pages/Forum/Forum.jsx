@@ -21,7 +21,7 @@ const Forum = () => {
     const {user} = useAuth()
     const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
-    const [loading, setLoading] = useState(false)
+    
 
 
 

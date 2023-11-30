@@ -36,6 +36,7 @@ import ContactUs from "../Pages/ContractUs/ContractUs";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import TrainerRoute from "./TrainerRoure/TrainerRoute";
 import BlogDetails from "../Pages/Home/OurBlog/BlogDetails";
+import PaymentHistory from "../Layout/Member/PaymentHistory/PaymentHistory";
 
 
 
@@ -205,6 +206,10 @@ const router = createBrowserRouter([
             {
                 path: 'recommendedClass',
                 element: <RecommendedClasses></RecommendedClasses>
+            },
+            {
+                path: 'myPayment',
+                element: <PaymentHistory></PaymentHistory>
             }
         ]
     }

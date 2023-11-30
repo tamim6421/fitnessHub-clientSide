@@ -1,14 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import useUserRole from "../../../Hooks/useUserRole";
 import toast from "react-hot-toast";
 import Loader from "../../../Components/Loader/Loader";
 import Title from "../../../Components/Title/Title";
 
 const ProfileSetting = () => {
   const { user } = useAuth();
-  const {userRole, isLoading} = useUserRole();
   const axiosSecure = useAxiosSecure()
 
 // console.log(userRole[0].role)
@@ -63,11 +61,11 @@ const getMember = allUser?.find(allUser => allUser.email == user?.email)
   return (
     <div className="min-h-screen">
      
-      <div className="card  md:w-3/4 mx-auto md:p-5">
+      <div className="card   w-3/4 mx-auto md:p-5">
       <div className="text-center mt-10" data-aos="fade-up">
       <Title>Update Your Profile </Title>
       </div>
-        <div data-aos="fade-up-left">
+        <div data-aos="fade-up-left shadow-lg ">
         <figure className="px-10 flex flex-col  pt-10" data-aos="fade-left">
           <div className="avatar online">
             <div className="w-24 rounded-full">

@@ -5,7 +5,7 @@ import { MdEmail } from "react-icons/md";
 
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
-import useAuth from "../../../Hooks/useAuth";
+
 
 const ManageMember = () => {
   const axiosSecure = useAxiosSecure();
@@ -14,8 +14,7 @@ const ManageMember = () => {
   // get all user
   const {
     data: allUser = [],
-    isLoading: userLoading,
-    refetch,
+ 
   } = useQuery({
     queryKey: ["allUser"],
     queryFn: async () => {
@@ -48,18 +47,18 @@ const ManageMember = () => {
   };
 
   return (
-    <div className="px-5 mt-5">
+    <div className="px-2 mt-5">
       <div className="text-center mt-20 mb-10">
         <Title>Manage Members</Title>
       </div>
 
       <div>
-        <div className="overflow-x-auto w-3/4 mx-auto">
+        <div className="overflow-x-auto md:w-3/4 mx-auto">
           <table className="table">
             {/* head */}
             <thead className="bg-purple-500 text-white font-semibold text-sm">
               <tr>
-                <th>Number</th>
+                <th>Num</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>

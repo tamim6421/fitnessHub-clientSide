@@ -7,14 +7,14 @@ import { MdEmail } from "react-icons/md";
 const AppliedCard = ({trainer}) => {
     // eslint-disable-next-line no-unused-vars
     const {name, image, trainerEmail,  _id  } = trainer
-    console.log(trainer)
+    // console.log(trainer)
 
 
 
 
 
     return (
-        <div className="px-10 overflow-hidden">
+        <div className="md:px-10 overflow-hidden">
             <div className="  relative flex flex-col mt-6 text-gray-500  shadow-md  rounded-xl bg-clip-border" data-aos="fade-up-left">
   <div className="p-6">
         <div>

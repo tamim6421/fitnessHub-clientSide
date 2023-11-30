@@ -17,7 +17,7 @@ const AllSubscribers = () => {
 
     
     return (
-        <div className="mt-20 px-20">
+        <div className="mt-20 md:px-20">
           <div className="my-5 text-center">
           <Title>All Subscribers</Title>
           <p>Our Total Subscribers</p>
@@ -25,7 +25,7 @@ const AllSubscribers = () => {
 
           <div>
             {
-                subscribers.length > 0 ? 
+                subscribers?.length > 0 ? 
                 <>
                 <div>
             <div className="overflow-x-auto px-6 mt-10">

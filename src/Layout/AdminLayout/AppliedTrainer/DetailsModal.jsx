@@ -2,7 +2,6 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { useState } from "react";
 import toast from "react-hot-toast";
 
 
@@ -11,7 +10,6 @@ import { useRef } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import Title from "../../../Components/Title/Title";
 import Loader from "../../../Components/Loader/Loader";
-import { FaExclamation } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 
@@ -25,8 +23,8 @@ const DetailsModal = () => {
   
 
    
-    const {name, image, trainerEmail, age, status, icons, days, skills, time,yearOfExperience, _id ,role } = allInfo
-  console.log(allInfo)
+    const {name, image, trainerEmail, age, status, icons, days, skills, time,yearOfExperience, _id  } = allInfo
+//   console.log(allInfo)
 
     const {data:allUser = [], isLoading, isError, refetch} = useQuery({
         queryKey: ['allUser'],
@@ -54,28 +52,6 @@ const DetailsModal = () => {
 
     
     let slotArray = []
-
-    // const makeSlot =( ) =>{
-         
-    //     for(let i = 0; i < days.length ; i ++){
-    //         for( let j = 0 ; j < time.length; j ++){
-    //             const slot = {
-    //                 trainerId: _id,
-    //                 day: days[i],
-    //                 time: time[j],
-    //                package: null ,
-    //                price: null,
-    //                user: null,
-    //             }
-    //             slotArray.push(slot)
-    //         }
-    //     }
-    //     // console.log(slotArray)
-    // }
-
-
-
-
 
 
     const handelAccept = async (_id) =>{
@@ -168,7 +144,7 @@ const DetailsModal = () => {
     
     return (
         <div>
-             <div className="px-20 my-20">
+             <div className="md:px-20 my-20 overflow-hidden">
                         <div className="text-center my-20">
                             <Title>Applied Trainer Details</Title>
                         </div>
@@ -258,7 +234,7 @@ const DetailsModal = () => {
                                         status == 'pending' && <>
                                          <button 
                                    onClick={() =>handelAccept(_id)}
-                                    className="btn bg-green-500 hover:bg-green-700 btn-sm mb-2 px-3 text-white mr-10">Accept</button>
+                                    className="btn bg-green-500 hover:bg-green-700 btn-sm mb-2 px-3 text-white mr-10" data-aos="fade-left">Accept</button>
                                         </> 
                                     }
                                    
@@ -266,7 +242,7 @@ const DetailsModal = () => {
 
                                     <div>
                                           {/* send email from  */}
-                                   <div className="">
+                                   <div className="hidden">
                                    <form ref={form} onSubmit={handelReject}>
                                     <label>Name</label>
                                     <input type="text" defaultValue='FitnessHub' name="from_name" />
@@ -288,7 +264,7 @@ const DetailsModal = () => {
                                     status == 'pending' ? <>
                                      <button 
                                     onClick ={() =>handelReject(_id)}
-                                    className="btn bg-red-500 btn-sm px-4 hover:bg-red-600 text-white mr-10">Reject</button>
+                                    className="btn bg-red-500 btn-sm px-4 hover:bg-red-600 text-white mr-10" data-aos="fade-right">Reject</button>
 
                                     
                                     </>

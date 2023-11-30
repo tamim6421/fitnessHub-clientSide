@@ -1,5 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
 import toast from "react-hot-toast";
-import Title from "../../Components/Title/Title";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
@@ -11,7 +11,7 @@ const AddedANewForum = () => {
     const {user} = useAuth()
     const axiosSecure = useAxiosSecure()
 
-    const {data: postUser = [], isLoading } = useQuery({
+    const {data: postUser = [] } = useQuery({
         queryKey: ['postUser', user?.email,],
         queryFn: async () =>{
             const res = await axiosSecure.get(`/allusers/${user?.email}`)
@@ -66,7 +66,7 @@ const AddedANewForum = () => {
     }
     return (
         <div>
-            <div className="p-4 w-3/6 mx-auto">
+            <div className="p-4 md:w-3/6 mx-auto">
                         <h1 className="text-center my-20">
                            <SectionTitle title={'Added a New'} title1={" Post"} des={'Tell Something about your clients and there health'}></SectionTitle>
                         </h1>
@@ -74,7 +74,7 @@ const AddedANewForum = () => {
                             <p className="text-lg ">Post what's on your mind</p>
                         <textarea name="text" className="textarea w-full textarea-bordered" placeholder="Text here"></textarea>
                     <input type="file" name="image" accept="image/*" className="file-input file-input-bordered file-input-sm w-full " />
-                    <button className="btn px-7 bg-purple-500 btn-outline text-white">Post</button>
+                    <button className="btn px-7 bg-blue-500 btn-outline text-white">Post</button>
                         </form>
                    
                     </div>

@@ -43,7 +43,7 @@ console.log(joiningDate)
 console.log(trainers)
 
     return (
-        <div className="mt-20 px-20">
+        <div className="mt-20 md:px-20">
             <div className="text-center mb-16">
                 <Title>All Trainers </Title>
             </div>
