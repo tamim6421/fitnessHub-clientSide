@@ -20,8 +20,8 @@ const RecommendedClasses = () => {
 
 
     return (
-        <div className="px-20">
-            <div className="text-center my-20">
+        <div className="md:px-20 overflow-hidden">
+            <div className="text-center my-20 ">
                 <Title>Recommended Class For You </Title>
             </div>
             <div>

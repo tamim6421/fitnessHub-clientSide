@@ -1,13 +1,11 @@
 
 
-const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
 
 
 const DailyRutine = () => {
-   return (
+   return ( 
 <div className="" >
-       <div className=" flex w-full flex-col md:flex-row ">
+       <div className=" flex  w-full mx-auto items-center justify-end flex-col md:flex-row ">
 
         <div className="flex ">
         <div className="flex flex-col items-center justify-center gap-3">
@@ -58,7 +56,13 @@ const DailyRutine = () => {
            
 
         </div>
-       <div className="flex flex-col items-center justify-center gap-3">
+
+      
+
+        </div>
+
+        <div className="flex">
+        <div className="flex flex-col items-center justify-center gap-3">
             <p className="text xl btn bg-purple-600 text-white px-6">
             Tuesday 
             </p>
@@ -74,9 +78,7 @@ const DailyRutine = () => {
           
 
         </div>
-        </div>
 
-        <div className="flex">
         <div className="flex flex-col items-center justify-center gap-3">
             <p className="text xl btn bg-purple-600 text-white px-6">
             Wednesday 
@@ -93,6 +95,7 @@ const DailyRutine = () => {
             
 
         </div>
+
        <div className="flex flex-col items-center justify-center gap-3">
             <p className="text xl btn bg-purple-600 text-white px-6">
             Thursday 
@@ -108,7 +111,11 @@ const DailyRutine = () => {
             </p>
          
         </div>
-       <div className="flex flex-col items-center justify-center gap-3">
+
+     
+        </div>
+
+        <div className="flex flex-col items-center justify-center gap-3">
             <p className="text xl btn bg-purple-600 text-white px-6">
             Friday 
             </p>
@@ -124,9 +131,7 @@ const DailyRutine = () => {
             
 
         </div>
-        </div>
 
-     
         
        </div>
 </div>

@@ -20,7 +20,7 @@ const ContractUs = () => {
 
             <Navbar></Navbar>
             
-            <div className="text-center  mt-36">
+            <div className="text-center overflow-hidden mt-36">
          <Title> Contact With Us</Title>
          <hr className=" border-2 w-24 mt-2 border-orange-500 mx-auto" data-aos="fade-up"  />
             <div>

@@ -48,7 +48,7 @@ const getMember = allUser?.find(allUser => allUser.email == user?.email)
     console.log(name, photo, number, address)
     axiosSecure.put(`/users/${getMember?._id}`,updateInfo )
     .then(res =>{
-        console.log(res.data)
+        // console.log(res.data)
         if(res.data.modifiedCount > 0){
             toast.success('Profile Update')
             e.target.reset()
@@ -63,7 +63,7 @@ const getMember = allUser?.find(allUser => allUser.email == user?.email)
   return (
     <div className="min-h-screen">
      
-      <div className="card  w-3/4 mx-auto p-5">
+      <div className="card  md:w-3/4 mx-auto md:p-5">
       <div className="text-center mt-10" data-aos="fade-up">
       <Title>Update Your Profile </Title>
       </div>
@@ -80,7 +80,7 @@ const getMember = allUser?.find(allUser => allUser.email == user?.email)
        
         <div className="items-center text-center">
         <form onSubmit={updateProfile}>
-        <div className="w-3/6 space-y-7 mx-auto">
+        <div className=" px-2 md:w-3/6 space-y-7 mx-auto">
             <div className="form-control w-full ">
               <label className="label">
                 <span className="label-text">Your Name</span>

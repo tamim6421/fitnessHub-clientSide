@@ -2,9 +2,9 @@ import { NavLink, Outlet } from "react-router-dom";
 import useUserRole from "../../Hooks/useUserRole";
 import Navbar from "../../Shared/Navbar/Navbar";
 import { FaHome, FaPeopleCarry } from "react-icons/fa";
-import { FaMoneyBillTrendUp, FaPeopleGroup } from "react-icons/fa6";
+import { FaArrowsDownToPeople, FaMoneyBillTrendUp, FaPeopleGroup, FaPeopleRobbery } from "react-icons/fa6";
 import { IoMdPeople } from "react-icons/io";
-import { MdAddPhotoAlternate, MdClass, MdLocalActivity, MdSettings, MdSupport } from "react-icons/md";
+import { MdAddPhotoAlternate, MdClass, MdLocalActivity, MdManageAccounts, MdOutlineSportsGymnastics, MdSettings, MdSupport, MdWifiProtectedSetup } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
 
 
@@ -75,7 +75,7 @@ const Dashboard = () => {
                   >
                    
                     <p className="flex items-center gap-2">
-                 <FaPeopleGroup className="text-gray-500 text-2xl"></FaPeopleGroup>    All Trainers 
+                 <FaPeopleRobbery  className="text-gray-500 text-2xl"></FaPeopleRobbery>    All Trainers 
                     </p>
                     
                   </NavLink>
@@ -93,7 +93,7 @@ const Dashboard = () => {
                   >
                    
                     <p className="flex items-center gap-2">
-                 <FaPeopleGroup className="text-gray-500 text-2xl"></FaPeopleGroup>    Applied Trainers 
+                 <FaArrowsDownToPeople  className="text-gray-500 text-2xl"></FaArrowsDownToPeople>    Applied Trainers 
                     </p>
                     
                   </NavLink>
@@ -136,6 +136,7 @@ const Dashboard = () => {
                         : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
                     }
                   >
+                    <FaHome className="text-2xl"></FaHome>
                     Trainer Home
                   </NavLink>
                 </li>
@@ -150,6 +151,7 @@ const Dashboard = () => {
                         : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
                     }
                   >
+                     <MdWifiProtectedSetup  className="text-2xl"></MdWifiProtectedSetup>
                     Manage Slots
                   </NavLink>
                 </li>
@@ -164,6 +166,8 @@ const Dashboard = () => {
                         : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
                     }
                   >
+                    <MdManageAccounts   className="text-2xl"></MdManageAccounts>
+                     
                     Manage Member 
                   </NavLink>
                 </li>
@@ -178,6 +182,7 @@ const Dashboard = () => {
                         : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
                     }
                   >
+                    <MdOutlineSportsGymnastics    className="text-2xl"></MdOutlineSportsGymnastics>
                    Add New Class
                   </NavLink>
                 </li>

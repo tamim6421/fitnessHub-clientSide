@@ -44,7 +44,7 @@ const friday = mySlot?.filter( days => days.day == 'Friday')
 //   console.log('saturday', saturday, "monday", monday, 'sunday', sunday, tuesday,wednesday,thursday ,friday )
 console.log(tuesday)
     return (
-        <div className=" ml-30 px-20 ">
+        <div className=" ml-30 md:px-20 ">
             <h1 className="text-center pt-10" >
                 <Title>
                     My Todays Activity

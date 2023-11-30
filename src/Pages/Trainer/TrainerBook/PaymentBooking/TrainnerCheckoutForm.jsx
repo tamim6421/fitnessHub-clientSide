@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
-import { FaCalendarDays } from "react-icons/fa6";
+
 
 
 
@@ -131,7 +131,7 @@ useEffect(() => {
   }
 
     return (
-        <div className=" p-5  mx-auto py-10 w-3/6 rounded-lg shadow-md bg-slate-100">
+        <div className=" p-5  mx-auto py-10 md:w-3/6 rounded-lg shadow-md bg-slate-100">
         <form onSubmit={handelPayment}>
 
         <div>

@@ -4,14 +4,14 @@ import Navbar from "../../../Shared/Navbar/Navbar";
 import { FaCheck } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+// import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const TrainerBook = () => {
     const slotData = useLoaderData()
     const [infos, setInfos] = useState()
     const {user} = useAuth()
-    const axiosPublic = useAxiosPublic()
+    // const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
 
 
@@ -19,14 +19,14 @@ const TrainerBook = () => {
       fetch('/price.json')
       .then( res => res.json())
       .then( data =>{
-        console.log(data)
+        // console.log(data)
         setInfos(data)
       })
     } ,[])
-    console.log(slotData)
+    // console.log(slotData)
     
     const slotBooking = async (info) => {
-      console.log(info)
+      // console.log(info)
       try {
         const bookData = {
           user: user,
@@ -35,7 +35,7 @@ const TrainerBook = () => {
           price: info.price,
         };
     
-        console.log(slotData._id);
+        // console.log(slotData._id);
     
         const response = await axiosSecure.put(`/putslot/${slotData?._id}`, bookData);
         
@@ -57,7 +57,7 @@ const TrainerBook = () => {
                     <Title > Booked Your Package </Title>
                 </div>
 
-                <div className="grid grid-cols-1 gap-6 w-full mx-auto md:grid-cols-3">
+                <div className="grid grid-cols-1 gap-6 items-center w-3/4 mx-auto md:grid-cols-2 lg:grid-cols-3">
 
                   {
                     infos?.map( (info, i) =>     <div key={i} className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-orange-400 to-purple-600 bg-clip-border p-8 text-white shadow-md shadow-purple-500/40">
@@ -65,7 +65,7 @@ const TrainerBook = () => {
                       <p className="block font-sans text-xl text-white uppercase">
                        {info?.cardName}
                       </p>
-                      <h1 className="flex justify-center gap-1 mt-6 font-sans antialiased font-normal tracking-normal text-white text-7xl">
+                      <h1 className="flex justify-center gap-1 mt-6 font-sans antialiased font-normal tracking-normal text-white text-4xl md:text-7xl">
                         <span className="mt-2 text-2xl md:text-4xl">$</span>{info?.price}
                         <span className="self-end text-4xl">/mo</span>
                       </h1>

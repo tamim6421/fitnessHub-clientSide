@@ -16,7 +16,7 @@ const Classes = () => {
     const axiosSecure = useAxiosSecure()
     
     // get all user 
-    const {data:allUser = [], isLoading: userLoading,} = useQuery({
+    const {data:allUser = []} = useQuery({
         queryKey: ['allUser'],
         queryFn: async () =>{
             const res = await axiosSecure.get('/alluser')
@@ -26,7 +26,7 @@ const Classes = () => {
 
 
     // get all class 
-    const {data:allClass = [], isLoading, refetch} = useQuery({
+    const {data:allClass = [], isLoading} = useQuery({
         queryKey: ['allClass'],
         queryFn: async () =>{
             const res = await axiosSecure.get('/getclass')
@@ -58,7 +58,7 @@ const Classes = () => {
                 <Title>Weekly  Schedule </Title>
             </div>
 
-            <div className="w-3/5 mx-auto" data-aos="fade-up">
+            <div className="md:w-3/5 mx-auto p-1" data-aos="fade-up">
             <DailyRutine></DailyRutine>
             </div>
 

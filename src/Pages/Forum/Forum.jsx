@@ -175,7 +175,7 @@ if(isLoading) return <Loader></Loader>
                         <textarea name="text" className="textarea w-full textarea-bordered" placeholder="Whats on your mind ?"></textarea>
                     <input type="file" name="image" accept="image/*" className="file-input-bordered file-input w-full max-w-xs" />
                     <div>
-                    <button className="btn bg-purple-500 btn-outline px-7 mt-5 text-white">Post</button>
+                    <button className="btn bg-green-500 btn-outline px-7 mt-5 text-white">Post</button>
                     </div>
                         </form>
                    
