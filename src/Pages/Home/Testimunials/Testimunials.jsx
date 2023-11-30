@@ -6,18 +6,20 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { useEffect, useState } from "react";
 import Title from "../../../Components/Title/Title";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const Testimunials = () => {
   const [reviews, setReview] = useState([]);
+  const axiosPublic = useAxiosPublic()
 
   useEffect(() => {
-    fetch("/review.json")
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data)
-        setReview(data);
+    axiosPublic.get("/gereview")
+      
+      .then((res) => {
+        console.log(res.data)
+        setReview(res.data);
       });
-  }, []);
+  }, [axiosPublic]);
 
   return (
     <div>
