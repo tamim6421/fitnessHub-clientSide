@@ -19,14 +19,14 @@ const TrainerBook = () => {
       fetch('/price.json')
       .then( res => res.json())
       .then( data =>{
-        // console.log(data)
+        console.log(data)
         setInfos(data)
       })
     } ,[])
-    // console.log(slotData)
+    console.log(slotData)
     
     const slotBooking = async (info) => {
-      // console.log(info)
+      console.log(info)
       try {
         const bookData = {
           user: user,

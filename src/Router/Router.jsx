@@ -83,23 +83,17 @@ const router = createBrowserRouter([
             {
                 path: 'trainerBook/:id',
                 element: <TrainerBook></TrainerBook>,
-                loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/getslot/${params.id}`,{       
-                    headers: {
-                        'authorization' : `Bearer ${localStorage.getItem('access-token')}`,
-                      },
-            })
-
-
-            },
+                loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/getslot/${params.id}`)},
             {
                 path:'paymentBooking/:id',
                 element: <PrivetRoute><PaymentBooking></PaymentBooking></PrivetRoute>,
-                loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/getslot/${params.id}`,{       
+                loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/getslots/${params.id}`,{       
                         headers: {
                             'authorization' : `Bearer ${localStorage.getItem('access-token')}`,
                           },
                 })
             },
+
             {
                 path:'/forum',
                 element:<Forum></Forum>

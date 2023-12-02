@@ -130,7 +130,7 @@ Gallery
                 <NavLink
           to="/dashboard/trainerHome"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-semibold" : "hover:bg-gray-100 text-black text-lg"
+            isPending ? "pending" : isActive ? "text-purple-500 text-lg bg-purple-50 font-bold" : "hover:bg-gray-100 text-black text-lg"
           }
         >
         Dashboard

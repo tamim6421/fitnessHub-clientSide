@@ -1,9 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useUserRole from "../../Hooks/useUserRole";
 import Navbar from "../../Shared/Navbar/Navbar";
-import { FaHome, FaPeopleCarry } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { FaArrowsDownToPeople, FaMoneyBillTrendUp, FaPeopleGroup, FaPeopleRobbery } from "react-icons/fa6";
-import { IoMdPeople } from "react-icons/io";
 import { MdAddPhotoAlternate, MdClass, MdLocalActivity, MdManageAccounts, MdOutlineSportsGymnastics, MdSettings, MdSupport, MdWifiProtectedSetup } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
 
@@ -23,7 +22,7 @@ const Dashboard = () => {
 
           
 
-          <ul className="mt-10 px-5 mb-5 text-center md:text-start space-y-5">
+          <ul className="mt-10  px-5 mb-5 sm:text-center md:text-start space-y-4 md:space-y-16">
 
           {userRole[0]?.role === "admin" && (
               <>
@@ -34,8 +33,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        :  " text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg"
+                        :  " text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
                     <p className="flex items-center gap-2 ">
@@ -51,8 +50,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg "
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg "
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
                     
@@ -69,8 +68,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
                    
@@ -87,8 +86,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
                    
@@ -106,8 +105,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg "
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg "
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
                     
@@ -132,12 +131,14 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
-                    <FaHome className="text-2xl"></FaHome>
-                    Trainer Home
+                   <p className="flex gap-2">
+                   <FaHome className="text-2xl"></FaHome>
+                    <p>Trainer Home</p>
+                   </p>
                   </NavLink>
                 </li>
                 <li>
@@ -147,12 +148,14 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
-                     <MdWifiProtectedSetup  className="text-2xl"></MdWifiProtectedSetup>
-                    Manage Slots
+                   <p className="flex gap-2">
+                   <MdWifiProtectedSetup  className="text-2xl"></MdWifiProtectedSetup>
+                   <p> Manage Slots</p>
+                   </p>
                   </NavLink>
                 </li>
                 <li>
@@ -162,13 +165,15 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
+                    <p className="flex gap-2">
                     <MdManageAccounts   className="text-2xl"></MdManageAccounts>
                      
-                    Manage Member 
+                     <p>Manage Member </p>
+                    </p>
                   </NavLink>
                 </li>
                 <li>
@@ -178,12 +183,16 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg "
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg "
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
-                    <MdOutlineSportsGymnastics    className="text-2xl"></MdOutlineSportsGymnastics>
-                   Add New Class
+                 <p className="flex gap-2">
+                 <MdOutlineSportsGymnastics    className="text-2xl"></MdOutlineSportsGymnastics>
+                  <p>
+                  Add New Class
+                  </p>
+                 </p>
                   </NavLink>
                 </li>
               </>
@@ -201,8 +210,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg "
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg "
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
                         <p className="flex items-center gap-2 ">
@@ -217,8 +226,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900   font-bold  text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
                       <p className="flex items-center gap-2 ">
@@ -236,8 +245,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm"
+                        ? "text-purple-900  font-bold  text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg "
                     }
                   >
                       <p className="flex items-center gap-2 ">
@@ -254,8 +263,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm"
+                        ? "text-purple-900  font-bold  text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg hover:font-bold"
                     }
                   >
                       <p className="flex items-center gap-2 ">
@@ -271,8 +280,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
                      <p className="flex items-center gap-2 ">
@@ -288,8 +297,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
                      <p className="flex items-center gap-2 ">
@@ -312,8 +321,8 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-purple-900 btn btn-sm font-bold  bg-purple-100 text-lg"
-                        : "text-gray-600 hover:text-purple-900 text-lg btn btn-sm hover:font-bold"
+                        ? "text-purple-900  font-bold  text-lg"
+                        : "text-gray-600 hover:text-purple-900 text-lg  hover:font-bold"
                     }
                   >
                      <p className="flex items-center gap-2">

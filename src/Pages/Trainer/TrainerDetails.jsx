@@ -144,8 +144,8 @@ const TrainerDetails = () => {
         </div>
 
 
-        <div className=" card-body  mx-auto w-4/5 ">
-          <div className="flex flex-col md:flex-row gap-2 mt-8 ">
+        <div className=" card-body  mx-auto w-full ">
+          <div className="flex flex-col md:flex-row overflow-x-auto gap-2 mt-8 ">
             {groupedData?.map((group, i) => (
               <div key={i} className="bg-purple-100 shadow-xl  max-w-max p-5 rounded-lg">
                 <p className="btn bg-purple-500 text-white hover:bg-purple-700 px-9">

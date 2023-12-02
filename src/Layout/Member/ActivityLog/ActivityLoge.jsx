@@ -41,9 +41,9 @@ const thursday = mySlot?.filter( days => days.day == 'Thursday')
 const friday = mySlot?.filter( days => days.day == 'Friday')
 
 //   console.log('saturday', saturday, "monday", monday, 'sunday', sunday, tuesday,wednesday,thursday ,friday )
-// console.log(tuesday)
+// console.log(monday)
     return (
-        <div className=" ml-30 md:px-20 mb-20 ">
+        <div className=" ml-20 md:px-20 mb-20 ">
             <h1 className="text-center pt-10" >
                 <Title>
                     My Todays Activity
@@ -56,14 +56,14 @@ const friday = mySlot?.filter( days => days.day == 'Friday')
             </div>
             <div className=" w-5/6 mx-auto mb-10 mt-2">
             <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)} >
-                    <TabList className='bg-purple-400 flex gap-1 flex-wrap justify-center rounded-3xl px-2 py-4 text-white'>
-                        <Tab className="btn btn-sm md:btn md:bg-orange-500 hover:bg-orange-600 text-white  ">Saturday</Tab>
-                        <Tab className="btn btn-sm md:btn md:bg-orange-500 hover:bg-orange-600 text-white  ">Sunday </Tab>
-                        <Tab className="btn btn-sm md:btn md:bg-orange-500 hover:bg-orange-600 text-white  ">Monday </Tab>
-                        <Tab className="btn btn-sm md:btn md:bg-orange-500 hover:bg-orange-600 text-white  ">Tuesday </Tab>
-                        <Tab className="btn btn-sm md:btn md:bg-orange-500 hover:bg-orange-600 text-white  ">Wednesday </Tab>
-                        <Tab className="btn btn-sm md:btn md:bg-orange-500 hover:bg-orange-600 text-white  ">Thursday </Tab>
-                        <Tab className="btn btn-sm md:btn md:bg-orange-500 hover:bg-orange-600 text-white  ">Friday </Tab>
+                    <TabList className='bg-purple-400 flex gap-1 flex-wrap justify-center rounded-2xl px-2 py-4 text-white'>
+                        <Tab className="btn btn-sm md:btn md:bg-gray-500 text-white hover:bg-orange-200  ">Saturday</Tab>
+                        <Tab className="btn btn-sm md:btn md:bg-gray-500 text-white hover:bg-orange-200  ">Sunday </Tab>
+                        <Tab className="btn btn-sm md:btn md:bg-gray-500 text-white hover:bg-orange-200  ">Monday </Tab>
+                        <Tab className="btn btn-sm md:btn md:bg-gray-500 text-white hover:bg-orange-200  ">Tuesday </Tab>
+                        <Tab className="btn btn-sm md:btn md:bg-gray-500 text-white hover:bg-orange-200  ">Wednesday </Tab>
+                        <Tab className="btn btn-sm md:btn md:bg-gray-500 text-white hover:bg-orange-200  ">Thursday </Tab>
+                        <Tab className="btn btn-sm md:btn md:bg-gray-500 text-white hover:bg-orange-200  ">Friday </Tab>
                     </TabList>
 
 
@@ -71,7 +71,7 @@ const friday = mySlot?.filter( days => days.day == 'Friday')
                     <TabPanel>
                         {
                              saturday?.length !== 0 ? <>
-                              <div className="grid gap-5 grid-cols-1 md:grid-cols-3">
+                              <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
                             
                             {
                                
@@ -104,7 +104,7 @@ const friday = mySlot?.filter( days => days.day == 'Friday')
                     <TabPanel>
                     {
                              sunday?.length !== 0 ? <>
-                              <div className="grid gap-5 grid-cols-1 md:grid-cols-3">
+                              <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
                             
                             {
                                
@@ -136,7 +136,7 @@ const friday = mySlot?.filter( days => days.day == 'Friday')
                     <TabPanel>
                     {
                              monday?.length !== 0 ? <>
-                              <div className="grid gap-5 grid-cols-1 md:grid-cols-3">
+                              <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
                             
                             {
                                
@@ -169,7 +169,7 @@ const friday = mySlot?.filter( days => days.day == 'Friday')
                     <TabPanel>
                     {
                              tuesday?.length !== 0 ? <>
-                              <div className="grid gap-5 grid-cols-1 md:grid-cols-3">
+                              <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
                             
                             {
                                
@@ -201,7 +201,7 @@ const friday = mySlot?.filter( days => days.day == 'Friday')
                     <TabPanel>
                     {
                              wednesday?.length !== 0 ? <>
-                              <div className="grid gap-5 grid-cols-1 md:grid-cols-3">
+                              <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
                             
                             {
                                
@@ -233,7 +233,7 @@ const friday = mySlot?.filter( days => days.day == 'Friday')
                     <TabPanel>
                     {
                              thursday?.length !== 0 ? <>
-                              <div className="grid gap-5 grid-cols-1 md:grid-cols-3">
+                              <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
                             
                             {
                                
@@ -265,7 +265,7 @@ const friday = mySlot?.filter( days => days.day == 'Friday')
                     <TabPanel>
                     {
                              friday?.length !== 0 ? <>
-                              <div className="grid gap-5 grid-cols-1 md:grid-cols-3">
+                              <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
                             
                             {
                                

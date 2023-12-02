@@ -16,7 +16,7 @@ const Testimunials = () => {
     axiosPublic.get("/gereview")
       
       .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         setReview(res.data);
       });
   }, [axiosPublic]);
