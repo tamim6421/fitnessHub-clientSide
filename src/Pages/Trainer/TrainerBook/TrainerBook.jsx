@@ -23,7 +23,7 @@ const TrainerBook = () => {
         setInfos(data)
       })
     } ,[])
-    console.log(slotData)
+    // console.log(slotData)
     
     const slotBooking = async (info) => {
       console.log(info)
