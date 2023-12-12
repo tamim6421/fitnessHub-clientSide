@@ -22,6 +22,8 @@ const TrainerDetails = () => {
     },
   });
 
+
+
   useEffect(() => {
     const filtered = slotData?.filter((data) => data?.trainerId == details?._id);
 

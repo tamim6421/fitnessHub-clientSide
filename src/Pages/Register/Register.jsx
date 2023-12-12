@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Navbar from "../../Shared/Navbar/Navbar";
@@ -17,6 +17,17 @@ const Register = () => {
   const axiosPublic = useAxiosPublic();
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
+  const [districts, setDistricts] = useState([])
+
+  // get division 
+  useEffect( () =>{
+    fetch('https://bdapis.com/api/v1.1/districts')
+    .then( res=> res.json())
+    .then(data => {
+      setDistricts(data.data)
+    })
+  } ,[])
+  // console.log(districts)
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -25,8 +36,10 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    const district = form.district.value;
     const check = event.target.check.checked;
 
+    // console.log(district, email, password)
     // register
     if (password.length < 6) {
       toast.error("Password mast be at 6 character");
@@ -54,6 +67,7 @@ const Register = () => {
             email: email,
             role: "member",
             image: photo,
+            district: district
           };
           console.log(userInfo);
           axiosPublic.post("/users", userInfo).then((res) => {
@@ -100,6 +114,7 @@ const Register = () => {
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm  ">
               <form onSubmit={handleRegister} className="card-body">
+
                 <div className="form-control ">
                   <label className="label">
                     <span className="label-text text-purple-500">
@@ -114,7 +129,26 @@ const Register = () => {
                     required
                   />
                 </div>
+                <div className="form-control ">
+                  <label className="label">
+                    <span className="label-text text-purple-500">
+                     District
+                    </span>
+                  </label>
+                  <select
+                required
+                className="input input-bordered"
+                name="district"
+              >
+                
+                {districts?.map((area) => (
+                  <option value={area.label} key={area.district}>
+                    {area.district}
+                  </option>
+                ))}
+              </select>
 
+                </div>
                 <div className="form-control ">
                   <label className="label">
                     <span className="label-text text-purple-500">
