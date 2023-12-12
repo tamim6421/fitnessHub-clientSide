@@ -32,21 +32,7 @@ const TrainerDetails = () => {
       }
     }
 
-    const updatedGroupedSlots = filtered?.reduce((accumulator, current) => {
-      let existingGroup = accumulator.find((group) => group?.Day === current?.day);
-
-      if (existingGroup) {
-        existingGroup.SlotData.push(current);
-      } else {
-        let newGroup = new GroupedSlotData(current.day);
-        newGroup.SlotData.push(current);
-        accumulator.push(newGroup);
-      }
-
-      return accumulator;
-    }, []);
-
-    setGroupData(updatedGroupedSlots);
+  
   }, [slotData, details]);
 
   
