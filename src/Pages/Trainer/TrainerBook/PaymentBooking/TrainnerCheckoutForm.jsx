@@ -158,6 +158,11 @@ useEffect(() => {
       },
       body: JSON.stringify(paymentData)
     })
+    .then(res => res.json())
+    .then(data => {
+      window.location.replace(data.url)
+      console.log(data)
+    })
 
 
 
