@@ -21,7 +21,7 @@ const PaymentHistory = () => {
 
   // console.log(sslPay)
   const sslEmail = sslPay?.filter(mail => mail.info.userInfo.email == user?.email )
-  console.log(sslEmail)
+  // console.log(sslEmail)
 
 
   const { data: allPay, isLoading } = useQuery({

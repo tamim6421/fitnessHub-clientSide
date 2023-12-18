@@ -5,9 +5,11 @@ import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 import Chart from "chart.js/auto";
 import { useEffect, useRef } from "react";
 import Title from "../../../Components/Title/Title";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const TotalBalance = () => {
   const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic()
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
@@ -32,8 +34,21 @@ const TotalBalance = () => {
   });
   // console.log(paymentBalance);
 
-  const pay = paymentBalance.reduce((bal, p) => bal + p.price, 0);
+  const pay = paymentBalance?.reduce((bal, p) => bal + p.price, 0);
   //  console.log(pay)
+
+
+  // get sslpayment history 
+  const {data:sslPay, isLoading:loading} = useQuery({
+    queryKey: ['sslPay'],
+    queryFn: async () =>{
+      const res = await axiosPublic.get('/allsslpayment')
+      return res.data
+    }
+  })
+  // console.log(sslPay)
+  const sslPrice = sslPay?.reduce((a, p) => a + p.price, 0 )
+  // console.log(sslPrice)
 
   // get all subscribers
   const { data: subscribers = [] } = useQuery({
@@ -59,7 +74,7 @@ const TotalBalance = () => {
   const memberPay = paymentByMember?.reduce((bal, p) => bal + p.price, 0);
   // console.log(memberPay);
   const remaining = totalBalance[0]?.total_balance - pay;
-  const balanceNow = remaining + memberPay;
+  const balanceNow = remaining + memberPay + sslPrice;
 
   // for chart
 
@@ -180,7 +195,7 @@ const TotalBalance = () => {
                 </tr>
               </thead>
               <tbody className="text-gray-500">
-                {paymentByMember?.slice(-6)?.map((pay, i) => (
+                {paymentByMember?.map((pay, i) => (
                   <tr key={i}>
                     <th>{i + 1}</th>
                     <td>{pay?.userInfo?.displayName}</td>

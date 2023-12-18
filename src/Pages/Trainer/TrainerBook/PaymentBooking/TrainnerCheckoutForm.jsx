@@ -151,7 +151,7 @@ useEffect(() => {
   }
   console.log('payment ssl', paymentData)
 
-    fetch('http://localhost:5000/sslpayment', {
+    fetch('https://fithub-server-eta.vercel.app/sslpayment', {
       method: "POST",
       headers: {
         'content-type' : 'application/json'

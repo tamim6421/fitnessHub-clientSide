@@ -13,7 +13,7 @@ import Title from '../../Components/Title/Title';
 
 const getPhotos = async ({ pageParam = 0 }) => {
     // console.log(pageParam, 'startindex tracking');
-    const res = await fetch(`http://localhost:5000/image?limit=12&offset=${pageParam}`);
+    const res = await fetch(`https://fithub-server-eta.vercel.app/image?limit=12&offset=${pageParam}`);
     const photos = await res.json();
   
  
@@ -22,7 +22,7 @@ const getPhotos = async ({ pageParam = 0 }) => {
 
 const Gallery = () => {
 
-    // http://localhost:5000/image?limit=5&offset=3
+    // https://fithub-server-eta.vercel.app/image?limit=5&offset=3
     const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteQuery({
         queryKey: ["photos"],
         queryFn: getPhotos,

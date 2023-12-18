@@ -68,7 +68,7 @@ const router = createBrowserRouter([
             {
                 path: 'classDetails/:id',
                 element: <ClassDetails></ClassDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/getclassdetails/${params.id}`)
+                loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/getclassdetails/${params.id}`)
             },
             {
                 path: 'addClass',
@@ -85,11 +85,11 @@ const router = createBrowserRouter([
             {
                 path: 'trainerBook/:id',
                 element: <TrainerBook></TrainerBook>,
-                loader: ({params}) => fetch(`http://localhost:5000/getslot/${params.id}`)},
+                loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/getslot/${params.id}`)},
             {
                 path:'paymentBooking/:id',
                 element: <PrivetRoute><PaymentBooking></PaymentBooking></PrivetRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/getslots/${params.id}`,{       
+                loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/getslots/${params.id}`,{       
                         headers: {
                             'authorization' : `Bearer ${localStorage.getItem('access-token')}`,
                           },
@@ -103,13 +103,13 @@ const router = createBrowserRouter([
             {
                 path:'blogsDetails/:id',
                 element: <BlogDetails></BlogDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/blog/${params.id}`)
+                loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/blog/${params.id}`)
 
             },
             {
                 path: 'detailsTrainer/:id',
                 element: <TrainerDetails></TrainerDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/accepttrainer/${params.id}`)
+                loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/accepttrainer/${params.id}`)
             },
            
             {
@@ -155,7 +155,7 @@ const router = createBrowserRouter([
             {
                 path: 'trainerDetails/:id',
                 element: <DetailsModal></DetailsModal>,
-                loader: ({params}) => fetch(`http://localhost:5000/trainers/${params.id}`,{
+                loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/trainers/${params.id}`,{
                     headers: {
                         'authorization': `Bearer ${localStorage.getItem('access-token')}`,
                       },
@@ -164,7 +164,7 @@ const router = createBrowserRouter([
             {
                 path: 'payment/:id',
                 element: <Payment></Payment>,
-                loader: ({params}) => fetch(`http://localhost:5000/accepttrainer/${params.id}`)
+                loader: ({params}) => fetch(`https://fithub-server-eta.vercel.app/accepttrainer/${params.id}`)
             },
           
             {
