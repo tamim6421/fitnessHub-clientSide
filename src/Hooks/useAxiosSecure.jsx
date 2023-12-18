@@ -3,7 +3,7 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
-    baseURL: "https://fithub-server-eta.vercel.app",
+    baseURL: "http://localhost:5000",
   });
 const useAxiosSecure = () => {
     const { logOut } = useAuth();

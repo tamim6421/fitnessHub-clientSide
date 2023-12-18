@@ -124,13 +124,43 @@ useEffect(() => {
 
   }
 
-  const handelPaymentInSSL = () => {
-    console.log('payment ssl')
-  }
+ 
 
 
   if (!data || data.package === null) {
     return <p className="text-center mt-36">Please reload the page.........</p>;
+  }
+
+
+
+
+  // handel ssl Commrez 
+  const handelPaymentInSSL = () => {
+   
+    const paymentData = {
+      userInfo: user,
+      trainerName: data?.trainerName,
+      price : data?.price,
+      package: data?.package,
+      day: data?.day,
+      time: data?.time,
+      date : new Date(), 
+      status: 'paid',
+      trainerId: data?.trainerId,
+      slotId: data?._id
+  }
+  console.log('payment ssl', paymentData)
+
+    fetch('http://localhost:5000/sslpayment', {
+      method: "POST",
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify(paymentData)
+    })
+
+
+
   }
 
     return (
