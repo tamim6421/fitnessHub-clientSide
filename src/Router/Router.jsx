@@ -37,6 +37,8 @@ import AdminRoute from "./AdminRoute/AdminRoute";
 import TrainerRoute from "./TrainerRoure/TrainerRoute";
 import BlogDetails from "../Pages/Home/OurBlog/BlogDetails";
 import PaymentHistory from "../Layout/Member/PaymentHistory/PaymentHistory";
+import PaymentSuccess from "../Pages/Trainer/TrainerBook/PaymentBooking/PaymentSuccess/PaymentSuccess";
+import PaymentFailed from "../Pages/Trainer/TrainerBook/PaymentBooking/PaymentFailed/PaymentFailed";
 
 
 
@@ -117,6 +119,14 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path:'/payment/success/:tranId',
+                element: <PaymentSuccess></PaymentSuccess>
+            },
+            {
+                path:'/payment/fail/:tranId',
+                element: <PaymentFailed></PaymentFailed>
             }
         ]
     },

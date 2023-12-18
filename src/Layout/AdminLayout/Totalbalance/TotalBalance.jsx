@@ -53,7 +53,7 @@ const TotalBalance = () => {
       return res.data;
     },
   });
-  // console.log(paymentByMember.length);
+  // console.log(paymentByMember);
   const totalPaidMember = paymentByMember.length;
 
   const memberPay = paymentByMember?.reduce((bal, p) => bal + p.price, 0);
@@ -180,7 +180,7 @@ const TotalBalance = () => {
                 </tr>
               </thead>
               <tbody className="text-gray-500">
-                {paymentByMember?.slice(-6).map((pay, i) => (
+                {paymentByMember?.slice(-6)?.map((pay, i) => (
                   <tr key={i}>
                     <th>{i + 1}</th>
                     <td>{pay?.userInfo?.displayName}</td>
