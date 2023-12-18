@@ -124,6 +124,9 @@ useEffect(() => {
 
   }
 
+  const handelPaymentInSSL = () => {
+    console.log('payment ssl')
+  }
 
 
   if (!data || data.package === null) {
@@ -131,7 +134,7 @@ useEffect(() => {
   }
 
     return (
-        <div className=" p-5  mx-auto py-10 md:w-3/6 rounded-lg shadow-md bg-slate-100">
+        <div className=" my-20 p-5  mx-auto py-10 md:w-3/6 rounded-lg shadow-md bg-slate-100">
         <form onSubmit={handelPayment}>
 
         <div>
@@ -163,6 +166,7 @@ useEffect(() => {
                             <p> {user?.email}</p>
                         </div>
                     </div>
+                  
                     <div className="card-actions justify-end">
                     
                     </div>
@@ -171,6 +175,9 @@ useEffect(() => {
             </div>
       
          <div className="px-16 bg-green-200 p-4 rounded-md">
+         <div>
+         <p className="my-1  text-xl mb-8 font-bold">Make Payment In Stripe </p>
+         </div>
          <CardElement
             options={{
               style: {
@@ -198,6 +205,12 @@ useEffect(() => {
             {transactionId && <p className="text-green-500"> Your Transaction Id :  {transactionId} </p> }
   
         </form>
+        <div>
+        <p className="  text-xl  mt-6 font-bold">Make Payment In sslcommerz </p>
+          <button
+         onClick={ handelPaymentInSSL}
+          className="btn btn-accent mt-5">Pay $ {data?.price}</button>
+        </div>
       </div>
     );
 };
