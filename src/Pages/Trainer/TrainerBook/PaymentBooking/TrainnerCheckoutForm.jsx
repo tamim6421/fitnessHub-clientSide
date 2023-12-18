@@ -7,6 +7,9 @@ import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 
+import str from '../../../../assets/stripe.png'
+import ssl from '../../../../assets/ssl.png'
+
 
 
 
@@ -169,7 +172,7 @@ useEffect(() => {
   }
 
     return (
-        <div className=" my-20 p-5  mx-auto py-10 md:w-3/6 rounded-lg shadow-md bg-slate-100">
+        <div className=" my-20 p-5  mx-auto py-10 md:w-3/6 rounded-lg shadow-md bg-green-50">
         <form onSubmit={handelPayment}>
 
         <div>
@@ -210,9 +213,10 @@ useEffect(() => {
             </div>
       
          <div className="px-16 bg-green-200 p-4 rounded-md">
-         <div>
-         <p className="my-1  text-xl mb-8 font-bold">Make Payment In Stripe </p>
-         </div>
+         <div className="flex justify-center items-center mb-10 gap-8">
+        <p className="  text-2xl text-orange-400 drop-shadow-lg text-center mt-6 font-bold">Make Payment <br /> With </p>
+          <img className="w-36  text-center" src={str} alt="" />
+          </div>
          <CardElement
             options={{
               style: {
@@ -229,7 +233,7 @@ useEffect(() => {
               },
             }}
           ></CardElement>
-           <button className="btn btn-warning text-white btn-sm px-4 mt-3" type="submit" disabled={!stripe || !clientSecret}>
+           <button className="btn btn-warning mt-3 block mx-auto px-4 mt-3" type="submit" disabled={!stripe || !clientSecret}>
             Pay ${data?.price}
           </button>
          </div>
@@ -240,11 +244,14 @@ useEffect(() => {
             {transactionId && <p className="text-green-500"> Your Transaction Id :  {transactionId} </p> }
   
         </form>
-        <div>
-        <p className="  text-xl  mt-6 font-bold">Make Payment In sslcommerz </p>
+        <div className="bg-green-200 text-center p-5 mt-5">
+          <div className="flex justify-center items-center gap-8">
+        <p className="  text-2xl text-orange-400 drop-shadow-lg  mt-6 font-bold">Make Payment <br /> With </p>
+          <img className="w-56  text-center" src={ssl} alt="" />
+          </div>
           <button
          onClick={ handelPaymentInSSL}
-          className="btn btn-accent mt-5">Pay $ {data?.price}</button>
+          className="btn  btn-warning drop-shadow-xl mt-5">Pay $ {data?.price}</button>
         </div>
       </div>
     );
